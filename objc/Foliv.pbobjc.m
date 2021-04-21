@@ -134,6 +134,7 @@ BOOL AddressType_IsValidValue(int32_t value__) {
 @dynamic command;
 @dynamic addressType;
 @dynamic address;
+@dynamic port;
 @dynamic sourceName;
 @dynamic routerName;
 
@@ -141,6 +142,7 @@ typedef struct Foliv__storage_ {
   uint32_t _has_storage_[1];
   Command command;
   AddressType addressType;
+  uint32_t port;
   NSString *userHash;
   NSString *address;
   NSString *sourceName;
@@ -190,10 +192,19 @@ typedef struct Foliv__storage_ {
         .dataType = GPBDataTypeString,
       },
       {
+        .name = "port",
+        .dataTypeSpecific.clazz = Nil,
+        .number = Foliv_FieldNumber_Port,
+        .hasIndex = 4,
+        .offset = (uint32_t)offsetof(Foliv__storage_, port),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeUInt32,
+      },
+      {
         .name = "sourceName",
         .dataTypeSpecific.clazz = Nil,
         .number = Foliv_FieldNumber_SourceName,
-        .hasIndex = 4,
+        .hasIndex = 5,
         .offset = (uint32_t)offsetof(Foliv__storage_, sourceName),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeString,
@@ -202,7 +213,7 @@ typedef struct Foliv__storage_ {
         .name = "routerName",
         .dataTypeSpecific.clazz = Nil,
         .number = Foliv_FieldNumber_RouterName,
-        .hasIndex = 5,
+        .hasIndex = 6,
         .offset = (uint32_t)offsetof(Foliv__storage_, routerName),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeString,
@@ -218,7 +229,7 @@ typedef struct Foliv__storage_ {
                                          flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
 #if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     static const char *extraTextFormatInfo =
-        "\004\001\010\000\003\013\000\005\n\000\006\n\000";
+        "\004\001\010\000\003\013\000\006\n\000\007\n\000";
     [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
 #endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     #if defined(DEBUG) && DEBUG

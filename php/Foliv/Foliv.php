@@ -30,11 +30,15 @@ class Foliv extends \Google\Protobuf\Internal\Message
      */
     protected $address = '';
     /**
-     * Generated from protobuf field <code>string sourceName = 5;</code>
+     * Generated from protobuf field <code>uint32 port = 5;</code>
+     */
+    protected $port = 0;
+    /**
+     * Generated from protobuf field <code>string sourceName = 6;</code>
      */
     protected $sourceName = '';
     /**
-     * Generated from protobuf field <code>string routerName = 6;</code>
+     * Generated from protobuf field <code>string routerName = 7;</code>
      */
     protected $routerName = '';
 
@@ -48,6 +52,7 @@ class Foliv extends \Google\Protobuf\Internal\Message
      *     @type int $command
      *     @type int $addressType
      *     @type string $address
+     *     @type int $port
      *     @type string $sourceName
      *     @type string $routerName
      * }
@@ -146,7 +151,29 @@ class Foliv extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string sourceName = 5;</code>
+     * Generated from protobuf field <code>uint32 port = 5;</code>
+     * @return int
+     */
+    public function getPort()
+    {
+        return $this->port;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 port = 5;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setPort($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->port = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string sourceName = 6;</code>
      * @return string
      */
     public function getSourceName()
@@ -155,7 +182,7 @@ class Foliv extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string sourceName = 5;</code>
+     * Generated from protobuf field <code>string sourceName = 6;</code>
      * @param string $var
      * @return $this
      */
@@ -168,7 +195,7 @@ class Foliv extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string routerName = 6;</code>
+     * Generated from protobuf field <code>string routerName = 7;</code>
      * @return string
      */
     public function getRouterName()
@@ -177,7 +204,7 @@ class Foliv extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string routerName = 6;</code>
+     * Generated from protobuf field <code>string routerName = 7;</code>
      * @param string $var
      * @return $this
      */

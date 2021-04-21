@@ -236,10 +236,11 @@ class Foliv PROTOBUF_FINAL :
   enum : int {
     kUserHashFieldNumber = 1,
     kAddressFieldNumber = 4,
-    kSourceNameFieldNumber = 5,
-    kRouterNameFieldNumber = 6,
+    kSourceNameFieldNumber = 6,
+    kRouterNameFieldNumber = 7,
     kCommandFieldNumber = 2,
     kAddressTypeFieldNumber = 3,
+    kPortFieldNumber = 5,
   };
   // string userHash = 1;
   void clear_userhash();
@@ -273,7 +274,7 @@ class Foliv PROTOBUF_FINAL :
   std::string* _internal_mutable_address();
   public:
 
-  // string sourceName = 5;
+  // string sourceName = 6;
   void clear_sourcename();
   const std::string& sourcename() const;
   void set_sourcename(const std::string& value);
@@ -289,7 +290,7 @@ class Foliv PROTOBUF_FINAL :
   std::string* _internal_mutable_sourcename();
   public:
 
-  // string routerName = 6;
+  // string routerName = 7;
   void clear_routername();
   const std::string& routername() const;
   void set_routername(const std::string& value);
@@ -323,6 +324,15 @@ class Foliv PROTOBUF_FINAL :
   void _internal_set_addresstype(::foliv::AddressType value);
   public:
 
+  // uint32 port = 5;
+  void clear_port();
+  ::PROTOBUF_NAMESPACE_ID::uint32 port() const;
+  void set_port(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_port() const;
+  void _internal_set_port(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:foliv.Foliv)
  private:
   class _Internal;
@@ -336,6 +346,7 @@ class Foliv PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr routername_;
   int command_;
   int addresstype_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 port_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_foliv_2eproto;
 };
@@ -512,7 +523,27 @@ inline void Foliv::set_allocated_address(std::string* address) {
   // @@protoc_insertion_point(field_set_allocated:foliv.Foliv.address)
 }
 
-// string sourceName = 5;
+// uint32 port = 5;
+inline void Foliv::clear_port() {
+  port_ = 0u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Foliv::_internal_port() const {
+  return port_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Foliv::port() const {
+  // @@protoc_insertion_point(field_get:foliv.Foliv.port)
+  return _internal_port();
+}
+inline void Foliv::_internal_set_port(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  
+  port_ = value;
+}
+inline void Foliv::set_port(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_port(value);
+  // @@protoc_insertion_point(field_set:foliv.Foliv.port)
+}
+
+// string sourceName = 6;
 inline void Foliv::clear_sourcename() {
   sourcename_.ClearToEmpty();
 }
@@ -573,7 +604,7 @@ inline void Foliv::set_allocated_sourcename(std::string* sourcename) {
   // @@protoc_insertion_point(field_set_allocated:foliv.Foliv.sourceName)
 }
 
-// string routerName = 6;
+// string routerName = 7;
 inline void Foliv::clear_routername() {
   routername_.ClearToEmpty();
 }

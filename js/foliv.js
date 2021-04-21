@@ -76,8 +76,9 @@ proto.foliv.Foliv.toObject = function(includeInstance, msg) {
     command: jspb.Message.getFieldWithDefault(msg, 2, 0),
     addresstype: jspb.Message.getFieldWithDefault(msg, 3, 0),
     address: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    sourcename: jspb.Message.getFieldWithDefault(msg, 5, ""),
-    routername: jspb.Message.getFieldWithDefault(msg, 6, "")
+    port: jspb.Message.getFieldWithDefault(msg, 5, 0),
+    sourcename: jspb.Message.getFieldWithDefault(msg, 6, ""),
+    routername: jspb.Message.getFieldWithDefault(msg, 7, "")
   };
 
   if (includeInstance) {
@@ -131,10 +132,14 @@ proto.foliv.Foliv.deserializeBinaryFromReader = function(msg, reader) {
       msg.setAddress(value);
       break;
     case 5:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setPort(value);
+      break;
+    case 6:
       var value = /** @type {string} */ (reader.readString());
       msg.setSourcename(value);
       break;
-    case 6:
+    case 7:
       var value = /** @type {string} */ (reader.readString());
       msg.setRoutername(value);
       break;
@@ -195,17 +200,24 @@ proto.foliv.Foliv.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
+  f = message.getPort();
+  if (f !== 0) {
+    writer.writeUint32(
+      5,
+      f
+    );
+  }
   f = message.getSourcename();
   if (f.length > 0) {
     writer.writeString(
-      5,
+      6,
       f
     );
   }
   f = message.getRoutername();
   if (f.length > 0) {
     writer.writeString(
-      6,
+      7,
       f
     );
   }
@@ -285,28 +297,28 @@ proto.foliv.Foliv.prototype.setAddress = function(value) {
 
 
 /**
- * optional string sourceName = 5;
+ * optional uint32 port = 5;
+ * @return {number}
+ */
+proto.foliv.Foliv.prototype.getPort = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.foliv.Foliv} returns this
+ */
+proto.foliv.Foliv.prototype.setPort = function(value) {
+  return jspb.Message.setProto3IntField(this, 5, value);
+};
+
+
+/**
+ * optional string sourceName = 6;
  * @return {string}
  */
 proto.foliv.Foliv.prototype.getSourcename = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.foliv.Foliv} returns this
- */
-proto.foliv.Foliv.prototype.setSourcename = function(value) {
-  return jspb.Message.setProto3StringField(this, 5, value);
-};
-
-
-/**
- * optional string routerName = 6;
- * @return {string}
- */
-proto.foliv.Foliv.prototype.getRoutername = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
 };
 
@@ -315,8 +327,26 @@ proto.foliv.Foliv.prototype.getRoutername = function() {
  * @param {string} value
  * @return {!proto.foliv.Foliv} returns this
  */
-proto.foliv.Foliv.prototype.setRoutername = function(value) {
+proto.foliv.Foliv.prototype.setSourcename = function(value) {
   return jspb.Message.setProto3StringField(this, 6, value);
+};
+
+
+/**
+ * optional string routerName = 7;
+ * @return {string}
+ */
+proto.foliv.Foliv.prototype.getRoutername = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 7, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.foliv.Foliv} returns this
+ */
+proto.foliv.Foliv.prototype.setRoutername = function(value) {
+  return jspb.Message.setProto3StringField(this, 7, value);
 };
 
 

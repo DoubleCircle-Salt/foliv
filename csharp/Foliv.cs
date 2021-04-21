@@ -24,18 +24,18 @@ namespace Foliv {
     static FolivReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cgtmb2xpdi5wcm90bxIFZm9saXYinAEKBUZvbGl2EhAKCHVzZXJIYXNoGAEg",
+            "Cgtmb2xpdi5wcm90bxIFZm9saXYiqgEKBUZvbGl2EhAKCHVzZXJIYXNoGAEg",
             "ASgJEh8KB2NvbW1hbmQYAiABKA4yDi5mb2xpdi5Db21tYW5kEicKC2FkZHJl",
             "c3NUeXBlGAMgASgOMhIuZm9saXYuQWRkcmVzc1R5cGUSDwoHYWRkcmVzcxgE",
-            "IAEoCRISCgpzb3VyY2VOYW1lGAUgASgJEhIKCnJvdXRlck5hbWUYBiABKAkq",
-            "OQoHQ29tbWFuZBIJCgVFbXB0eRAAEgsKB0Nvbm5lY3QQARINCglBc3NvY2lh",
-            "dGUQAxIHCgNNdXgQfypCCgtBZGRyZXNzVHlwZRIPCgtJbnZhbGlkVHlwZRAA",
-            "EggKBElQdjQQARIOCgpEb21haW5OYW1lEAMSCAoESVB2NhAEQglaBy4vZm9s",
-            "aXZiBnByb3RvMw=="));
+            "IAEoCRIMCgRwb3J0GAUgASgNEhIKCnNvdXJjZU5hbWUYBiABKAkSEgoKcm91",
+            "dGVyTmFtZRgHIAEoCSo5CgdDb21tYW5kEgkKBUVtcHR5EAASCwoHQ29ubmVj",
+            "dBABEg0KCUFzc29jaWF0ZRADEgcKA011eBB/KkIKC0FkZHJlc3NUeXBlEg8K",
+            "C0ludmFsaWRUeXBlEAASCAoESVB2NBABEg4KCkRvbWFpbk5hbWUQAxIICgRJ",
+            "UHY2EARCCVoHLi9mb2xpdmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Foliv.Command), typeof(global::Foliv.AddressType), }, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Foliv.Foliv), global::Foliv.Foliv.Parser, new[]{ "UserHash", "Command", "AddressType", "Address", "SourceName", "RouterName" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Foliv.Foliv), global::Foliv.Foliv.Parser, new[]{ "UserHash", "Command", "AddressType", "Address", "Port", "SourceName", "RouterName" }, null, null, null, null)
           }));
     }
     #endregion
@@ -92,6 +92,7 @@ namespace Foliv {
       command_ = other.command_;
       addressType_ = other.addressType_;
       address_ = other.address_;
+      port_ = other.port_;
       sourceName_ = other.sourceName_;
       routerName_ = other.routerName_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -146,8 +147,19 @@ namespace Foliv {
       }
     }
 
+    /// <summary>Field number for the "port" field.</summary>
+    public const int PortFieldNumber = 5;
+    private uint port_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint Port {
+      get { return port_; }
+      set {
+        port_ = value;
+      }
+    }
+
     /// <summary>Field number for the "sourceName" field.</summary>
-    public const int SourceNameFieldNumber = 5;
+    public const int SourceNameFieldNumber = 6;
     private string sourceName_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string SourceName {
@@ -158,7 +170,7 @@ namespace Foliv {
     }
 
     /// <summary>Field number for the "routerName" field.</summary>
-    public const int RouterNameFieldNumber = 6;
+    public const int RouterNameFieldNumber = 7;
     private string routerName_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string RouterName {
@@ -185,6 +197,7 @@ namespace Foliv {
       if (Command != other.Command) return false;
       if (AddressType != other.AddressType) return false;
       if (Address != other.Address) return false;
+      if (Port != other.Port) return false;
       if (SourceName != other.SourceName) return false;
       if (RouterName != other.RouterName) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -197,6 +210,7 @@ namespace Foliv {
       if (Command != global::Foliv.Command.Empty) hash ^= Command.GetHashCode();
       if (AddressType != global::Foliv.AddressType.InvalidType) hash ^= AddressType.GetHashCode();
       if (Address.Length != 0) hash ^= Address.GetHashCode();
+      if (Port != 0) hash ^= Port.GetHashCode();
       if (SourceName.Length != 0) hash ^= SourceName.GetHashCode();
       if (RouterName.Length != 0) hash ^= RouterName.GetHashCode();
       if (_unknownFields != null) {
@@ -231,12 +245,16 @@ namespace Foliv {
         output.WriteRawTag(34);
         output.WriteString(Address);
       }
+      if (Port != 0) {
+        output.WriteRawTag(40);
+        output.WriteUInt32(Port);
+      }
       if (SourceName.Length != 0) {
-        output.WriteRawTag(42);
+        output.WriteRawTag(50);
         output.WriteString(SourceName);
       }
       if (RouterName.Length != 0) {
-        output.WriteRawTag(50);
+        output.WriteRawTag(58);
         output.WriteString(RouterName);
       }
       if (_unknownFields != null) {
@@ -264,12 +282,16 @@ namespace Foliv {
         output.WriteRawTag(34);
         output.WriteString(Address);
       }
+      if (Port != 0) {
+        output.WriteRawTag(40);
+        output.WriteUInt32(Port);
+      }
       if (SourceName.Length != 0) {
-        output.WriteRawTag(42);
+        output.WriteRawTag(50);
         output.WriteString(SourceName);
       }
       if (RouterName.Length != 0) {
-        output.WriteRawTag(50);
+        output.WriteRawTag(58);
         output.WriteString(RouterName);
       }
       if (_unknownFields != null) {
@@ -292,6 +314,9 @@ namespace Foliv {
       }
       if (Address.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Address);
+      }
+      if (Port != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Port);
       }
       if (SourceName.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(SourceName);
@@ -321,6 +346,9 @@ namespace Foliv {
       }
       if (other.Address.Length != 0) {
         Address = other.Address;
+      }
+      if (other.Port != 0) {
+        Port = other.Port;
       }
       if (other.SourceName.Length != 0) {
         SourceName = other.SourceName;
@@ -358,11 +386,15 @@ namespace Foliv {
             Address = input.ReadString();
             break;
           }
-          case 42: {
-            SourceName = input.ReadString();
+          case 40: {
+            Port = input.ReadUInt32();
             break;
           }
           case 50: {
+            SourceName = input.ReadString();
+            break;
+          }
+          case 58: {
             RouterName = input.ReadString();
             break;
           }
@@ -396,11 +428,15 @@ namespace Foliv {
             Address = input.ReadString();
             break;
           }
-          case 42: {
-            SourceName = input.ReadString();
+          case 40: {
+            Port = input.ReadUInt32();
             break;
           }
           case 50: {
+            SourceName = input.ReadString();
+            break;
+          }
+          case 58: {
             RouterName = input.ReadString();
             break;
           }
