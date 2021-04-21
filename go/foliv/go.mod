@@ -1,4 +1,4 @@
-module github.com/DoubleCircle-Salt/foliv
+module github.com/DoubleCircle-Salt/foliv/go/foliv
 
 go 1.16
 
