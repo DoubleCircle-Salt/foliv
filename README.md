@@ -15,10 +15,10 @@ import (
 )
 
 func main() {
-	foliv := &Foliv{
+	foliv := &foliv.Foliv{
 		UserHash:    "dcb45bb4973166c14088cc5815c964086a18ac306561d0d9aa502a4c",
-		Command:     Command_Connect,
-		AddressType: AddressType_DomainName,
+		Command:     foliv.Command_Connect,
+		AddressType: foliv.AddressType_DomainName,
 		Address:     "www.baidu.com",
 		Port:        443,
 		SourceName:  "sourcerule_cn",
@@ -31,7 +31,7 @@ func main() {
 
 	println("length:", len(data))
 
-	newFoliv := &Foliv{}
+	newFoliv := &foliv.Foliv{}
 	if err := proto.Unmarshal(data, newFoliv); err != nil {
 		println(err)
 		return
