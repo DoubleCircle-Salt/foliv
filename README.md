@@ -6,7 +6,7 @@
 | header_length  | 4 bytes | 协议头的长度 |
 | data | header_length bytes | 数据包部分，具体格式见foliv.proto |
 
-# go
+# go-code instruction
 
 ```
 import (
