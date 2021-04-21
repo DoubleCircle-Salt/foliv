@@ -9,13 +9,15 @@
 # go-code instruction
 
 ```
+package main
+
 import (
 	"github.com/DoubleCircle-Salt/foliv/go/foliv"
 	"github.com/golang/protobuf/proto"
 )
 
 func main() {
-	foliv := &foliv.Foliv{
+	f := &foliv.Foliv{
 		UserHash:    "dcb45bb4973166c14088cc5815c964086a18ac306561d0d9aa502a4c",
 		Command:     foliv.Command_Connect,
 		AddressType: foliv.AddressType_DomainName,
@@ -23,7 +25,7 @@ func main() {
 		Port:        443,
 		SourceName:  "sourcerule_cn",
 	}
-	data, err := proto.Marshal(foliv)
+	data, err := proto.Marshal(f)
 	if err != nil {
 		println(err)
 		return
@@ -31,13 +33,12 @@ func main() {
 
 	println("length:", len(data))
 
-	newFoliv := &foliv.Foliv{}
-	if err := proto.Unmarshal(data, newFoliv); err != nil {
+	newf := &foliv.Foliv{}
+	if err := proto.Unmarshal(data, newf); err != nil {
 		println(err)
 		return
 	}
 
-	println("println:", newFoliv.String())
+	println("println:", newf.String())
 }
-
 ```
