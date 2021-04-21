@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package foliv;
+option go_package = "./foliv";
+
+enum Command {
+	Empty     = 0;
+	Connect   = 1;
+	Associate = 3;
+	Mux       = 0x7f;
+}
+
+enum AddressType {
+	InvalidType = 0;
+	IPv4        = 1;
+	DomainName  = 3;
+	IPv6        = 4;
+}
+
+message Foliv {
+	string      userHash = 1;
+	Command     command = 2;
+	AddressType addressType = 3;
+	string      address = 4;
+	string      sourceName = 5;
+	string      routerName = 6;
+}
