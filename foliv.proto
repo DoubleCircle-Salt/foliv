@@ -61,8 +61,7 @@ message Foliv {
 	string      userHash = 1;
 	Command     command = 2;
 	AddressType addressType = 3;
-	string      address = 4;
+	bytes       address = 4;
 	uint32      port = 5;
 	string      sourceName = 6;
-	string      routerName = 7;
 }

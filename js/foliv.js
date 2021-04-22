@@ -75,10 +75,9 @@ proto.foliv.Foliv.toObject = function(includeInstance, msg) {
     userhash: jspb.Message.getFieldWithDefault(msg, 1, ""),
     command: jspb.Message.getFieldWithDefault(msg, 2, 0),
     addresstype: jspb.Message.getFieldWithDefault(msg, 3, 0),
-    address: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    address: msg.getAddress_asB64(),
     port: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    sourcename: jspb.Message.getFieldWithDefault(msg, 6, ""),
-    routername: jspb.Message.getFieldWithDefault(msg, 7, "")
+    sourcename: jspb.Message.getFieldWithDefault(msg, 6, "")
   };
 
   if (includeInstance) {
@@ -128,7 +127,7 @@ proto.foliv.Foliv.deserializeBinaryFromReader = function(msg, reader) {
       msg.setAddresstype(value);
       break;
     case 4:
-      var value = /** @type {string} */ (reader.readString());
+      var value = /** @type {!Uint8Array} */ (reader.readBytes());
       msg.setAddress(value);
       break;
     case 5:
@@ -138,10 +137,6 @@ proto.foliv.Foliv.deserializeBinaryFromReader = function(msg, reader) {
     case 6:
       var value = /** @type {string} */ (reader.readString());
       msg.setSourcename(value);
-      break;
-    case 7:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setRoutername(value);
       break;
     default:
       reader.skipField();
@@ -193,9 +188,9 @@ proto.foliv.Foliv.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getAddress();
+  f = message.getAddress_asU8();
   if (f.length > 0) {
-    writer.writeString(
+    writer.writeBytes(
       4,
       f
     );
@@ -211,13 +206,6 @@ proto.foliv.Foliv.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writeString(
       6,
-      f
-    );
-  }
-  f = message.getRoutername();
-  if (f.length > 0) {
-    writer.writeString(
-      7,
       f
     );
   }
@@ -279,7 +267,7 @@ proto.foliv.Foliv.prototype.setAddresstype = function(value) {
 
 
 /**
- * optional string address = 4;
+ * optional bytes address = 4;
  * @return {string}
  */
 proto.foliv.Foliv.prototype.getAddress = function() {
@@ -288,11 +276,35 @@ proto.foliv.Foliv.prototype.getAddress = function() {
 
 
 /**
- * @param {string} value
+ * optional bytes address = 4;
+ * This is a type-conversion wrapper around `getAddress()`
+ * @return {string}
+ */
+proto.foliv.Foliv.prototype.getAddress_asB64 = function() {
+  return /** @type {string} */ (jspb.Message.bytesAsB64(
+      this.getAddress()));
+};
+
+
+/**
+ * optional bytes address = 4;
+ * Note that Uint8Array is not supported on all browsers.
+ * @see http://caniuse.com/Uint8Array
+ * This is a type-conversion wrapper around `getAddress()`
+ * @return {!Uint8Array}
+ */
+proto.foliv.Foliv.prototype.getAddress_asU8 = function() {
+  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
+      this.getAddress()));
+};
+
+
+/**
+ * @param {!(string|Uint8Array)} value
  * @return {!proto.foliv.Foliv} returns this
  */
 proto.foliv.Foliv.prototype.setAddress = function(value) {
-  return jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3BytesField(this, 4, value);
 };
 
 
@@ -329,24 +341,6 @@ proto.foliv.Foliv.prototype.getSourcename = function() {
  */
 proto.foliv.Foliv.prototype.setSourcename = function(value) {
   return jspb.Message.setProto3StringField(this, 6, value);
-};
-
-
-/**
- * optional string routerName = 7;
- * @return {string}
- */
-proto.foliv.Foliv.prototype.getRoutername = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 7, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.foliv.Foliv} returns this
- */
-proto.foliv.Foliv.prototype.setRoutername = function(value) {
-  return jspb.Message.setProto3StringField(this, 7, value);
 };
 
 

@@ -26,7 +26,7 @@ class Foliv extends \Google\Protobuf\Internal\Message
      */
     protected $addressType = 0;
     /**
-     * Generated from protobuf field <code>string address = 4;</code>
+     * Generated from protobuf field <code>bytes address = 4;</code>
      */
     protected $address = '';
     /**
@@ -37,10 +37,6 @@ class Foliv extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string sourceName = 6;</code>
      */
     protected $sourceName = '';
-    /**
-     * Generated from protobuf field <code>string routerName = 7;</code>
-     */
-    protected $routerName = '';
 
     /**
      * Constructor.
@@ -54,7 +50,6 @@ class Foliv extends \Google\Protobuf\Internal\Message
      *     @type string $address
      *     @type int $port
      *     @type string $sourceName
-     *     @type string $routerName
      * }
      */
     public function __construct($data = NULL) {
@@ -129,7 +124,7 @@ class Foliv extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string address = 4;</code>
+     * Generated from protobuf field <code>bytes address = 4;</code>
      * @return string
      */
     public function getAddress()
@@ -138,13 +133,13 @@ class Foliv extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>string address = 4;</code>
+     * Generated from protobuf field <code>bytes address = 4;</code>
      * @param string $var
      * @return $this
      */
     public function setAddress($var)
     {
-        GPBUtil::checkString($var, True);
+        GPBUtil::checkString($var, False);
         $this->address = $var;
 
         return $this;
@@ -190,28 +185,6 @@ class Foliv extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->sourceName = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>string routerName = 7;</code>
-     * @return string
-     */
-    public function getRouterName()
-    {
-        return $this->routerName;
-    }
-
-    /**
-     * Generated from protobuf field <code>string routerName = 7;</code>
-     * @param string $var
-     * @return $this
-     */
-    public function setRouterName($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->routerName = $var;
 
         return $this;
     }

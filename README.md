@@ -13,7 +13,7 @@
 | UserHash  | string | 固定为'foliv' |
 | Command  | enum | Connect:1/Associate:3/Mux:0x7f |
 | AddressType | enum | IPv4:1/DomainName:3/IPv6:4 |
-| Address | string | ipv4长度4，ipv6长度16，domain明文 |
+| Address | []byte | ipv4长度4，ipv6长度16，domain明文 |
 | Port | uint32 | 目标端口 |
 | SourceName | string | 回源规则名称 |
 
@@ -32,7 +32,7 @@ func main() {
 		UserHash:    "dcb45bb4973166c14088cc5815c964086a18ac306561d0d9aa502a4c",
 		Command:     foliv.Command_Connect,
 		AddressType: foliv.AddressType_DomainName,
-		Address:     "www.baidu.com",
+		Address:     []byte("www.baidu.com"),
 		Port:        443,
 		SourceName:  "sourcerule_cn",
 	}

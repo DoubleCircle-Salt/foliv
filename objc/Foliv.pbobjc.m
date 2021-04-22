@@ -136,7 +136,6 @@ BOOL AddressType_IsValidValue(int32_t value__) {
 @dynamic address;
 @dynamic port;
 @dynamic sourceName;
-@dynamic routerName;
 
 typedef struct Foliv__storage_ {
   uint32_t _has_storage_[1];
@@ -144,9 +143,8 @@ typedef struct Foliv__storage_ {
   AddressType addressType;
   uint32_t port;
   NSString *userHash;
-  NSString *address;
+  NSData *address;
   NSString *sourceName;
-  NSString *routerName;
 } Foliv__storage_;
 
 // This method is threadsafe because it is initially called
@@ -189,7 +187,7 @@ typedef struct Foliv__storage_ {
         .hasIndex = 3,
         .offset = (uint32_t)offsetof(Foliv__storage_, address),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
-        .dataType = GPBDataTypeString,
+        .dataType = GPBDataTypeBytes,
       },
       {
         .name = "port",
@@ -209,15 +207,6 @@ typedef struct Foliv__storage_ {
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeString,
       },
-      {
-        .name = "routerName",
-        .dataTypeSpecific.clazz = Nil,
-        .number = Foliv_FieldNumber_RouterName,
-        .hasIndex = 6,
-        .offset = (uint32_t)offsetof(Foliv__storage_, routerName),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
-        .dataType = GPBDataTypeString,
-      },
     };
     GPBDescriptor *localDescriptor =
         [GPBDescriptor allocDescriptorForClass:[Foliv class]
@@ -229,7 +218,7 @@ typedef struct Foliv__storage_ {
                                          flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
 #if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     static const char *extraTextFormatInfo =
-        "\004\001\010\000\003\013\000\006\n\000\007\n\000";
+        "\003\001\010\000\003\013\000\006\n\000";
     [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
 #endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     #if defined(DEBUG) && DEBUG

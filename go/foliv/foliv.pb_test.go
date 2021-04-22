@@ -24,9 +24,8 @@ func testMarshalAndUnmarshal(t *testing.T) {
 		UserHash:    "yyytest123",
 		Command:     Command_Connect,
 		AddressType: AddressType_IPv4,
-		Address:     "12345",
+		Address:     []byte("12345"),
 		SourceName:  "Hongkong",
-		RouterName:  "baidu",
 	}
 	data, err := proto.Marshal(foliv)
 	if err != nil {
@@ -48,9 +47,8 @@ func testMarshalToFile(t *testing.T) {
 		UserHash:    "yyytest123",
 		Command:     Command_Connect,
 		AddressType: AddressType_IPv4,
-		Address:     "12345",
+		Address:     []byte("12345"),
 		SourceName:  "Hongkong",
-		RouterName:  "baidu",
 	}
 	file, err := os.Create(".test")
 	if err != nil {

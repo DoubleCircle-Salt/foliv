@@ -99,7 +99,6 @@ typedef GPB_ENUM(Foliv_FieldNumber) {
   Foliv_FieldNumber_Address = 4,
   Foliv_FieldNumber_Port = 5,
   Foliv_FieldNumber_SourceName = 6,
-  Foliv_FieldNumber_RouterName = 7,
 };
 
 GPB_FINAL @interface Foliv : GPBMessage
@@ -110,13 +109,11 @@ GPB_FINAL @interface Foliv : GPBMessage
 
 @property(nonatomic, readwrite) AddressType addressType;
 
-@property(nonatomic, readwrite, copy, null_resettable) NSString *address;
+@property(nonatomic, readwrite, copy, null_resettable) NSData *address;
 
 @property(nonatomic, readwrite) uint32_t port;
 
 @property(nonatomic, readwrite, copy, null_resettable) NSString *sourceName;
-
-@property(nonatomic, readwrite, copy, null_resettable) NSString *routerName;
 
 @end
 

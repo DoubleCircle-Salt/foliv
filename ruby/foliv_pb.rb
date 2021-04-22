@@ -9,10 +9,9 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :userHash, :string, 1
       optional :command, :enum, 2, "foliv.Command"
       optional :addressType, :enum, 3, "foliv.AddressType"
-      optional :address, :string, 4
+      optional :address, :bytes, 4
       optional :port, :uint32, 5
       optional :sourceName, :string, 6
-      optional :routerName, :string, 7
     end
     add_enum "foliv.Command" do
       value :Empty, 0

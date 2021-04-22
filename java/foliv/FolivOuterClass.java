@@ -305,16 +305,10 @@ public final class FolivOuterClass {
     foliv.FolivOuterClass.AddressType getAddressType();
 
     /**
-     * <code>string address = 4;</code>
+     * <code>bytes address = 4;</code>
      * @return The address.
      */
-    java.lang.String getAddress();
-    /**
-     * <code>string address = 4;</code>
-     * @return The bytes for address.
-     */
-    com.google.protobuf.ByteString
-        getAddressBytes();
+    com.google.protobuf.ByteString getAddress();
 
     /**
      * <code>uint32 port = 5;</code>
@@ -333,18 +327,6 @@ public final class FolivOuterClass {
      */
     com.google.protobuf.ByteString
         getSourceNameBytes();
-
-    /**
-     * <code>string routerName = 7;</code>
-     * @return The routerName.
-     */
-    java.lang.String getRouterName();
-    /**
-     * <code>string routerName = 7;</code>
-     * @return The bytes for routerName.
-     */
-    com.google.protobuf.ByteString
-        getRouterNameBytes();
   }
   /**
    * Protobuf type {@code foliv.Foliv}
@@ -362,9 +344,8 @@ public final class FolivOuterClass {
       userHash_ = "";
       command_ = 0;
       addressType_ = 0;
-      address_ = "";
+      address_ = com.google.protobuf.ByteString.EMPTY;
       sourceName_ = "";
-      routerName_ = "";
     }
 
     @java.lang.Override
@@ -416,9 +397,8 @@ public final class FolivOuterClass {
               break;
             }
             case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
 
-              address_ = s;
+              address_ = input.readBytes();
               break;
             }
             case 40: {
@@ -430,12 +410,6 @@ public final class FolivOuterClass {
               java.lang.String s = input.readStringRequireUtf8();
 
               sourceName_ = s;
-              break;
-            }
-            case 58: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              routerName_ = s;
               break;
             }
             default: {
@@ -547,41 +521,14 @@ public final class FolivOuterClass {
     }
 
     public static final int ADDRESS_FIELD_NUMBER = 4;
-    private volatile java.lang.Object address_;
+    private com.google.protobuf.ByteString address_;
     /**
-     * <code>string address = 4;</code>
+     * <code>bytes address = 4;</code>
      * @return The address.
      */
     @java.lang.Override
-    public java.lang.String getAddress() {
-      java.lang.Object ref = address_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        address_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string address = 4;</code>
-     * @return The bytes for address.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getAddressBytes() {
-      java.lang.Object ref = address_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        address_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public com.google.protobuf.ByteString getAddress() {
+      return address_;
     }
 
     public static final int PORT_FIELD_NUMBER = 5;
@@ -633,44 +580,6 @@ public final class FolivOuterClass {
       }
     }
 
-    public static final int ROUTERNAME_FIELD_NUMBER = 7;
-    private volatile java.lang.Object routerName_;
-    /**
-     * <code>string routerName = 7;</code>
-     * @return The routerName.
-     */
-    @java.lang.Override
-    public java.lang.String getRouterName() {
-      java.lang.Object ref = routerName_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        routerName_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string routerName = 7;</code>
-     * @return The bytes for routerName.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getRouterNameBytes() {
-      java.lang.Object ref = routerName_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        routerName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -694,17 +603,14 @@ public final class FolivOuterClass {
       if (addressType_ != foliv.FolivOuterClass.AddressType.InvalidType.getNumber()) {
         output.writeEnum(3, addressType_);
       }
-      if (!getAddressBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, address_);
+      if (!address_.isEmpty()) {
+        output.writeBytes(4, address_);
       }
       if (port_ != 0) {
         output.writeUInt32(5, port_);
       }
       if (!getSourceNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, sourceName_);
-      }
-      if (!getRouterNameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, routerName_);
       }
       unknownFields.writeTo(output);
     }
@@ -726,8 +632,9 @@ public final class FolivOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(3, addressType_);
       }
-      if (!getAddressBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, address_);
+      if (!address_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(4, address_);
       }
       if (port_ != 0) {
         size += com.google.protobuf.CodedOutputStream
@@ -735,9 +642,6 @@ public final class FolivOuterClass {
       }
       if (!getSourceNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, sourceName_);
-      }
-      if (!getRouterNameBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, routerName_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -764,8 +668,6 @@ public final class FolivOuterClass {
           != other.getPort()) return false;
       if (!getSourceName()
           .equals(other.getSourceName())) return false;
-      if (!getRouterName()
-          .equals(other.getRouterName())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -789,8 +691,6 @@ public final class FolivOuterClass {
       hash = (53 * hash) + getPort();
       hash = (37 * hash) + SOURCENAME_FIELD_NUMBER;
       hash = (53 * hash) + getSourceName().hashCode();
-      hash = (37 * hash) + ROUTERNAME_FIELD_NUMBER;
-      hash = (53 * hash) + getRouterName().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -930,13 +830,11 @@ public final class FolivOuterClass {
 
         addressType_ = 0;
 
-        address_ = "";
+        address_ = com.google.protobuf.ByteString.EMPTY;
 
         port_ = 0;
 
         sourceName_ = "";
-
-        routerName_ = "";
 
         return this;
       }
@@ -970,7 +868,6 @@ public final class FolivOuterClass {
         result.address_ = address_;
         result.port_ = port_;
         result.sourceName_ = sourceName_;
-        result.routerName_ = routerName_;
         onBuilt();
         return result;
       }
@@ -1029,19 +926,14 @@ public final class FolivOuterClass {
         if (other.addressType_ != 0) {
           setAddressTypeValue(other.getAddressTypeValue());
         }
-        if (!other.getAddress().isEmpty()) {
-          address_ = other.address_;
-          onChanged();
+        if (other.getAddress() != com.google.protobuf.ByteString.EMPTY) {
+          setAddress(other.getAddress());
         }
         if (other.getPort() != 0) {
           setPort(other.getPort());
         }
         if (!other.getSourceName().isEmpty()) {
           sourceName_ = other.sourceName_;
-          onChanged();
-        }
-        if (!other.getRouterName().isEmpty()) {
-          routerName_ = other.routerName_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -1257,47 +1149,21 @@ public final class FolivOuterClass {
         return this;
       }
 
-      private java.lang.Object address_ = "";
+      private com.google.protobuf.ByteString address_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>string address = 4;</code>
+       * <code>bytes address = 4;</code>
        * @return The address.
        */
-      public java.lang.String getAddress() {
-        java.lang.Object ref = address_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          address_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      @java.lang.Override
+      public com.google.protobuf.ByteString getAddress() {
+        return address_;
       }
       /**
-       * <code>string address = 4;</code>
-       * @return The bytes for address.
-       */
-      public com.google.protobuf.ByteString
-          getAddressBytes() {
-        java.lang.Object ref = address_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          address_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string address = 4;</code>
+       * <code>bytes address = 4;</code>
        * @param value The address to set.
        * @return This builder for chaining.
        */
-      public Builder setAddress(
-          java.lang.String value) {
+      public Builder setAddress(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1307,28 +1173,12 @@ public final class FolivOuterClass {
         return this;
       }
       /**
-       * <code>string address = 4;</code>
+       * <code>bytes address = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearAddress() {
         
         address_ = getDefaultInstance().getAddress();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string address = 4;</code>
-       * @param value The bytes for address to set.
-       * @return This builder for chaining.
-       */
-      public Builder setAddressBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        address_ = value;
         onChanged();
         return this;
       }
@@ -1439,82 +1289,6 @@ public final class FolivOuterClass {
         onChanged();
         return this;
       }
-
-      private java.lang.Object routerName_ = "";
-      /**
-       * <code>string routerName = 7;</code>
-       * @return The routerName.
-       */
-      public java.lang.String getRouterName() {
-        java.lang.Object ref = routerName_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          routerName_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string routerName = 7;</code>
-       * @return The bytes for routerName.
-       */
-      public com.google.protobuf.ByteString
-          getRouterNameBytes() {
-        java.lang.Object ref = routerName_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          routerName_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string routerName = 7;</code>
-       * @param value The routerName to set.
-       * @return This builder for chaining.
-       */
-      public Builder setRouterName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        routerName_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string routerName = 7;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearRouterName() {
-        
-        routerName_ = getDefaultInstance().getRouterName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string routerName = 7;</code>
-       * @param value The bytes for routerName to set.
-       * @return This builder for chaining.
-       */
-      public Builder setRouterNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        routerName_ = value;
-        onChanged();
-        return this;
-      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1582,15 +1356,14 @@ public final class FolivOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\013foliv.proto\022\005foliv\"\252\001\n\005Foliv\022\020\n\010userHa" +
+      "\n\013foliv.proto\022\005foliv\"\226\001\n\005Foliv\022\020\n\010userHa" +
       "sh\030\001 \001(\t\022\037\n\007command\030\002 \001(\0162\016.foliv.Comman" +
       "d\022\'\n\013addressType\030\003 \001(\0162\022.foliv.AddressTy" +
-      "pe\022\017\n\007address\030\004 \001(\t\022\014\n\004port\030\005 \001(\r\022\022\n\nsou" +
-      "rceName\030\006 \001(\t\022\022\n\nrouterName\030\007 \001(\t*9\n\007Com" +
-      "mand\022\t\n\005Empty\020\000\022\013\n\007Connect\020\001\022\r\n\tAssociat" +
-      "e\020\003\022\007\n\003Mux\020\177*B\n\013AddressType\022\017\n\013InvalidTy" +
-      "pe\020\000\022\010\n\004IPv4\020\001\022\016\n\nDomainName\020\003\022\010\n\004IPv6\020\004" +
-      "B\tZ\007./folivb\006proto3"
+      "pe\022\017\n\007address\030\004 \001(\014\022\014\n\004port\030\005 \001(\r\022\022\n\nsou" +
+      "rceName\030\006 \001(\t*9\n\007Command\022\t\n\005Empty\020\000\022\013\n\007C" +
+      "onnect\020\001\022\r\n\tAssociate\020\003\022\007\n\003Mux\020\177*B\n\013Addr" +
+      "essType\022\017\n\013InvalidType\020\000\022\010\n\004IPv4\020\001\022\016\n\nDo" +
+      "mainName\020\003\022\010\n\004IPv6\020\004B\tZ\007./folivb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1601,7 +1374,7 @@ public final class FolivOuterClass {
     internal_static_foliv_Foliv_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_foliv_Foliv_descriptor,
-        new java.lang.String[] { "UserHash", "Command", "AddressType", "Address", "Port", "SourceName", "RouterName", });
+        new java.lang.String[] { "UserHash", "Command", "AddressType", "Address", "Port", "SourceName", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

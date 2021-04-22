@@ -237,7 +237,6 @@ class Foliv PROTOBUF_FINAL :
     kUserHashFieldNumber = 1,
     kAddressFieldNumber = 4,
     kSourceNameFieldNumber = 6,
-    kRouterNameFieldNumber = 7,
     kCommandFieldNumber = 2,
     kAddressTypeFieldNumber = 3,
     kPortFieldNumber = 5,
@@ -258,13 +257,13 @@ class Foliv PROTOBUF_FINAL :
   std::string* _internal_mutable_userhash();
   public:
 
-  // string address = 4;
+  // bytes address = 4;
   void clear_address();
   const std::string& address() const;
   void set_address(const std::string& value);
   void set_address(std::string&& value);
   void set_address(const char* value);
-  void set_address(const char* value, size_t size);
+  void set_address(const void* value, size_t size);
   std::string* mutable_address();
   std::string* release_address();
   void set_allocated_address(std::string* address);
@@ -288,22 +287,6 @@ class Foliv PROTOBUF_FINAL :
   const std::string& _internal_sourcename() const;
   void _internal_set_sourcename(const std::string& value);
   std::string* _internal_mutable_sourcename();
-  public:
-
-  // string routerName = 7;
-  void clear_routername();
-  const std::string& routername() const;
-  void set_routername(const std::string& value);
-  void set_routername(std::string&& value);
-  void set_routername(const char* value);
-  void set_routername(const char* value, size_t size);
-  std::string* mutable_routername();
-  std::string* release_routername();
-  void set_allocated_routername(std::string* routername);
-  private:
-  const std::string& _internal_routername() const;
-  void _internal_set_routername(const std::string& value);
-  std::string* _internal_mutable_routername();
   public:
 
   // .foliv.Command command = 2;
@@ -343,7 +326,6 @@ class Foliv PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr userhash_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr address_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sourcename_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr routername_;
   int command_;
   int addresstype_;
   ::PROTOBUF_NAMESPACE_ID::uint32 port_;
@@ -462,7 +444,7 @@ inline void Foliv::set_addresstype(::foliv::AddressType value) {
   // @@protoc_insertion_point(field_set:foliv.Foliv.addressType)
 }
 
-// string address = 4;
+// bytes address = 4;
 inline void Foliv::clear_address() {
   address_.ClearToEmpty();
 }
@@ -497,7 +479,7 @@ inline void Foliv::set_address(const char* value) {
   address_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
   // @@protoc_insertion_point(field_set_char:foliv.Foliv.address)
 }
-inline void Foliv::set_address(const char* value,
+inline void Foliv::set_address(const void* value,
     size_t size) {
   
   address_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
@@ -602,67 +584,6 @@ inline void Foliv::set_allocated_sourcename(std::string* sourcename) {
   sourcename_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), sourcename,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:foliv.Foliv.sourceName)
-}
-
-// string routerName = 7;
-inline void Foliv::clear_routername() {
-  routername_.ClearToEmpty();
-}
-inline const std::string& Foliv::routername() const {
-  // @@protoc_insertion_point(field_get:foliv.Foliv.routerName)
-  return _internal_routername();
-}
-inline void Foliv::set_routername(const std::string& value) {
-  _internal_set_routername(value);
-  // @@protoc_insertion_point(field_set:foliv.Foliv.routerName)
-}
-inline std::string* Foliv::mutable_routername() {
-  // @@protoc_insertion_point(field_mutable:foliv.Foliv.routerName)
-  return _internal_mutable_routername();
-}
-inline const std::string& Foliv::_internal_routername() const {
-  return routername_.Get();
-}
-inline void Foliv::_internal_set_routername(const std::string& value) {
-  
-  routername_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
-}
-inline void Foliv::set_routername(std::string&& value) {
-  
-  routername_.Set(
-    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:foliv.Foliv.routerName)
-}
-inline void Foliv::set_routername(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  routername_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:foliv.Foliv.routerName)
-}
-inline void Foliv::set_routername(const char* value,
-    size_t size) {
-  
-  routername_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:foliv.Foliv.routerName)
-}
-inline std::string* Foliv::_internal_mutable_routername() {
-  
-  return routername_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
-}
-inline std::string* Foliv::release_routername() {
-  // @@protoc_insertion_point(field_release:foliv.Foliv.routerName)
-  return routername_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline void Foliv::set_allocated_routername(std::string* routername) {
-  if (routername != nullptr) {
-    
-  } else {
-    
-  }
-  routername_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), routername,
-      GetArena());
-  // @@protoc_insertion_point(field_set_allocated:foliv.Foliv.routerName)
 }
 
 #ifdef __GNUC__

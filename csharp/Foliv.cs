@@ -24,18 +24,18 @@ namespace Foliv {
     static FolivReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cgtmb2xpdi5wcm90bxIFZm9saXYiqgEKBUZvbGl2EhAKCHVzZXJIYXNoGAEg",
+            "Cgtmb2xpdi5wcm90bxIFZm9saXYilgEKBUZvbGl2EhAKCHVzZXJIYXNoGAEg",
             "ASgJEh8KB2NvbW1hbmQYAiABKA4yDi5mb2xpdi5Db21tYW5kEicKC2FkZHJl",
             "c3NUeXBlGAMgASgOMhIuZm9saXYuQWRkcmVzc1R5cGUSDwoHYWRkcmVzcxgE",
-            "IAEoCRIMCgRwb3J0GAUgASgNEhIKCnNvdXJjZU5hbWUYBiABKAkSEgoKcm91",
-            "dGVyTmFtZRgHIAEoCSo5CgdDb21tYW5kEgkKBUVtcHR5EAASCwoHQ29ubmVj",
-            "dBABEg0KCUFzc29jaWF0ZRADEgcKA011eBB/KkIKC0FkZHJlc3NUeXBlEg8K",
-            "C0ludmFsaWRUeXBlEAASCAoESVB2NBABEg4KCkRvbWFpbk5hbWUQAxIICgRJ",
-            "UHY2EARCCVoHLi9mb2xpdmIGcHJvdG8z"));
+            "IAEoDBIMCgRwb3J0GAUgASgNEhIKCnNvdXJjZU5hbWUYBiABKAkqOQoHQ29t",
+            "bWFuZBIJCgVFbXB0eRAAEgsKB0Nvbm5lY3QQARINCglBc3NvY2lhdGUQAxIH",
+            "CgNNdXgQfypCCgtBZGRyZXNzVHlwZRIPCgtJbnZhbGlkVHlwZRAAEggKBElQ",
+            "djQQARIOCgpEb21haW5OYW1lEAMSCAoESVB2NhAEQglaBy4vZm9saXZiBnBy",
+            "b3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Foliv.Command), typeof(global::Foliv.AddressType), }, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Foliv.Foliv), global::Foliv.Foliv.Parser, new[]{ "UserHash", "Command", "AddressType", "Address", "Port", "SourceName", "RouterName" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Foliv.Foliv), global::Foliv.Foliv.Parser, new[]{ "UserHash", "Command", "AddressType", "Address", "Port", "SourceName" }, null, null, null, null)
           }));
     }
     #endregion
@@ -94,7 +94,6 @@ namespace Foliv {
       address_ = other.address_;
       port_ = other.port_;
       sourceName_ = other.sourceName_;
-      routerName_ = other.routerName_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -138,9 +137,9 @@ namespace Foliv {
 
     /// <summary>Field number for the "address" field.</summary>
     public const int AddressFieldNumber = 4;
-    private string address_ = "";
+    private pb::ByteString address_ = pb::ByteString.Empty;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Address {
+    public pb::ByteString Address {
       get { return address_; }
       set {
         address_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
@@ -169,17 +168,6 @@ namespace Foliv {
       }
     }
 
-    /// <summary>Field number for the "routerName" field.</summary>
-    public const int RouterNameFieldNumber = 7;
-    private string routerName_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string RouterName {
-      get { return routerName_; }
-      set {
-        routerName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as Foliv);
@@ -199,7 +187,6 @@ namespace Foliv {
       if (Address != other.Address) return false;
       if (Port != other.Port) return false;
       if (SourceName != other.SourceName) return false;
-      if (RouterName != other.RouterName) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -212,7 +199,6 @@ namespace Foliv {
       if (Address.Length != 0) hash ^= Address.GetHashCode();
       if (Port != 0) hash ^= Port.GetHashCode();
       if (SourceName.Length != 0) hash ^= SourceName.GetHashCode();
-      if (RouterName.Length != 0) hash ^= RouterName.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -243,7 +229,7 @@ namespace Foliv {
       }
       if (Address.Length != 0) {
         output.WriteRawTag(34);
-        output.WriteString(Address);
+        output.WriteBytes(Address);
       }
       if (Port != 0) {
         output.WriteRawTag(40);
@@ -252,10 +238,6 @@ namespace Foliv {
       if (SourceName.Length != 0) {
         output.WriteRawTag(50);
         output.WriteString(SourceName);
-      }
-      if (RouterName.Length != 0) {
-        output.WriteRawTag(58);
-        output.WriteString(RouterName);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -280,7 +262,7 @@ namespace Foliv {
       }
       if (Address.Length != 0) {
         output.WriteRawTag(34);
-        output.WriteString(Address);
+        output.WriteBytes(Address);
       }
       if (Port != 0) {
         output.WriteRawTag(40);
@@ -289,10 +271,6 @@ namespace Foliv {
       if (SourceName.Length != 0) {
         output.WriteRawTag(50);
         output.WriteString(SourceName);
-      }
-      if (RouterName.Length != 0) {
-        output.WriteRawTag(58);
-        output.WriteString(RouterName);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -313,16 +291,13 @@ namespace Foliv {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) AddressType);
       }
       if (Address.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Address);
+        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Address);
       }
       if (Port != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Port);
       }
       if (SourceName.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(SourceName);
-      }
-      if (RouterName.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(RouterName);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -353,9 +328,6 @@ namespace Foliv {
       if (other.SourceName.Length != 0) {
         SourceName = other.SourceName;
       }
-      if (other.RouterName.Length != 0) {
-        RouterName = other.RouterName;
-      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -383,7 +355,7 @@ namespace Foliv {
             break;
           }
           case 34: {
-            Address = input.ReadString();
+            Address = input.ReadBytes();
             break;
           }
           case 40: {
@@ -392,10 +364,6 @@ namespace Foliv {
           }
           case 50: {
             SourceName = input.ReadString();
-            break;
-          }
-          case 58: {
-            RouterName = input.ReadString();
             break;
           }
         }
@@ -425,7 +393,7 @@ namespace Foliv {
             break;
           }
           case 34: {
-            Address = input.ReadString();
+            Address = input.ReadBytes();
             break;
           }
           case 40: {
@@ -434,10 +402,6 @@ namespace Foliv {
           }
           case 50: {
             SourceName = input.ReadString();
-            break;
-          }
-          case 58: {
-            RouterName = input.ReadString();
             break;
           }
         }
