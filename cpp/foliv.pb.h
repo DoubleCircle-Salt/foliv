@@ -237,6 +237,8 @@ class Foliv PROTOBUF_FINAL :
     kUserHashFieldNumber = 1,
     kAddressFieldNumber = 4,
     kSourceNameFieldNumber = 6,
+    kRouterNameFieldNumber = 7,
+    kProcessNameFieldNumber = 8,
     kCommandFieldNumber = 2,
     kAddressTypeFieldNumber = 3,
     kPortFieldNumber = 5,
@@ -289,6 +291,38 @@ class Foliv PROTOBUF_FINAL :
   std::string* _internal_mutable_sourcename();
   public:
 
+  // string routerName = 7;
+  void clear_routername();
+  const std::string& routername() const;
+  void set_routername(const std::string& value);
+  void set_routername(std::string&& value);
+  void set_routername(const char* value);
+  void set_routername(const char* value, size_t size);
+  std::string* mutable_routername();
+  std::string* release_routername();
+  void set_allocated_routername(std::string* routername);
+  private:
+  const std::string& _internal_routername() const;
+  void _internal_set_routername(const std::string& value);
+  std::string* _internal_mutable_routername();
+  public:
+
+  // string processName = 8;
+  void clear_processname();
+  const std::string& processname() const;
+  void set_processname(const std::string& value);
+  void set_processname(std::string&& value);
+  void set_processname(const char* value);
+  void set_processname(const char* value, size_t size);
+  std::string* mutable_processname();
+  std::string* release_processname();
+  void set_allocated_processname(std::string* processname);
+  private:
+  const std::string& _internal_processname() const;
+  void _internal_set_processname(const std::string& value);
+  std::string* _internal_mutable_processname();
+  public:
+
   // .foliv.Command command = 2;
   void clear_command();
   ::foliv::Command command() const;
@@ -326,6 +360,8 @@ class Foliv PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr userhash_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr address_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sourcename_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr routername_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr processname_;
   int command_;
   int addresstype_;
   ::PROTOBUF_NAMESPACE_ID::uint32 port_;
@@ -584,6 +620,128 @@ inline void Foliv::set_allocated_sourcename(std::string* sourcename) {
   sourcename_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), sourcename,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:foliv.Foliv.sourceName)
+}
+
+// string routerName = 7;
+inline void Foliv::clear_routername() {
+  routername_.ClearToEmpty();
+}
+inline const std::string& Foliv::routername() const {
+  // @@protoc_insertion_point(field_get:foliv.Foliv.routerName)
+  return _internal_routername();
+}
+inline void Foliv::set_routername(const std::string& value) {
+  _internal_set_routername(value);
+  // @@protoc_insertion_point(field_set:foliv.Foliv.routerName)
+}
+inline std::string* Foliv::mutable_routername() {
+  // @@protoc_insertion_point(field_mutable:foliv.Foliv.routerName)
+  return _internal_mutable_routername();
+}
+inline const std::string& Foliv::_internal_routername() const {
+  return routername_.Get();
+}
+inline void Foliv::_internal_set_routername(const std::string& value) {
+  
+  routername_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void Foliv::set_routername(std::string&& value) {
+  
+  routername_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:foliv.Foliv.routerName)
+}
+inline void Foliv::set_routername(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  routername_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:foliv.Foliv.routerName)
+}
+inline void Foliv::set_routername(const char* value,
+    size_t size) {
+  
+  routername_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:foliv.Foliv.routerName)
+}
+inline std::string* Foliv::_internal_mutable_routername() {
+  
+  return routername_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* Foliv::release_routername() {
+  // @@protoc_insertion_point(field_release:foliv.Foliv.routerName)
+  return routername_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Foliv::set_allocated_routername(std::string* routername) {
+  if (routername != nullptr) {
+    
+  } else {
+    
+  }
+  routername_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), routername,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:foliv.Foliv.routerName)
+}
+
+// string processName = 8;
+inline void Foliv::clear_processname() {
+  processname_.ClearToEmpty();
+}
+inline const std::string& Foliv::processname() const {
+  // @@protoc_insertion_point(field_get:foliv.Foliv.processName)
+  return _internal_processname();
+}
+inline void Foliv::set_processname(const std::string& value) {
+  _internal_set_processname(value);
+  // @@protoc_insertion_point(field_set:foliv.Foliv.processName)
+}
+inline std::string* Foliv::mutable_processname() {
+  // @@protoc_insertion_point(field_mutable:foliv.Foliv.processName)
+  return _internal_mutable_processname();
+}
+inline const std::string& Foliv::_internal_processname() const {
+  return processname_.Get();
+}
+inline void Foliv::_internal_set_processname(const std::string& value) {
+  
+  processname_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void Foliv::set_processname(std::string&& value) {
+  
+  processname_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:foliv.Foliv.processName)
+}
+inline void Foliv::set_processname(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  processname_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:foliv.Foliv.processName)
+}
+inline void Foliv::set_processname(const char* value,
+    size_t size) {
+  
+  processname_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:foliv.Foliv.processName)
+}
+inline std::string* Foliv::_internal_mutable_processname() {
+  
+  return processname_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* Foliv::release_processname() {
+  // @@protoc_insertion_point(field_release:foliv.Foliv.processName)
+  return processname_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Foliv::set_allocated_processname(std::string* processname) {
+  if (processname != nullptr) {
+    
+  } else {
+    
+  }
+  processname_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), processname,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:foliv.Foliv.processName)
 }
 
 #ifdef __GNUC__

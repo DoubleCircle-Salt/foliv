@@ -24,18 +24,18 @@ namespace Foliv {
     static FolivReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cgtmb2xpdi5wcm90bxIFZm9saXYilgEKBUZvbGl2EhAKCHVzZXJIYXNoGAEg",
+            "Cgtmb2xpdi5wcm90bxIFZm9saXYivwEKBUZvbGl2EhAKCHVzZXJIYXNoGAEg",
             "ASgJEh8KB2NvbW1hbmQYAiABKA4yDi5mb2xpdi5Db21tYW5kEicKC2FkZHJl",
             "c3NUeXBlGAMgASgOMhIuZm9saXYuQWRkcmVzc1R5cGUSDwoHYWRkcmVzcxgE",
-            "IAEoDBIMCgRwb3J0GAUgASgNEhIKCnNvdXJjZU5hbWUYBiABKAkqOQoHQ29t",
-            "bWFuZBIJCgVFbXB0eRAAEgsKB0Nvbm5lY3QQARINCglBc3NvY2lhdGUQAxIH",
-            "CgNNdXgQfypCCgtBZGRyZXNzVHlwZRIPCgtJbnZhbGlkVHlwZRAAEggKBElQ",
-            "djQQARIOCgpEb21haW5OYW1lEAMSCAoESVB2NhAEQglaBy4vZm9saXZiBnBy",
-            "b3RvMw=="));
+            "IAEoDBIMCgRwb3J0GAUgASgNEhIKCnNvdXJjZU5hbWUYBiABKAkSEgoKcm91",
+            "dGVyTmFtZRgHIAEoCRITCgtwcm9jZXNzTmFtZRgIIAEoCSo5CgdDb21tYW5k",
+            "EgkKBUVtcHR5EAASCwoHQ29ubmVjdBABEg0KCUFzc29jaWF0ZRADEgcKA011",
+            "eBB/KkIKC0FkZHJlc3NUeXBlEg8KC0ludmFsaWRUeXBlEAASCAoESVB2NBAB",
+            "Eg4KCkRvbWFpbk5hbWUQAxIICgRJUHY2EARCCVoHLi9mb2xpdmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Foliv.Command), typeof(global::Foliv.AddressType), }, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Foliv.Foliv), global::Foliv.Foliv.Parser, new[]{ "UserHash", "Command", "AddressType", "Address", "Port", "SourceName" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Foliv.Foliv), global::Foliv.Foliv.Parser, new[]{ "UserHash", "Command", "AddressType", "Address", "Port", "SourceName", "RouterName", "ProcessName" }, null, null, null, null)
           }));
     }
     #endregion
@@ -94,6 +94,8 @@ namespace Foliv {
       address_ = other.address_;
       port_ = other.port_;
       sourceName_ = other.sourceName_;
+      routerName_ = other.routerName_;
+      processName_ = other.processName_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -168,6 +170,28 @@ namespace Foliv {
       }
     }
 
+    /// <summary>Field number for the "routerName" field.</summary>
+    public const int RouterNameFieldNumber = 7;
+    private string routerName_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string RouterName {
+      get { return routerName_; }
+      set {
+        routerName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "processName" field.</summary>
+    public const int ProcessNameFieldNumber = 8;
+    private string processName_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string ProcessName {
+      get { return processName_; }
+      set {
+        processName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as Foliv);
@@ -187,6 +211,8 @@ namespace Foliv {
       if (Address != other.Address) return false;
       if (Port != other.Port) return false;
       if (SourceName != other.SourceName) return false;
+      if (RouterName != other.RouterName) return false;
+      if (ProcessName != other.ProcessName) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -199,6 +225,8 @@ namespace Foliv {
       if (Address.Length != 0) hash ^= Address.GetHashCode();
       if (Port != 0) hash ^= Port.GetHashCode();
       if (SourceName.Length != 0) hash ^= SourceName.GetHashCode();
+      if (RouterName.Length != 0) hash ^= RouterName.GetHashCode();
+      if (ProcessName.Length != 0) hash ^= ProcessName.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -239,6 +267,14 @@ namespace Foliv {
         output.WriteRawTag(50);
         output.WriteString(SourceName);
       }
+      if (RouterName.Length != 0) {
+        output.WriteRawTag(58);
+        output.WriteString(RouterName);
+      }
+      if (ProcessName.Length != 0) {
+        output.WriteRawTag(66);
+        output.WriteString(ProcessName);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -272,6 +308,14 @@ namespace Foliv {
         output.WriteRawTag(50);
         output.WriteString(SourceName);
       }
+      if (RouterName.Length != 0) {
+        output.WriteRawTag(58);
+        output.WriteString(RouterName);
+      }
+      if (ProcessName.Length != 0) {
+        output.WriteRawTag(66);
+        output.WriteString(ProcessName);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -298,6 +342,12 @@ namespace Foliv {
       }
       if (SourceName.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(SourceName);
+      }
+      if (RouterName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(RouterName);
+      }
+      if (ProcessName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ProcessName);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -327,6 +377,12 @@ namespace Foliv {
       }
       if (other.SourceName.Length != 0) {
         SourceName = other.SourceName;
+      }
+      if (other.RouterName.Length != 0) {
+        RouterName = other.RouterName;
+      }
+      if (other.ProcessName.Length != 0) {
+        ProcessName = other.ProcessName;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -366,6 +422,14 @@ namespace Foliv {
             SourceName = input.ReadString();
             break;
           }
+          case 58: {
+            RouterName = input.ReadString();
+            break;
+          }
+          case 66: {
+            ProcessName = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -402,6 +466,14 @@ namespace Foliv {
           }
           case 50: {
             SourceName = input.ReadString();
+            break;
+          }
+          case 58: {
+            RouterName = input.ReadString();
+            break;
+          }
+          case 66: {
+            ProcessName = input.ReadString();
             break;
           }
         }

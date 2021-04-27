@@ -327,6 +327,30 @@ public final class FolivOuterClass {
      */
     com.google.protobuf.ByteString
         getSourceNameBytes();
+
+    /**
+     * <code>string routerName = 7;</code>
+     * @return The routerName.
+     */
+    java.lang.String getRouterName();
+    /**
+     * <code>string routerName = 7;</code>
+     * @return The bytes for routerName.
+     */
+    com.google.protobuf.ByteString
+        getRouterNameBytes();
+
+    /**
+     * <code>string processName = 8;</code>
+     * @return The processName.
+     */
+    java.lang.String getProcessName();
+    /**
+     * <code>string processName = 8;</code>
+     * @return The bytes for processName.
+     */
+    com.google.protobuf.ByteString
+        getProcessNameBytes();
   }
   /**
    * Protobuf type {@code foliv.Foliv}
@@ -346,6 +370,8 @@ public final class FolivOuterClass {
       addressType_ = 0;
       address_ = com.google.protobuf.ByteString.EMPTY;
       sourceName_ = "";
+      routerName_ = "";
+      processName_ = "";
     }
 
     @java.lang.Override
@@ -410,6 +436,18 @@ public final class FolivOuterClass {
               java.lang.String s = input.readStringRequireUtf8();
 
               sourceName_ = s;
+              break;
+            }
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              routerName_ = s;
+              break;
+            }
+            case 66: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              processName_ = s;
               break;
             }
             default: {
@@ -580,6 +618,82 @@ public final class FolivOuterClass {
       }
     }
 
+    public static final int ROUTERNAME_FIELD_NUMBER = 7;
+    private volatile java.lang.Object routerName_;
+    /**
+     * <code>string routerName = 7;</code>
+     * @return The routerName.
+     */
+    @java.lang.Override
+    public java.lang.String getRouterName() {
+      java.lang.Object ref = routerName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        routerName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string routerName = 7;</code>
+     * @return The bytes for routerName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getRouterNameBytes() {
+      java.lang.Object ref = routerName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        routerName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PROCESSNAME_FIELD_NUMBER = 8;
+    private volatile java.lang.Object processName_;
+    /**
+     * <code>string processName = 8;</code>
+     * @return The processName.
+     */
+    @java.lang.Override
+    public java.lang.String getProcessName() {
+      java.lang.Object ref = processName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        processName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string processName = 8;</code>
+     * @return The bytes for processName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getProcessNameBytes() {
+      java.lang.Object ref = processName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        processName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -612,6 +726,12 @@ public final class FolivOuterClass {
       if (!getSourceNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, sourceName_);
       }
+      if (!getRouterNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, routerName_);
+      }
+      if (!getProcessNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, processName_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -643,6 +763,12 @@ public final class FolivOuterClass {
       if (!getSourceNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, sourceName_);
       }
+      if (!getRouterNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, routerName_);
+      }
+      if (!getProcessNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, processName_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -668,6 +794,10 @@ public final class FolivOuterClass {
           != other.getPort()) return false;
       if (!getSourceName()
           .equals(other.getSourceName())) return false;
+      if (!getRouterName()
+          .equals(other.getRouterName())) return false;
+      if (!getProcessName()
+          .equals(other.getProcessName())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -691,6 +821,10 @@ public final class FolivOuterClass {
       hash = (53 * hash) + getPort();
       hash = (37 * hash) + SOURCENAME_FIELD_NUMBER;
       hash = (53 * hash) + getSourceName().hashCode();
+      hash = (37 * hash) + ROUTERNAME_FIELD_NUMBER;
+      hash = (53 * hash) + getRouterName().hashCode();
+      hash = (37 * hash) + PROCESSNAME_FIELD_NUMBER;
+      hash = (53 * hash) + getProcessName().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -836,6 +970,10 @@ public final class FolivOuterClass {
 
         sourceName_ = "";
 
+        routerName_ = "";
+
+        processName_ = "";
+
         return this;
       }
 
@@ -868,6 +1006,8 @@ public final class FolivOuterClass {
         result.address_ = address_;
         result.port_ = port_;
         result.sourceName_ = sourceName_;
+        result.routerName_ = routerName_;
+        result.processName_ = processName_;
         onBuilt();
         return result;
       }
@@ -934,6 +1074,14 @@ public final class FolivOuterClass {
         }
         if (!other.getSourceName().isEmpty()) {
           sourceName_ = other.sourceName_;
+          onChanged();
+        }
+        if (!other.getRouterName().isEmpty()) {
+          routerName_ = other.routerName_;
+          onChanged();
+        }
+        if (!other.getProcessName().isEmpty()) {
+          processName_ = other.processName_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -1289,6 +1437,158 @@ public final class FolivOuterClass {
         onChanged();
         return this;
       }
+
+      private java.lang.Object routerName_ = "";
+      /**
+       * <code>string routerName = 7;</code>
+       * @return The routerName.
+       */
+      public java.lang.String getRouterName() {
+        java.lang.Object ref = routerName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          routerName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string routerName = 7;</code>
+       * @return The bytes for routerName.
+       */
+      public com.google.protobuf.ByteString
+          getRouterNameBytes() {
+        java.lang.Object ref = routerName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          routerName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string routerName = 7;</code>
+       * @param value The routerName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRouterName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        routerName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string routerName = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRouterName() {
+        
+        routerName_ = getDefaultInstance().getRouterName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string routerName = 7;</code>
+       * @param value The bytes for routerName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRouterNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        routerName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object processName_ = "";
+      /**
+       * <code>string processName = 8;</code>
+       * @return The processName.
+       */
+      public java.lang.String getProcessName() {
+        java.lang.Object ref = processName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          processName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string processName = 8;</code>
+       * @return The bytes for processName.
+       */
+      public com.google.protobuf.ByteString
+          getProcessNameBytes() {
+        java.lang.Object ref = processName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          processName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string processName = 8;</code>
+       * @param value The processName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setProcessName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        processName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string processName = 8;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearProcessName() {
+        
+        processName_ = getDefaultInstance().getProcessName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string processName = 8;</code>
+       * @param value The bytes for processName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setProcessNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        processName_ = value;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1356,14 +1656,15 @@ public final class FolivOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\013foliv.proto\022\005foliv\"\226\001\n\005Foliv\022\020\n\010userHa" +
+      "\n\013foliv.proto\022\005foliv\"\277\001\n\005Foliv\022\020\n\010userHa" +
       "sh\030\001 \001(\t\022\037\n\007command\030\002 \001(\0162\016.foliv.Comman" +
       "d\022\'\n\013addressType\030\003 \001(\0162\022.foliv.AddressTy" +
       "pe\022\017\n\007address\030\004 \001(\014\022\014\n\004port\030\005 \001(\r\022\022\n\nsou" +
-      "rceName\030\006 \001(\t*9\n\007Command\022\t\n\005Empty\020\000\022\013\n\007C" +
-      "onnect\020\001\022\r\n\tAssociate\020\003\022\007\n\003Mux\020\177*B\n\013Addr" +
-      "essType\022\017\n\013InvalidType\020\000\022\010\n\004IPv4\020\001\022\016\n\nDo" +
-      "mainName\020\003\022\010\n\004IPv6\020\004B\tZ\007./folivb\006proto3"
+      "rceName\030\006 \001(\t\022\022\n\nrouterName\030\007 \001(\t\022\023\n\013pro" +
+      "cessName\030\010 \001(\t*9\n\007Command\022\t\n\005Empty\020\000\022\013\n\007" +
+      "Connect\020\001\022\r\n\tAssociate\020\003\022\007\n\003Mux\020\177*B\n\013Add" +
+      "ressType\022\017\n\013InvalidType\020\000\022\010\n\004IPv4\020\001\022\016\n\nD" +
+      "omainName\020\003\022\010\n\004IPv6\020\004B\tZ\007./folivb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1374,7 +1675,7 @@ public final class FolivOuterClass {
     internal_static_foliv_Foliv_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_foliv_Foliv_descriptor,
-        new java.lang.String[] { "UserHash", "Command", "AddressType", "Address", "Port", "SourceName", });
+        new java.lang.String[] { "UserHash", "Command", "AddressType", "Address", "Port", "SourceName", "RouterName", "ProcessName", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

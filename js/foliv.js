@@ -77,7 +77,9 @@ proto.foliv.Foliv.toObject = function(includeInstance, msg) {
     addresstype: jspb.Message.getFieldWithDefault(msg, 3, 0),
     address: msg.getAddress_asB64(),
     port: jspb.Message.getFieldWithDefault(msg, 5, 0),
-    sourcename: jspb.Message.getFieldWithDefault(msg, 6, "")
+    sourcename: jspb.Message.getFieldWithDefault(msg, 6, ""),
+    routername: jspb.Message.getFieldWithDefault(msg, 7, ""),
+    processname: jspb.Message.getFieldWithDefault(msg, 8, "")
   };
 
   if (includeInstance) {
@@ -137,6 +139,14 @@ proto.foliv.Foliv.deserializeBinaryFromReader = function(msg, reader) {
     case 6:
       var value = /** @type {string} */ (reader.readString());
       msg.setSourcename(value);
+      break;
+    case 7:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setRoutername(value);
+      break;
+    case 8:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setProcessname(value);
       break;
     default:
       reader.skipField();
@@ -206,6 +216,20 @@ proto.foliv.Foliv.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writeString(
       6,
+      f
+    );
+  }
+  f = message.getRoutername();
+  if (f.length > 0) {
+    writer.writeString(
+      7,
+      f
+    );
+  }
+  f = message.getProcessname();
+  if (f.length > 0) {
+    writer.writeString(
+      8,
       f
     );
   }
@@ -341,6 +365,42 @@ proto.foliv.Foliv.prototype.getSourcename = function() {
  */
 proto.foliv.Foliv.prototype.setSourcename = function(value) {
   return jspb.Message.setProto3StringField(this, 6, value);
+};
+
+
+/**
+ * optional string routerName = 7;
+ * @return {string}
+ */
+proto.foliv.Foliv.prototype.getRoutername = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 7, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.foliv.Foliv} returns this
+ */
+proto.foliv.Foliv.prototype.setRoutername = function(value) {
+  return jspb.Message.setProto3StringField(this, 7, value);
+};
+
+
+/**
+ * optional string processName = 8;
+ * @return {string}
+ */
+proto.foliv.Foliv.prototype.getProcessname = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 8, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.foliv.Foliv} returns this
+ */
+proto.foliv.Foliv.prototype.setProcessname = function(value) {
+  return jspb.Message.setProto3StringField(this, 8, value);
 };
 
 

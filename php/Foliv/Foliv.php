@@ -37,6 +37,14 @@ class Foliv extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string sourceName = 6;</code>
      */
     protected $sourceName = '';
+    /**
+     * Generated from protobuf field <code>string routerName = 7;</code>
+     */
+    protected $routerName = '';
+    /**
+     * Generated from protobuf field <code>string processName = 8;</code>
+     */
+    protected $processName = '';
 
     /**
      * Constructor.
@@ -50,6 +58,8 @@ class Foliv extends \Google\Protobuf\Internal\Message
      *     @type string $address
      *     @type int $port
      *     @type string $sourceName
+     *     @type string $routerName
+     *     @type string $processName
      * }
      */
     public function __construct($data = NULL) {
@@ -185,6 +195,50 @@ class Foliv extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->sourceName = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string routerName = 7;</code>
+     * @return string
+     */
+    public function getRouterName()
+    {
+        return $this->routerName;
+    }
+
+    /**
+     * Generated from protobuf field <code>string routerName = 7;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setRouterName($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->routerName = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string processName = 8;</code>
+     * @return string
+     */
+    public function getProcessName()
+    {
+        return $this->processName;
+    }
+
+    /**
+     * Generated from protobuf field <code>string processName = 8;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setProcessName($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->processName = $var;
 
         return $this;
     }

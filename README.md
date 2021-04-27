@@ -16,6 +16,8 @@
 | Address | []byte | ipv4长度4，ipv6长度16，domain明文 |
 | Port | uint32 | 目标端口 |
 | SourceName | string | 回源规则名称 |
+| RouterName | string | 路由规则名称（ip,域名黑白名单） |
+| ProcessName | string | 进程名称 |
 
 # go-code instruction
 
