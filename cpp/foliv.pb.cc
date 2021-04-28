@@ -19,7 +19,8 @@ PROTOBUF_PRAGMA_INIT_SEG
 namespace foliv {
 constexpr Foliv::Foliv(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : userhash_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  : xforwardedfor_()
+  , userhash_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , address_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , sourcename_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , routername_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
@@ -57,6 +58,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_foliv_2eproto::offsets[] PROTO
   PROTOBUF_FIELD_OFFSET(::foliv::Foliv, sourcename_),
   PROTOBUF_FIELD_OFFSET(::foliv::Foliv, routername_),
   PROTOBUF_FIELD_OFFSET(::foliv::Foliv, processname_),
+  PROTOBUF_FIELD_OFFSET(::foliv::Foliv, xforwardedfor_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::foliv::Foliv)},
@@ -67,19 +69,20 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 };
 
 const char descriptor_table_protodef_foliv_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\013foliv.proto\022\005foliv\"\277\001\n\005Foliv\022\020\n\010userHa"
+  "\n\013foliv.proto\022\005foliv\"\326\001\n\005Foliv\022\020\n\010userHa"
   "sh\030\001 \001(\t\022\037\n\007command\030\002 \001(\0162\016.foliv.Comman"
   "d\022\'\n\013addressType\030\003 \001(\0162\022.foliv.AddressTy"
   "pe\022\017\n\007address\030\004 \001(\014\022\014\n\004port\030\005 \001(\r\022\022\n\nsou"
   "rceName\030\006 \001(\t\022\022\n\nrouterName\030\007 \001(\t\022\023\n\013pro"
-  "cessName\030\010 \001(\t*9\n\007Command\022\t\n\005Empty\020\000\022\013\n\007"
-  "Connect\020\001\022\r\n\tAssociate\020\003\022\007\n\003Mux\020\177*B\n\013Add"
-  "ressType\022\017\n\013InvalidType\020\000\022\010\n\004IPv4\020\001\022\016\n\nD"
-  "omainName\020\003\022\010\n\004IPv6\020\004B\tZ\007./folivb\006proto3"
+  "cessName\030\010 \001(\t\022\025\n\rxForwardedFor\030\t \003(\014*9\n"
+  "\007Command\022\t\n\005Empty\020\000\022\013\n\007Connect\020\001\022\r\n\tAsso"
+  "ciate\020\003\022\007\n\003Mux\020\177*B\n\013AddressType\022\017\n\013Inval"
+  "idType\020\000\022\010\n\004IPv4\020\001\022\016\n\nDomainName\020\003\022\010\n\004IP"
+  "v6\020\004B\tZ\007./folivb\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_foliv_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_foliv_2eproto = {
-  false, false, 360, descriptor_table_protodef_foliv_2eproto, "foliv.proto", 
+  false, false, 383, descriptor_table_protodef_foliv_2eproto, "foliv.proto", 
   &descriptor_table_foliv_2eproto_once, nullptr, 0, 1,
   schemas, file_default_instances, TableStruct_foliv_2eproto::offsets,
   file_level_metadata_foliv_2eproto, file_level_enum_descriptors_foliv_2eproto, file_level_service_descriptors_foliv_2eproto,
@@ -133,13 +136,15 @@ class Foliv::_Internal {
 };
 
 Foliv::Foliv(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  xforwardedfor_(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:foliv.Foliv)
 }
 Foliv::Foliv(const Foliv& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      xforwardedfor_(from.xforwardedfor_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   userhash_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_userhash().empty()) {
@@ -215,6 +220,7 @@ void Foliv::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  xforwardedfor_.Clear();
   userhash_.ClearToEmpty();
   address_.ClearToEmpty();
   sourcename_.ClearToEmpty();
@@ -298,6 +304,19 @@ const char* Foliv::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::inte
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "foliv.Foliv.processName"));
           CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // repeated bytes xForwardedFor = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 74)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            auto str = _internal_add_xforwardedfor();
+            ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<74>(ptr));
         } else goto handle_unusual;
         continue;
       default: {
@@ -394,6 +413,12 @@ failure:
         8, this->_internal_processname(), target);
   }
 
+  // repeated bytes xForwardedFor = 9;
+  for (int i = 0, n = this->_internal_xforwardedfor_size(); i < n; i++) {
+    const auto& s = this->_internal_xforwardedfor(i);
+    target = stream->WriteBytes(9, s, target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -409,6 +434,14 @@ size_t Foliv::ByteSizeLong() const {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
+
+  // repeated bytes xForwardedFor = 9;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(xforwardedfor_.size());
+  for (int i = 0, n = xforwardedfor_.size(); i < n; i++) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+      xforwardedfor_.Get(i));
+  }
 
   // string userHash = 1;
   if (this->userhash().size() > 0) {
@@ -495,6 +528,7 @@ void Foliv::MergeFrom(const Foliv& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  xforwardedfor_.MergeFrom(from.xforwardedfor_);
   if (from.userhash().size() > 0) {
     _internal_set_userhash(from._internal_userhash());
   }
@@ -542,6 +576,7 @@ bool Foliv::IsInitialized() const {
 void Foliv::InternalSwap(Foliv* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  xforwardedfor_.InternalSwap(&other->xforwardedfor_);
   userhash_.Swap(&other->userhash_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   address_.Swap(&other->address_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   sourcename_.Swap(&other->sourcename_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());

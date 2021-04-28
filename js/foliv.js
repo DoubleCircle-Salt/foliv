@@ -30,7 +30,7 @@ goog.forwardDeclare('proto.foliv.Command');
  * @constructor
  */
 proto.foliv.Foliv = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.foliv.Foliv.repeatedFields_, null);
 };
 goog.inherits(proto.foliv.Foliv, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -40,6 +40,13 @@ if (goog.DEBUG && !COMPILED) {
    */
   proto.foliv.Foliv.displayName = 'proto.foliv.Foliv';
 }
+
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.foliv.Foliv.repeatedFields_ = [9];
 
 
 
@@ -79,7 +86,8 @@ proto.foliv.Foliv.toObject = function(includeInstance, msg) {
     port: jspb.Message.getFieldWithDefault(msg, 5, 0),
     sourcename: jspb.Message.getFieldWithDefault(msg, 6, ""),
     routername: jspb.Message.getFieldWithDefault(msg, 7, ""),
-    processname: jspb.Message.getFieldWithDefault(msg, 8, "")
+    processname: jspb.Message.getFieldWithDefault(msg, 8, ""),
+    xforwardedforList: msg.getXforwardedforList_asB64()
   };
 
   if (includeInstance) {
@@ -147,6 +155,10 @@ proto.foliv.Foliv.deserializeBinaryFromReader = function(msg, reader) {
     case 8:
       var value = /** @type {string} */ (reader.readString());
       msg.setProcessname(value);
+      break;
+    case 9:
+      var value = /** @type {!Uint8Array} */ (reader.readBytes());
+      msg.addXforwardedfor(value);
       break;
     default:
       reader.skipField();
@@ -230,6 +242,13 @@ proto.foliv.Foliv.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writeString(
       8,
+      f
+    );
+  }
+  f = message.getXforwardedforList_asU8();
+  if (f.length > 0) {
+    writer.writeRepeatedBytes(
+      9,
       f
     );
   }
@@ -401,6 +420,67 @@ proto.foliv.Foliv.prototype.getProcessname = function() {
  */
 proto.foliv.Foliv.prototype.setProcessname = function(value) {
   return jspb.Message.setProto3StringField(this, 8, value);
+};
+
+
+/**
+ * repeated bytes xForwardedFor = 9;
+ * @return {!Array<string>}
+ */
+proto.foliv.Foliv.prototype.getXforwardedforList = function() {
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 9));
+};
+
+
+/**
+ * repeated bytes xForwardedFor = 9;
+ * This is a type-conversion wrapper around `getXforwardedforList()`
+ * @return {!Array<string>}
+ */
+proto.foliv.Foliv.prototype.getXforwardedforList_asB64 = function() {
+  return /** @type {!Array<string>} */ (jspb.Message.bytesListAsB64(
+      this.getXforwardedforList()));
+};
+
+
+/**
+ * repeated bytes xForwardedFor = 9;
+ * Note that Uint8Array is not supported on all browsers.
+ * @see http://caniuse.com/Uint8Array
+ * This is a type-conversion wrapper around `getXforwardedforList()`
+ * @return {!Array<!Uint8Array>}
+ */
+proto.foliv.Foliv.prototype.getXforwardedforList_asU8 = function() {
+  return /** @type {!Array<!Uint8Array>} */ (jspb.Message.bytesListAsU8(
+      this.getXforwardedforList()));
+};
+
+
+/**
+ * @param {!(Array<!Uint8Array>|Array<string>)} value
+ * @return {!proto.foliv.Foliv} returns this
+ */
+proto.foliv.Foliv.prototype.setXforwardedforList = function(value) {
+  return jspb.Message.setField(this, 9, value || []);
+};
+
+
+/**
+ * @param {!(string|Uint8Array)} value
+ * @param {number=} opt_index
+ * @return {!proto.foliv.Foliv} returns this
+ */
+proto.foliv.Foliv.prototype.addXforwardedfor = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 9, value, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.foliv.Foliv} returns this
+ */
+proto.foliv.Foliv.prototype.clearXforwardedforList = function() {
+  return this.setXforwardedforList([]);
 };
 
 

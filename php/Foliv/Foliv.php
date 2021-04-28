@@ -45,6 +45,10 @@ class Foliv extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string processName = 8;</code>
      */
     protected $processName = '';
+    /**
+     * Generated from protobuf field <code>repeated bytes xForwardedFor = 9;</code>
+     */
+    private $xForwardedFor;
 
     /**
      * Constructor.
@@ -60,6 +64,7 @@ class Foliv extends \Google\Protobuf\Internal\Message
      *     @type string $sourceName
      *     @type string $routerName
      *     @type string $processName
+     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $xForwardedFor
      * }
      */
     public function __construct($data = NULL) {
@@ -239,6 +244,28 @@ class Foliv extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->processName = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated bytes xForwardedFor = 9;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
+     */
+    public function getXForwardedFor()
+    {
+        return $this->xForwardedFor;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated bytes xForwardedFor = 9;</code>
+     * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
+     */
+    public function setXForwardedFor($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::BYTES);
+        $this->xForwardedFor = $arr;
 
         return $this;
     }

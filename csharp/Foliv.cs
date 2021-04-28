@@ -24,18 +24,19 @@ namespace Foliv {
     static FolivReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cgtmb2xpdi5wcm90bxIFZm9saXYivwEKBUZvbGl2EhAKCHVzZXJIYXNoGAEg",
+            "Cgtmb2xpdi5wcm90bxIFZm9saXYi1gEKBUZvbGl2EhAKCHVzZXJIYXNoGAEg",
             "ASgJEh8KB2NvbW1hbmQYAiABKA4yDi5mb2xpdi5Db21tYW5kEicKC2FkZHJl",
             "c3NUeXBlGAMgASgOMhIuZm9saXYuQWRkcmVzc1R5cGUSDwoHYWRkcmVzcxgE",
             "IAEoDBIMCgRwb3J0GAUgASgNEhIKCnNvdXJjZU5hbWUYBiABKAkSEgoKcm91",
-            "dGVyTmFtZRgHIAEoCRITCgtwcm9jZXNzTmFtZRgIIAEoCSo5CgdDb21tYW5k",
-            "EgkKBUVtcHR5EAASCwoHQ29ubmVjdBABEg0KCUFzc29jaWF0ZRADEgcKA011",
-            "eBB/KkIKC0FkZHJlc3NUeXBlEg8KC0ludmFsaWRUeXBlEAASCAoESVB2NBAB",
-            "Eg4KCkRvbWFpbk5hbWUQAxIICgRJUHY2EARCCVoHLi9mb2xpdmIGcHJvdG8z"));
+            "dGVyTmFtZRgHIAEoCRITCgtwcm9jZXNzTmFtZRgIIAEoCRIVCg14Rm9yd2Fy",
+            "ZGVkRm9yGAkgAygMKjkKB0NvbW1hbmQSCQoFRW1wdHkQABILCgdDb25uZWN0",
+            "EAESDQoJQXNzb2NpYXRlEAMSBwoDTXV4EH8qQgoLQWRkcmVzc1R5cGUSDwoL",
+            "SW52YWxpZFR5cGUQABIICgRJUHY0EAESDgoKRG9tYWluTmFtZRADEggKBElQ",
+            "djYQBEIJWgcuL2ZvbGl2YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Foliv.Command), typeof(global::Foliv.AddressType), }, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Foliv.Foliv), global::Foliv.Foliv.Parser, new[]{ "UserHash", "Command", "AddressType", "Address", "Port", "SourceName", "RouterName", "ProcessName" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Foliv.Foliv), global::Foliv.Foliv.Parser, new[]{ "UserHash", "Command", "AddressType", "Address", "Port", "SourceName", "RouterName", "ProcessName", "XForwardedFor" }, null, null, null, null)
           }));
     }
     #endregion
@@ -96,6 +97,7 @@ namespace Foliv {
       sourceName_ = other.sourceName_;
       routerName_ = other.routerName_;
       processName_ = other.processName_;
+      xForwardedFor_ = other.xForwardedFor_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -192,6 +194,16 @@ namespace Foliv {
       }
     }
 
+    /// <summary>Field number for the "xForwardedFor" field.</summary>
+    public const int XForwardedForFieldNumber = 9;
+    private static readonly pb::FieldCodec<pb::ByteString> _repeated_xForwardedFor_codec
+        = pb::FieldCodec.ForBytes(74);
+    private readonly pbc::RepeatedField<pb::ByteString> xForwardedFor_ = new pbc::RepeatedField<pb::ByteString>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<pb::ByteString> XForwardedFor {
+      get { return xForwardedFor_; }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as Foliv);
@@ -213,6 +225,7 @@ namespace Foliv {
       if (SourceName != other.SourceName) return false;
       if (RouterName != other.RouterName) return false;
       if (ProcessName != other.ProcessName) return false;
+      if(!xForwardedFor_.Equals(other.xForwardedFor_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -227,6 +240,7 @@ namespace Foliv {
       if (SourceName.Length != 0) hash ^= SourceName.GetHashCode();
       if (RouterName.Length != 0) hash ^= RouterName.GetHashCode();
       if (ProcessName.Length != 0) hash ^= ProcessName.GetHashCode();
+      hash ^= xForwardedFor_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -275,6 +289,7 @@ namespace Foliv {
         output.WriteRawTag(66);
         output.WriteString(ProcessName);
       }
+      xForwardedFor_.WriteTo(output, _repeated_xForwardedFor_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -316,6 +331,7 @@ namespace Foliv {
         output.WriteRawTag(66);
         output.WriteString(ProcessName);
       }
+      xForwardedFor_.WriteTo(ref output, _repeated_xForwardedFor_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -349,6 +365,7 @@ namespace Foliv {
       if (ProcessName.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(ProcessName);
       }
+      size += xForwardedFor_.CalculateSize(_repeated_xForwardedFor_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -384,6 +401,7 @@ namespace Foliv {
       if (other.ProcessName.Length != 0) {
         ProcessName = other.ProcessName;
       }
+      xForwardedFor_.Add(other.xForwardedFor_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -430,6 +448,10 @@ namespace Foliv {
             ProcessName = input.ReadString();
             break;
           }
+          case 74: {
+            xForwardedFor_.AddEntriesFrom(input, _repeated_xForwardedFor_codec);
+            break;
+          }
         }
       }
     #endif
@@ -474,6 +496,10 @@ namespace Foliv {
           }
           case 66: {
             ProcessName = input.ReadString();
+            break;
+          }
+          case 74: {
+            xForwardedFor_.AddEntriesFrom(ref input, _repeated_xForwardedFor_codec);
             break;
           }
         }

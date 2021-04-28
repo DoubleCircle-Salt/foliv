@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z\007./foliv',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0b\x66oliv.proto\x12\x05\x66oliv\"\xbf\x01\n\x05\x46oliv\x12\x10\n\x08userHash\x18\x01 \x01(\t\x12\x1f\n\x07\x63ommand\x18\x02 \x01(\x0e\x32\x0e.foliv.Command\x12\'\n\x0b\x61\x64\x64ressType\x18\x03 \x01(\x0e\x32\x12.foliv.AddressType\x12\x0f\n\x07\x61\x64\x64ress\x18\x04 \x01(\x0c\x12\x0c\n\x04port\x18\x05 \x01(\r\x12\x12\n\nsourceName\x18\x06 \x01(\t\x12\x12\n\nrouterName\x18\x07 \x01(\t\x12\x13\n\x0bprocessName\x18\x08 \x01(\t*9\n\x07\x43ommand\x12\t\n\x05\x45mpty\x10\x00\x12\x0b\n\x07\x43onnect\x10\x01\x12\r\n\tAssociate\x10\x03\x12\x07\n\x03Mux\x10\x7f*B\n\x0b\x41\x64\x64ressType\x12\x0f\n\x0bInvalidType\x10\x00\x12\x08\n\x04IPv4\x10\x01\x12\x0e\n\nDomainName\x10\x03\x12\x08\n\x04IPv6\x10\x04\x42\tZ\x07./folivb\x06proto3'
+  serialized_pb=b'\n\x0b\x66oliv.proto\x12\x05\x66oliv\"\xd6\x01\n\x05\x46oliv\x12\x10\n\x08userHash\x18\x01 \x01(\t\x12\x1f\n\x07\x63ommand\x18\x02 \x01(\x0e\x32\x0e.foliv.Command\x12\'\n\x0b\x61\x64\x64ressType\x18\x03 \x01(\x0e\x32\x12.foliv.AddressType\x12\x0f\n\x07\x61\x64\x64ress\x18\x04 \x01(\x0c\x12\x0c\n\x04port\x18\x05 \x01(\r\x12\x12\n\nsourceName\x18\x06 \x01(\t\x12\x12\n\nrouterName\x18\x07 \x01(\t\x12\x13\n\x0bprocessName\x18\x08 \x01(\t\x12\x15\n\rxForwardedFor\x18\t \x03(\x0c*9\n\x07\x43ommand\x12\t\n\x05\x45mpty\x10\x00\x12\x0b\n\x07\x43onnect\x10\x01\x12\r\n\tAssociate\x10\x03\x12\x07\n\x03Mux\x10\x7f*B\n\x0b\x41\x64\x64ressType\x12\x0f\n\x0bInvalidType\x10\x00\x12\x08\n\x04IPv4\x10\x01\x12\x0e\n\nDomainName\x10\x03\x12\x08\n\x04IPv6\x10\x04\x42\tZ\x07./folivb\x06proto3'
 )
 
 _COMMAND = _descriptor.EnumDescriptor(
@@ -53,8 +53,8 @@ _COMMAND = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=216,
-  serialized_end=273,
+  serialized_start=239,
+  serialized_end=296,
 )
 _sym_db.RegisterEnumDescriptor(_COMMAND)
 
@@ -89,8 +89,8 @@ _ADDRESSTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=275,
-  serialized_end=341,
+  serialized_start=298,
+  serialized_end=364,
 )
 _sym_db.RegisterEnumDescriptor(_ADDRESSTYPE)
 
@@ -170,6 +170,13 @@ _FOLIV = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='xForwardedFor', full_name='foliv.Foliv.xForwardedFor', index=8,
+      number=9, type=12, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -183,7 +190,7 @@ _FOLIV = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=23,
-  serialized_end=214,
+  serialized_end=237,
 )
 
 _FOLIV.fields_by_name['command'].enum_type = _COMMAND

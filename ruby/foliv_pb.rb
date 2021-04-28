@@ -14,6 +14,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :sourceName, :string, 6
       optional :routerName, :string, 7
       optional :processName, :string, 8
+      repeated :xForwardedFor, :bytes, 9
     end
     add_enum "foliv.Command" do
       value :Empty, 0

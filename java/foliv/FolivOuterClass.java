@@ -351,6 +351,23 @@ public final class FolivOuterClass {
      */
     com.google.protobuf.ByteString
         getProcessNameBytes();
+
+    /**
+     * <code>repeated bytes xForwardedFor = 9;</code>
+     * @return A list containing the xForwardedFor.
+     */
+    java.util.List<com.google.protobuf.ByteString> getXForwardedForList();
+    /**
+     * <code>repeated bytes xForwardedFor = 9;</code>
+     * @return The count of xForwardedFor.
+     */
+    int getXForwardedForCount();
+    /**
+     * <code>repeated bytes xForwardedFor = 9;</code>
+     * @param index The index of the element to return.
+     * @return The xForwardedFor at the given index.
+     */
+    com.google.protobuf.ByteString getXForwardedFor(int index);
   }
   /**
    * Protobuf type {@code foliv.Foliv}
@@ -372,6 +389,7 @@ public final class FolivOuterClass {
       sourceName_ = "";
       routerName_ = "";
       processName_ = "";
+      xForwardedFor_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -394,6 +412,7 @@ public final class FolivOuterClass {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -450,6 +469,14 @@ public final class FolivOuterClass {
               processName_ = s;
               break;
             }
+            case 74: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                xForwardedFor_ = new java.util.ArrayList<com.google.protobuf.ByteString>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              xForwardedFor_.add(input.readBytes());
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -465,6 +492,9 @@ public final class FolivOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          xForwardedFor_ = java.util.Collections.unmodifiableList(xForwardedFor_); // C
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -694,6 +724,33 @@ public final class FolivOuterClass {
       }
     }
 
+    public static final int XFORWARDEDFOR_FIELD_NUMBER = 9;
+    private java.util.List<com.google.protobuf.ByteString> xForwardedFor_;
+    /**
+     * <code>repeated bytes xForwardedFor = 9;</code>
+     * @return A list containing the xForwardedFor.
+     */
+    @java.lang.Override
+    public java.util.List<com.google.protobuf.ByteString>
+        getXForwardedForList() {
+      return xForwardedFor_;
+    }
+    /**
+     * <code>repeated bytes xForwardedFor = 9;</code>
+     * @return The count of xForwardedFor.
+     */
+    public int getXForwardedForCount() {
+      return xForwardedFor_.size();
+    }
+    /**
+     * <code>repeated bytes xForwardedFor = 9;</code>
+     * @param index The index of the element to return.
+     * @return The xForwardedFor at the given index.
+     */
+    public com.google.protobuf.ByteString getXForwardedFor(int index) {
+      return xForwardedFor_.get(index);
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -732,6 +789,9 @@ public final class FolivOuterClass {
       if (!getProcessNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 8, processName_);
       }
+      for (int i = 0; i < xForwardedFor_.size(); i++) {
+        output.writeBytes(9, xForwardedFor_.get(i));
+      }
       unknownFields.writeTo(output);
     }
 
@@ -769,6 +829,15 @@ public final class FolivOuterClass {
       if (!getProcessNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, processName_);
       }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < xForwardedFor_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeBytesSizeNoTag(xForwardedFor_.get(i));
+        }
+        size += dataSize;
+        size += 1 * getXForwardedForList().size();
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -798,6 +867,8 @@ public final class FolivOuterClass {
           .equals(other.getRouterName())) return false;
       if (!getProcessName()
           .equals(other.getProcessName())) return false;
+      if (!getXForwardedForList()
+          .equals(other.getXForwardedForList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -825,6 +896,10 @@ public final class FolivOuterClass {
       hash = (53 * hash) + getRouterName().hashCode();
       hash = (37 * hash) + PROCESSNAME_FIELD_NUMBER;
       hash = (53 * hash) + getProcessName().hashCode();
+      if (getXForwardedForCount() > 0) {
+        hash = (37 * hash) + XFORWARDEDFOR_FIELD_NUMBER;
+        hash = (53 * hash) + getXForwardedForList().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -974,6 +1049,8 @@ public final class FolivOuterClass {
 
         processName_ = "";
 
+        xForwardedFor_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -1000,6 +1077,7 @@ public final class FolivOuterClass {
       @java.lang.Override
       public foliv.FolivOuterClass.Foliv buildPartial() {
         foliv.FolivOuterClass.Foliv result = new foliv.FolivOuterClass.Foliv(this);
+        int from_bitField0_ = bitField0_;
         result.userHash_ = userHash_;
         result.command_ = command_;
         result.addressType_ = addressType_;
@@ -1008,6 +1086,11 @@ public final class FolivOuterClass {
         result.sourceName_ = sourceName_;
         result.routerName_ = routerName_;
         result.processName_ = processName_;
+        if (((bitField0_ & 0x00000001) != 0)) {
+          xForwardedFor_ = java.util.Collections.unmodifiableList(xForwardedFor_);
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.xForwardedFor_ = xForwardedFor_;
         onBuilt();
         return result;
       }
@@ -1084,6 +1167,16 @@ public final class FolivOuterClass {
           processName_ = other.processName_;
           onChanged();
         }
+        if (!other.xForwardedFor_.isEmpty()) {
+          if (xForwardedFor_.isEmpty()) {
+            xForwardedFor_ = other.xForwardedFor_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureXForwardedForIsMutable();
+            xForwardedFor_.addAll(other.xForwardedFor_);
+          }
+          onChanged();
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -1112,6 +1205,7 @@ public final class FolivOuterClass {
         }
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object userHash_ = "";
       /**
@@ -1589,6 +1683,91 @@ public final class FolivOuterClass {
         onChanged();
         return this;
       }
+
+      private java.util.List<com.google.protobuf.ByteString> xForwardedFor_ = java.util.Collections.emptyList();
+      private void ensureXForwardedForIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          xForwardedFor_ = new java.util.ArrayList<com.google.protobuf.ByteString>(xForwardedFor_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated bytes xForwardedFor = 9;</code>
+       * @return A list containing the xForwardedFor.
+       */
+      public java.util.List<com.google.protobuf.ByteString>
+          getXForwardedForList() {
+        return ((bitField0_ & 0x00000001) != 0) ?
+                 java.util.Collections.unmodifiableList(xForwardedFor_) : xForwardedFor_;
+      }
+      /**
+       * <code>repeated bytes xForwardedFor = 9;</code>
+       * @return The count of xForwardedFor.
+       */
+      public int getXForwardedForCount() {
+        return xForwardedFor_.size();
+      }
+      /**
+       * <code>repeated bytes xForwardedFor = 9;</code>
+       * @param index The index of the element to return.
+       * @return The xForwardedFor at the given index.
+       */
+      public com.google.protobuf.ByteString getXForwardedFor(int index) {
+        return xForwardedFor_.get(index);
+      }
+      /**
+       * <code>repeated bytes xForwardedFor = 9;</code>
+       * @param index The index to set the value at.
+       * @param value The xForwardedFor to set.
+       * @return This builder for chaining.
+       */
+      public Builder setXForwardedFor(
+          int index, com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureXForwardedForIsMutable();
+        xForwardedFor_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated bytes xForwardedFor = 9;</code>
+       * @param value The xForwardedFor to add.
+       * @return This builder for chaining.
+       */
+      public Builder addXForwardedFor(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureXForwardedForIsMutable();
+        xForwardedFor_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated bytes xForwardedFor = 9;</code>
+       * @param values The xForwardedFor to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllXForwardedFor(
+          java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
+        ensureXForwardedForIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, xForwardedFor_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated bytes xForwardedFor = 9;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearXForwardedFor() {
+        xForwardedFor_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1656,15 +1835,16 @@ public final class FolivOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\013foliv.proto\022\005foliv\"\277\001\n\005Foliv\022\020\n\010userHa" +
+      "\n\013foliv.proto\022\005foliv\"\326\001\n\005Foliv\022\020\n\010userHa" +
       "sh\030\001 \001(\t\022\037\n\007command\030\002 \001(\0162\016.foliv.Comman" +
       "d\022\'\n\013addressType\030\003 \001(\0162\022.foliv.AddressTy" +
       "pe\022\017\n\007address\030\004 \001(\014\022\014\n\004port\030\005 \001(\r\022\022\n\nsou" +
       "rceName\030\006 \001(\t\022\022\n\nrouterName\030\007 \001(\t\022\023\n\013pro" +
-      "cessName\030\010 \001(\t*9\n\007Command\022\t\n\005Empty\020\000\022\013\n\007" +
-      "Connect\020\001\022\r\n\tAssociate\020\003\022\007\n\003Mux\020\177*B\n\013Add" +
-      "ressType\022\017\n\013InvalidType\020\000\022\010\n\004IPv4\020\001\022\016\n\nD" +
-      "omainName\020\003\022\010\n\004IPv6\020\004B\tZ\007./folivb\006proto3"
+      "cessName\030\010 \001(\t\022\025\n\rxForwardedFor\030\t \003(\014*9\n" +
+      "\007Command\022\t\n\005Empty\020\000\022\013\n\007Connect\020\001\022\r\n\tAsso" +
+      "ciate\020\003\022\007\n\003Mux\020\177*B\n\013AddressType\022\017\n\013Inval" +
+      "idType\020\000\022\010\n\004IPv4\020\001\022\016\n\nDomainName\020\003\022\010\n\004IP" +
+      "v6\020\004B\tZ\007./folivb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1675,7 +1855,7 @@ public final class FolivOuterClass {
     internal_static_foliv_Foliv_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_foliv_Foliv_descriptor,
-        new java.lang.String[] { "UserHash", "Command", "AddressType", "Address", "Port", "SourceName", "RouterName", "ProcessName", });
+        new java.lang.String[] { "UserHash", "Command", "AddressType", "Address", "Port", "SourceName", "RouterName", "ProcessName", "XForwardedFor", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -234,6 +234,7 @@ class Foliv PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kXForwardedForFieldNumber = 9,
     kUserHashFieldNumber = 1,
     kAddressFieldNumber = 4,
     kSourceNameFieldNumber = 6,
@@ -243,6 +244,30 @@ class Foliv PROTOBUF_FINAL :
     kAddressTypeFieldNumber = 3,
     kPortFieldNumber = 5,
   };
+  // repeated bytes xForwardedFor = 9;
+  int xforwardedfor_size() const;
+  private:
+  int _internal_xforwardedfor_size() const;
+  public:
+  void clear_xforwardedfor();
+  const std::string& xforwardedfor(int index) const;
+  std::string* mutable_xforwardedfor(int index);
+  void set_xforwardedfor(int index, const std::string& value);
+  void set_xforwardedfor(int index, std::string&& value);
+  void set_xforwardedfor(int index, const char* value);
+  void set_xforwardedfor(int index, const void* value, size_t size);
+  std::string* add_xforwardedfor();
+  void add_xforwardedfor(const std::string& value);
+  void add_xforwardedfor(std::string&& value);
+  void add_xforwardedfor(const char* value);
+  void add_xforwardedfor(const void* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& xforwardedfor() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_xforwardedfor();
+  private:
+  const std::string& _internal_xforwardedfor(int index) const;
+  std::string* _internal_add_xforwardedfor();
+  public:
+
   // string userHash = 1;
   void clear_userhash();
   const std::string& userhash() const;
@@ -357,6 +382,7 @@ class Foliv PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> xforwardedfor_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr userhash_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr address_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sourcename_;
@@ -742,6 +768,80 @@ inline void Foliv::set_allocated_processname(std::string* processname) {
   processname_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), processname,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:foliv.Foliv.processName)
+}
+
+// repeated bytes xForwardedFor = 9;
+inline int Foliv::_internal_xforwardedfor_size() const {
+  return xforwardedfor_.size();
+}
+inline int Foliv::xforwardedfor_size() const {
+  return _internal_xforwardedfor_size();
+}
+inline void Foliv::clear_xforwardedfor() {
+  xforwardedfor_.Clear();
+}
+inline std::string* Foliv::add_xforwardedfor() {
+  // @@protoc_insertion_point(field_add_mutable:foliv.Foliv.xForwardedFor)
+  return _internal_add_xforwardedfor();
+}
+inline const std::string& Foliv::_internal_xforwardedfor(int index) const {
+  return xforwardedfor_.Get(index);
+}
+inline const std::string& Foliv::xforwardedfor(int index) const {
+  // @@protoc_insertion_point(field_get:foliv.Foliv.xForwardedFor)
+  return _internal_xforwardedfor(index);
+}
+inline std::string* Foliv::mutable_xforwardedfor(int index) {
+  // @@protoc_insertion_point(field_mutable:foliv.Foliv.xForwardedFor)
+  return xforwardedfor_.Mutable(index);
+}
+inline void Foliv::set_xforwardedfor(int index, const std::string& value) {
+  // @@protoc_insertion_point(field_set:foliv.Foliv.xForwardedFor)
+  xforwardedfor_.Mutable(index)->assign(value);
+}
+inline void Foliv::set_xforwardedfor(int index, std::string&& value) {
+  // @@protoc_insertion_point(field_set:foliv.Foliv.xForwardedFor)
+  xforwardedfor_.Mutable(index)->assign(std::move(value));
+}
+inline void Foliv::set_xforwardedfor(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  xforwardedfor_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:foliv.Foliv.xForwardedFor)
+}
+inline void Foliv::set_xforwardedfor(int index, const void* value, size_t size) {
+  xforwardedfor_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:foliv.Foliv.xForwardedFor)
+}
+inline std::string* Foliv::_internal_add_xforwardedfor() {
+  return xforwardedfor_.Add();
+}
+inline void Foliv::add_xforwardedfor(const std::string& value) {
+  xforwardedfor_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:foliv.Foliv.xForwardedFor)
+}
+inline void Foliv::add_xforwardedfor(std::string&& value) {
+  xforwardedfor_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:foliv.Foliv.xForwardedFor)
+}
+inline void Foliv::add_xforwardedfor(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  xforwardedfor_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:foliv.Foliv.xForwardedFor)
+}
+inline void Foliv::add_xforwardedfor(const void* value, size_t size) {
+  xforwardedfor_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:foliv.Foliv.xForwardedFor)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+Foliv::xforwardedfor() const {
+  // @@protoc_insertion_point(field_list:foliv.Foliv.xForwardedFor)
+  return xforwardedfor_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+Foliv::mutable_xforwardedfor() {
+  // @@protoc_insertion_point(field_mutable_list:foliv.Foliv.xForwardedFor)
+  return &xforwardedfor_;
 }
 
 #ifdef __GNUC__

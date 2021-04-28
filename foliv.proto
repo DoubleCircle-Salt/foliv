@@ -58,12 +58,13 @@ enum AddressType {
 }
 
 message Foliv {
-	string      userHash = 1;
-	Command     command = 2;
-	AddressType addressType = 3;
-	bytes       address = 4;
-	uint32      port = 5;
-	string      sourceName = 6;
-	string      routerName = 7;
-	string      processName = 8;
+	string         userHash = 1;
+	Command        command = 2;
+	AddressType    addressType = 3;
+	bytes          address = 4;
+	uint32         port = 5;
+	string         sourceName = 6;
+	string         routerName = 7;
+	string         processName = 8;
+	repeated bytes xForwardedFor = 9;
 }
