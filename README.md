@@ -8,16 +8,18 @@
 
 # 数据包部分字段简介
 
-| 名称   | 类型  | 说明  |
-|  ----  | ----  | ----  |
-| UserHash  | string | 固定为'foliv' |
-| Command  | enum | Connect:1/Associate:3/Mux:0x7f |
-| AddressType | enum | IPv4:1/DomainName:3/IPv6:4 |
-| Address | []byte | ipv4长度4，ipv6长度16，domain明文 |
-| Port | uint32 | 目标端口 |
-| SourceName | string | 回源规则名称 |
-| RouterName | string | 路由规则名称（ip,域名黑白名单） |
-| ProcessName | string | 进程名称 |
+| 序号 | 名称   | 类型  | 说明  |
+|  ----  |  ----  | ----  | ----  |
+| 1 | UserHash | string | 固定为'foliv' |
+| 2 | Command  | enum | Connect:1/Associate:3/Mux:0x7f |
+| 3 | AddressType | enum | IPv4:1/DomainName:3/IPv6:4 |
+| 4 | Address | []byte | ipv4长度4，ipv6长度16，domain明文 |
+| 5 | Port | uint32 | 目标端口 |
+| 6 | SourceName | string | 回源规则名称 |
+| 7 | RouterName | string | 路由规则名称（ip,域名黑白名单） |
+| 8 | ProcessName | string | 进程名称 |
+| 9 | XForwardedFor | [][]byte | x-forwarded-for |
+| 10 | isTouch | bool | 是否为touch |
 
 # go-code instruction
 
