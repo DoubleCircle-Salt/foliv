@@ -49,6 +49,10 @@ class Foliv extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>repeated bytes xForwardedFor = 9;</code>
      */
     private $xForwardedFor;
+    /**
+     * Generated from protobuf field <code>bool isTouch = 10;</code>
+     */
+    protected $isTouch = false;
 
     /**
      * Constructor.
@@ -65,6 +69,7 @@ class Foliv extends \Google\Protobuf\Internal\Message
      *     @type string $routerName
      *     @type string $processName
      *     @type string[]|\Google\Protobuf\Internal\RepeatedField $xForwardedFor
+     *     @type bool $isTouch
      * }
      */
     public function __construct($data = NULL) {
@@ -266,6 +271,28 @@ class Foliv extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::BYTES);
         $this->xForwardedFor = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool isTouch = 10;</code>
+     * @return bool
+     */
+    public function getIsTouch()
+    {
+        return $this->isTouch;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool isTouch = 10;</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setIsTouch($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->isTouch = $var;
 
         return $this;
     }

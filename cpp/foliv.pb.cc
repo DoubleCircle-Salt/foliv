@@ -29,7 +29,8 @@ constexpr Foliv::Foliv(
 
   , addresstype_(0)
 
-  , port_(0u){}
+  , port_(0u)
+  , istouch_(false){}
 struct FolivDefaultTypeInternal {
   constexpr FolivDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -59,6 +60,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_foliv_2eproto::offsets[] PROTO
   PROTOBUF_FIELD_OFFSET(::foliv::Foliv, routername_),
   PROTOBUF_FIELD_OFFSET(::foliv::Foliv, processname_),
   PROTOBUF_FIELD_OFFSET(::foliv::Foliv, xforwardedfor_),
+  PROTOBUF_FIELD_OFFSET(::foliv::Foliv, istouch_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::foliv::Foliv)},
@@ -69,20 +71,20 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 };
 
 const char descriptor_table_protodef_foliv_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\013foliv.proto\022\005foliv\"\326\001\n\005Foliv\022\020\n\010userHa"
+  "\n\013foliv.proto\022\005foliv\"\347\001\n\005Foliv\022\020\n\010userHa"
   "sh\030\001 \001(\t\022\037\n\007command\030\002 \001(\0162\016.foliv.Comman"
   "d\022\'\n\013addressType\030\003 \001(\0162\022.foliv.AddressTy"
   "pe\022\017\n\007address\030\004 \001(\014\022\014\n\004port\030\005 \001(\r\022\022\n\nsou"
   "rceName\030\006 \001(\t\022\022\n\nrouterName\030\007 \001(\t\022\023\n\013pro"
-  "cessName\030\010 \001(\t\022\025\n\rxForwardedFor\030\t \003(\014*9\n"
-  "\007Command\022\t\n\005Empty\020\000\022\013\n\007Connect\020\001\022\r\n\tAsso"
-  "ciate\020\003\022\007\n\003Mux\020\177*B\n\013AddressType\022\017\n\013Inval"
-  "idType\020\000\022\010\n\004IPv4\020\001\022\016\n\nDomainName\020\003\022\010\n\004IP"
-  "v6\020\004B\tZ\007./folivb\006proto3"
+  "cessName\030\010 \001(\t\022\025\n\rxForwardedFor\030\t \003(\014\022\017\n"
+  "\007isTouch\030\n \001(\010*9\n\007Command\022\t\n\005Empty\020\000\022\013\n\007"
+  "Connect\020\001\022\r\n\tAssociate\020\003\022\007\n\003Mux\020\177*B\n\013Add"
+  "ressType\022\017\n\013InvalidType\020\000\022\010\n\004IPv4\020\001\022\016\n\nD"
+  "omainName\020\003\022\010\n\004IPv6\020\004B\tZ\007./folivb\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_foliv_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_foliv_2eproto = {
-  false, false, 383, descriptor_table_protodef_foliv_2eproto, "foliv.proto", 
+  false, false, 400, descriptor_table_protodef_foliv_2eproto, "foliv.proto", 
   &descriptor_table_foliv_2eproto_once, nullptr, 0, 1,
   schemas, file_default_instances, TableStruct_foliv_2eproto::offsets,
   file_level_metadata_foliv_2eproto, file_level_enum_descriptors_foliv_2eproto, file_level_service_descriptors_foliv_2eproto,
@@ -172,8 +174,8 @@ Foliv::Foliv(const Foliv& from)
       GetArena());
   }
   ::memcpy(&command_, &from.command_,
-    static_cast<size_t>(reinterpret_cast<char*>(&port_) -
-    reinterpret_cast<char*>(&command_)) + sizeof(port_));
+    static_cast<size_t>(reinterpret_cast<char*>(&istouch_) -
+    reinterpret_cast<char*>(&command_)) + sizeof(istouch_));
   // @@protoc_insertion_point(copy_constructor:foliv.Foliv)
 }
 
@@ -185,8 +187,8 @@ routername_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringA
 processname_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&command_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&port_) -
-    reinterpret_cast<char*>(&command_)) + sizeof(port_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&istouch_) -
+    reinterpret_cast<char*>(&command_)) + sizeof(istouch_));
 }
 
 Foliv::~Foliv() {
@@ -227,8 +229,8 @@ void Foliv::Clear() {
   routername_.ClearToEmpty();
   processname_.ClearToEmpty();
   ::memset(&command_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&port_) -
-      reinterpret_cast<char*>(&command_)) + sizeof(port_));
+      reinterpret_cast<char*>(&istouch_) -
+      reinterpret_cast<char*>(&command_)) + sizeof(istouch_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -317,6 +319,13 @@ const char* Foliv::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::inte
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<74>(ptr));
+        } else goto handle_unusual;
+        continue;
+      // bool isTouch = 10;
+      case 10:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 80)) {
+          istouch_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
         } else goto handle_unusual;
         continue;
       default: {
@@ -419,6 +428,12 @@ failure:
     target = stream->WriteBytes(9, s, target);
   }
 
+  // bool isTouch = 10;
+  if (this->istouch() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(10, this->_internal_istouch(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -497,6 +512,11 @@ size_t Foliv::ByteSizeLong() const {
         this->_internal_port());
   }
 
+  // bool isTouch = 10;
+  if (this->istouch() != 0) {
+    total_size += 1 + 1;
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
         _internal_metadata_, total_size, &_cached_size_);
@@ -553,6 +573,9 @@ void Foliv::MergeFrom(const Foliv& from) {
   if (from.port() != 0) {
     _internal_set_port(from._internal_port());
   }
+  if (from.istouch() != 0) {
+    _internal_set_istouch(from._internal_istouch());
+  }
 }
 
 void Foliv::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -583,8 +606,8 @@ void Foliv::InternalSwap(Foliv* other) {
   routername_.Swap(&other->routername_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   processname_.Swap(&other->processname_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Foliv, port_)
-      + sizeof(Foliv::port_)
+      PROTOBUF_FIELD_OFFSET(Foliv, istouch_)
+      + sizeof(Foliv::istouch_)
       - PROTOBUF_FIELD_OFFSET(Foliv, command_)>(
           reinterpret_cast<char*>(&command_),
           reinterpret_cast<char*>(&other->command_));

@@ -24,19 +24,19 @@ namespace Foliv {
     static FolivReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cgtmb2xpdi5wcm90bxIFZm9saXYi1gEKBUZvbGl2EhAKCHVzZXJIYXNoGAEg",
+            "Cgtmb2xpdi5wcm90bxIFZm9saXYi5wEKBUZvbGl2EhAKCHVzZXJIYXNoGAEg",
             "ASgJEh8KB2NvbW1hbmQYAiABKA4yDi5mb2xpdi5Db21tYW5kEicKC2FkZHJl",
             "c3NUeXBlGAMgASgOMhIuZm9saXYuQWRkcmVzc1R5cGUSDwoHYWRkcmVzcxgE",
             "IAEoDBIMCgRwb3J0GAUgASgNEhIKCnNvdXJjZU5hbWUYBiABKAkSEgoKcm91",
             "dGVyTmFtZRgHIAEoCRITCgtwcm9jZXNzTmFtZRgIIAEoCRIVCg14Rm9yd2Fy",
-            "ZGVkRm9yGAkgAygMKjkKB0NvbW1hbmQSCQoFRW1wdHkQABILCgdDb25uZWN0",
-            "EAESDQoJQXNzb2NpYXRlEAMSBwoDTXV4EH8qQgoLQWRkcmVzc1R5cGUSDwoL",
-            "SW52YWxpZFR5cGUQABIICgRJUHY0EAESDgoKRG9tYWluTmFtZRADEggKBElQ",
-            "djYQBEIJWgcuL2ZvbGl2YgZwcm90bzM="));
+            "ZGVkRm9yGAkgAygMEg8KB2lzVG91Y2gYCiABKAgqOQoHQ29tbWFuZBIJCgVF",
+            "bXB0eRAAEgsKB0Nvbm5lY3QQARINCglBc3NvY2lhdGUQAxIHCgNNdXgQfypC",
+            "CgtBZGRyZXNzVHlwZRIPCgtJbnZhbGlkVHlwZRAAEggKBElQdjQQARIOCgpE",
+            "b21haW5OYW1lEAMSCAoESVB2NhAEQglaBy4vZm9saXZiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Foliv.Command), typeof(global::Foliv.AddressType), }, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Foliv.Foliv), global::Foliv.Foliv.Parser, new[]{ "UserHash", "Command", "AddressType", "Address", "Port", "SourceName", "RouterName", "ProcessName", "XForwardedFor" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Foliv.Foliv), global::Foliv.Foliv.Parser, new[]{ "UserHash", "Command", "AddressType", "Address", "Port", "SourceName", "RouterName", "ProcessName", "XForwardedFor", "IsTouch" }, null, null, null, null)
           }));
     }
     #endregion
@@ -98,6 +98,7 @@ namespace Foliv {
       routerName_ = other.routerName_;
       processName_ = other.processName_;
       xForwardedFor_ = other.xForwardedFor_.Clone();
+      isTouch_ = other.isTouch_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -204,6 +205,17 @@ namespace Foliv {
       get { return xForwardedFor_; }
     }
 
+    /// <summary>Field number for the "isTouch" field.</summary>
+    public const int IsTouchFieldNumber = 10;
+    private bool isTouch_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool IsTouch {
+      get { return isTouch_; }
+      set {
+        isTouch_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as Foliv);
@@ -226,6 +238,7 @@ namespace Foliv {
       if (RouterName != other.RouterName) return false;
       if (ProcessName != other.ProcessName) return false;
       if(!xForwardedFor_.Equals(other.xForwardedFor_)) return false;
+      if (IsTouch != other.IsTouch) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -241,6 +254,7 @@ namespace Foliv {
       if (RouterName.Length != 0) hash ^= RouterName.GetHashCode();
       if (ProcessName.Length != 0) hash ^= ProcessName.GetHashCode();
       hash ^= xForwardedFor_.GetHashCode();
+      if (IsTouch != false) hash ^= IsTouch.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -290,6 +304,10 @@ namespace Foliv {
         output.WriteString(ProcessName);
       }
       xForwardedFor_.WriteTo(output, _repeated_xForwardedFor_codec);
+      if (IsTouch != false) {
+        output.WriteRawTag(80);
+        output.WriteBool(IsTouch);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -332,6 +350,10 @@ namespace Foliv {
         output.WriteString(ProcessName);
       }
       xForwardedFor_.WriteTo(ref output, _repeated_xForwardedFor_codec);
+      if (IsTouch != false) {
+        output.WriteRawTag(80);
+        output.WriteBool(IsTouch);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -366,6 +388,9 @@ namespace Foliv {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(ProcessName);
       }
       size += xForwardedFor_.CalculateSize(_repeated_xForwardedFor_codec);
+      if (IsTouch != false) {
+        size += 1 + 1;
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -402,6 +427,9 @@ namespace Foliv {
         ProcessName = other.ProcessName;
       }
       xForwardedFor_.Add(other.xForwardedFor_);
+      if (other.IsTouch != false) {
+        IsTouch = other.IsTouch;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -452,6 +480,10 @@ namespace Foliv {
             xForwardedFor_.AddEntriesFrom(input, _repeated_xForwardedFor_codec);
             break;
           }
+          case 80: {
+            IsTouch = input.ReadBool();
+            break;
+          }
         }
       }
     #endif
@@ -500,6 +532,10 @@ namespace Foliv {
           }
           case 74: {
             xForwardedFor_.AddEntriesFrom(ref input, _repeated_xForwardedFor_codec);
+            break;
+          }
+          case 80: {
+            IsTouch = input.ReadBool();
             break;
           }
         }

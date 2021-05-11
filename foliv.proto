@@ -67,4 +67,5 @@ message Foliv {
 	string         routerName = 7;
 	string         processName = 8;
 	repeated bytes xForwardedFor = 9;
+	bool           isTouch = 10;
 }

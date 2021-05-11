@@ -139,6 +139,7 @@ BOOL AddressType_IsValidValue(int32_t value__) {
 @dynamic routerName;
 @dynamic processName;
 @dynamic xForwardedForArray, xForwardedForArray_Count;
+@dynamic isTouch;
 
 typedef struct Foliv__storage_ {
   uint32_t _has_storage_[1];
@@ -240,6 +241,15 @@ typedef struct Foliv__storage_ {
         .flags = (GPBFieldFlags)(GPBFieldRepeated | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeBytes,
       },
+      {
+        .name = "isTouch",
+        .dataTypeSpecific.clazz = Nil,
+        .number = Foliv_FieldNumber_IsTouch,
+        .hasIndex = 8,
+        .offset = 9,  // Stored in _has_storage_ to save space.
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeBool,
+      },
     };
     GPBDescriptor *localDescriptor =
         [GPBDescriptor allocDescriptorForClass:[Foliv class]
@@ -251,7 +261,7 @@ typedef struct Foliv__storage_ {
                                          flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
 #if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     static const char *extraTextFormatInfo =
-        "\006\001\010\000\003\013\000\006\n\000\007\n\000\010\013\000\t\000xForwardedFor\000";
+        "\007\001\010\000\003\013\000\006\n\000\007\n\000\010\013\000\t\000xForwardedFor\000\n\007\000";
     [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
 #endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     #if defined(DEBUG) && DEBUG

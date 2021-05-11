@@ -243,6 +243,7 @@ class Foliv PROTOBUF_FINAL :
     kCommandFieldNumber = 2,
     kAddressTypeFieldNumber = 3,
     kPortFieldNumber = 5,
+    kIsTouchFieldNumber = 10,
   };
   // repeated bytes xForwardedFor = 9;
   int xforwardedfor_size() const;
@@ -375,6 +376,15 @@ class Foliv PROTOBUF_FINAL :
   void _internal_set_port(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
+  // bool isTouch = 10;
+  void clear_istouch();
+  bool istouch() const;
+  void set_istouch(bool value);
+  private:
+  bool _internal_istouch() const;
+  void _internal_set_istouch(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:foliv.Foliv)
  private:
   class _Internal;
@@ -391,6 +401,7 @@ class Foliv PROTOBUF_FINAL :
   int command_;
   int addresstype_;
   ::PROTOBUF_NAMESPACE_ID::uint32 port_;
+  bool istouch_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_foliv_2eproto;
 };
@@ -842,6 +853,26 @@ inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
 Foliv::mutable_xforwardedfor() {
   // @@protoc_insertion_point(field_mutable_list:foliv.Foliv.xForwardedFor)
   return &xforwardedfor_;
+}
+
+// bool isTouch = 10;
+inline void Foliv::clear_istouch() {
+  istouch_ = false;
+}
+inline bool Foliv::_internal_istouch() const {
+  return istouch_;
+}
+inline bool Foliv::istouch() const {
+  // @@protoc_insertion_point(field_get:foliv.Foliv.isTouch)
+  return _internal_istouch();
+}
+inline void Foliv::_internal_set_istouch(bool value) {
+  
+  istouch_ = value;
+}
+inline void Foliv::set_istouch(bool value) {
+  _internal_set_istouch(value);
+  // @@protoc_insertion_point(field_set:foliv.Foliv.isTouch)
 }
 
 #ifdef __GNUC__

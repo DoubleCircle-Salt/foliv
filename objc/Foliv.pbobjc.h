@@ -102,6 +102,7 @@ typedef GPB_ENUM(Foliv_FieldNumber) {
   Foliv_FieldNumber_RouterName = 7,
   Foliv_FieldNumber_ProcessName = 8,
   Foliv_FieldNumber_XForwardedForArray = 9,
+  Foliv_FieldNumber_IsTouch = 10,
 };
 
 GPB_FINAL @interface Foliv : GPBMessage
@@ -125,6 +126,8 @@ GPB_FINAL @interface Foliv : GPBMessage
 @property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<NSData*> *xForwardedForArray;
 /** The number of items in @c xForwardedForArray without causing the array to be created. */
 @property(nonatomic, readonly) NSUInteger xForwardedForArray_Count;
+
+@property(nonatomic, readwrite) BOOL isTouch;
 
 @end
 
