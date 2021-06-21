@@ -19,7 +19,8 @@
 | 7 | RouterName | string | 路由规则名称（ip,域名黑白名单） |
 | 8 | ProcessName | string | 进程名称 |
 | 9 | XForwardedFor | [][]byte | x-forwarded-for |
-| 10 | isTouch | bool | 是否为touch |
+| 10 | IsTouch | bool | 是否为touch |
+| 11 | MuxID | uint32 | 多路复用sessionID |
 
 # go-code instruction
 
