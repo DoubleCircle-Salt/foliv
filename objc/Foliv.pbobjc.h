@@ -103,6 +103,7 @@ typedef GPB_ENUM(Foliv_FieldNumber) {
   Foliv_FieldNumber_ProcessName = 8,
   Foliv_FieldNumber_XForwardedForArray = 9,
   Foliv_FieldNumber_IsTouch = 10,
+  Foliv_FieldNumber_MuxId = 11,
 };
 
 GPB_FINAL @interface Foliv : GPBMessage
@@ -128,6 +129,8 @@ GPB_FINAL @interface Foliv : GPBMessage
 @property(nonatomic, readonly) NSUInteger xForwardedForArray_Count;
 
 @property(nonatomic, readwrite) BOOL isTouch;
+
+@property(nonatomic, readwrite) uint32_t muxId;
 
 @end
 

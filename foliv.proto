@@ -68,4 +68,5 @@ message Foliv {
 	string         processName = 8;
 	repeated bytes xForwardedFor = 9;
 	bool           isTouch = 10;
+	uint32         muxID = 11;
 }

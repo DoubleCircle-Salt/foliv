@@ -88,7 +88,8 @@ proto.foliv.Foliv.toObject = function(includeInstance, msg) {
     routername: jspb.Message.getFieldWithDefault(msg, 7, ""),
     processname: jspb.Message.getFieldWithDefault(msg, 8, ""),
     xforwardedforList: msg.getXforwardedforList_asB64(),
-    istouch: jspb.Message.getBooleanFieldWithDefault(msg, 10, false)
+    istouch: jspb.Message.getBooleanFieldWithDefault(msg, 10, false),
+    muxid: jspb.Message.getFieldWithDefault(msg, 11, 0)
   };
 
   if (includeInstance) {
@@ -164,6 +165,10 @@ proto.foliv.Foliv.deserializeBinaryFromReader = function(msg, reader) {
     case 10:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setIstouch(value);
+      break;
+    case 11:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setMuxid(value);
       break;
     default:
       reader.skipField();
@@ -261,6 +266,13 @@ proto.foliv.Foliv.serializeBinaryToWriter = function(message, writer) {
   if (f) {
     writer.writeBool(
       10,
+      f
+    );
+  }
+  f = message.getMuxid();
+  if (f !== 0) {
+    writer.writeUint32(
+      11,
       f
     );
   }
@@ -511,6 +523,24 @@ proto.foliv.Foliv.prototype.getIstouch = function() {
  */
 proto.foliv.Foliv.prototype.setIstouch = function(value) {
   return jspb.Message.setProto3BooleanField(this, 10, value);
+};
+
+
+/**
+ * optional uint32 muxID = 11;
+ * @return {number}
+ */
+proto.foliv.Foliv.prototype.getMuxid = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 11, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.foliv.Foliv} returns this
+ */
+proto.foliv.Foliv.prototype.setMuxid = function(value) {
+  return jspb.Message.setProto3IntField(this, 11, value);
 };
 
 

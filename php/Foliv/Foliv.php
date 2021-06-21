@@ -53,6 +53,10 @@ class Foliv extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>bool isTouch = 10;</code>
      */
     protected $isTouch = false;
+    /**
+     * Generated from protobuf field <code>uint32 muxID = 11;</code>
+     */
+    protected $muxID = 0;
 
     /**
      * Constructor.
@@ -70,6 +74,7 @@ class Foliv extends \Google\Protobuf\Internal\Message
      *     @type string $processName
      *     @type string[]|\Google\Protobuf\Internal\RepeatedField $xForwardedFor
      *     @type bool $isTouch
+     *     @type int $muxID
      * }
      */
     public function __construct($data = NULL) {
@@ -293,6 +298,28 @@ class Foliv extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkBool($var);
         $this->isTouch = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 muxID = 11;</code>
+     * @return int
+     */
+    public function getMuxID()
+    {
+        return $this->muxID;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 muxID = 11;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setMuxID($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->muxID = $var;
 
         return $this;
     }

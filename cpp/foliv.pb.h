@@ -244,6 +244,7 @@ class Foliv PROTOBUF_FINAL :
     kAddressTypeFieldNumber = 3,
     kPortFieldNumber = 5,
     kIsTouchFieldNumber = 10,
+    kMuxIDFieldNumber = 11,
   };
   // repeated bytes xForwardedFor = 9;
   int xforwardedfor_size() const;
@@ -385,6 +386,15 @@ class Foliv PROTOBUF_FINAL :
   void _internal_set_istouch(bool value);
   public:
 
+  // uint32 muxID = 11;
+  void clear_muxid();
+  ::PROTOBUF_NAMESPACE_ID::uint32 muxid() const;
+  void set_muxid(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_muxid() const;
+  void _internal_set_muxid(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:foliv.Foliv)
  private:
   class _Internal;
@@ -402,6 +412,7 @@ class Foliv PROTOBUF_FINAL :
   int addresstype_;
   ::PROTOBUF_NAMESPACE_ID::uint32 port_;
   bool istouch_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 muxid_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_foliv_2eproto;
 };
@@ -873,6 +884,26 @@ inline void Foliv::_internal_set_istouch(bool value) {
 inline void Foliv::set_istouch(bool value) {
   _internal_set_istouch(value);
   // @@protoc_insertion_point(field_set:foliv.Foliv.isTouch)
+}
+
+// uint32 muxID = 11;
+inline void Foliv::clear_muxid() {
+  muxid_ = 0u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Foliv::_internal_muxid() const {
+  return muxid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Foliv::muxid() const {
+  // @@protoc_insertion_point(field_get:foliv.Foliv.muxID)
+  return _internal_muxid();
+}
+inline void Foliv::_internal_set_muxid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  
+  muxid_ = value;
+}
+inline void Foliv::set_muxid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_muxid(value);
+  // @@protoc_insertion_point(field_set:foliv.Foliv.muxID)
 }
 
 #ifdef __GNUC__
