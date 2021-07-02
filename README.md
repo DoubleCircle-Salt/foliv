@@ -10,7 +10,7 @@
 
 | 序号 | 名称   | 类型  | 说明  |
 |  ----  |  ----  | ----  | ----  |
-| 1 | UserHash | string | 固定为'foliv' |
+| 1 | UserHash | string | token |
 | 2 | Command  | enum | Connect:1/Associate:3/Mux:0x7f |
 | 3 | AddressType | enum | IPv4:1/DomainName:3/IPv6:4 |
 | 4 | Address | []byte | ipv4长度4，ipv6长度16，domain明文 |
