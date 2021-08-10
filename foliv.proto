@@ -69,4 +69,5 @@ message Foliv {
 	repeated bytes xForwardedFor = 9;
 	bool           isTouch = 10;
 	uint32         muxID = 11;
+	string         platform = 12;
 }

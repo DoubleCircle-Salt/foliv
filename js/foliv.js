@@ -89,7 +89,8 @@ proto.foliv.Foliv.toObject = function(includeInstance, msg) {
     processname: jspb.Message.getFieldWithDefault(msg, 8, ""),
     xforwardedforList: msg.getXforwardedforList_asB64(),
     istouch: jspb.Message.getBooleanFieldWithDefault(msg, 10, false),
-    muxid: jspb.Message.getFieldWithDefault(msg, 11, 0)
+    muxid: jspb.Message.getFieldWithDefault(msg, 11, 0),
+    platform: jspb.Message.getFieldWithDefault(msg, 12, "")
   };
 
   if (includeInstance) {
@@ -169,6 +170,10 @@ proto.foliv.Foliv.deserializeBinaryFromReader = function(msg, reader) {
     case 11:
       var value = /** @type {number} */ (reader.readUint32());
       msg.setMuxid(value);
+      break;
+    case 12:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setPlatform(value);
       break;
     default:
       reader.skipField();
@@ -273,6 +278,13 @@ proto.foliv.Foliv.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeUint32(
       11,
+      f
+    );
+  }
+  f = message.getPlatform();
+  if (f.length > 0) {
+    writer.writeString(
+      12,
       f
     );
   }
@@ -541,6 +553,24 @@ proto.foliv.Foliv.prototype.getMuxid = function() {
  */
 proto.foliv.Foliv.prototype.setMuxid = function(value) {
   return jspb.Message.setProto3IntField(this, 11, value);
+};
+
+
+/**
+ * optional string platform = 12;
+ * @return {string}
+ */
+proto.foliv.Foliv.prototype.getPlatform = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 12, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.foliv.Foliv} returns this
+ */
+proto.foliv.Foliv.prototype.setPlatform = function(value) {
+  return jspb.Message.setProto3StringField(this, 12, value);
 };
 
 

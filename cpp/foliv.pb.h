@@ -240,6 +240,7 @@ class Foliv PROTOBUF_FINAL :
     kSourceNameFieldNumber = 6,
     kRouterNameFieldNumber = 7,
     kProcessNameFieldNumber = 8,
+    kPlatformFieldNumber = 12,
     kCommandFieldNumber = 2,
     kAddressTypeFieldNumber = 3,
     kPortFieldNumber = 5,
@@ -350,6 +351,22 @@ class Foliv PROTOBUF_FINAL :
   std::string* _internal_mutable_processname();
   public:
 
+  // string platform = 12;
+  void clear_platform();
+  const std::string& platform() const;
+  void set_platform(const std::string& value);
+  void set_platform(std::string&& value);
+  void set_platform(const char* value);
+  void set_platform(const char* value, size_t size);
+  std::string* mutable_platform();
+  std::string* release_platform();
+  void set_allocated_platform(std::string* platform);
+  private:
+  const std::string& _internal_platform() const;
+  void _internal_set_platform(const std::string& value);
+  std::string* _internal_mutable_platform();
+  public:
+
   // .foliv.Command command = 2;
   void clear_command();
   ::foliv::Command command() const;
@@ -408,6 +425,7 @@ class Foliv PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sourcename_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr routername_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr processname_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr platform_;
   int command_;
   int addresstype_;
   ::PROTOBUF_NAMESPACE_ID::uint32 port_;
@@ -904,6 +922,67 @@ inline void Foliv::_internal_set_muxid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
 inline void Foliv::set_muxid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _internal_set_muxid(value);
   // @@protoc_insertion_point(field_set:foliv.Foliv.muxID)
+}
+
+// string platform = 12;
+inline void Foliv::clear_platform() {
+  platform_.ClearToEmpty();
+}
+inline const std::string& Foliv::platform() const {
+  // @@protoc_insertion_point(field_get:foliv.Foliv.platform)
+  return _internal_platform();
+}
+inline void Foliv::set_platform(const std::string& value) {
+  _internal_set_platform(value);
+  // @@protoc_insertion_point(field_set:foliv.Foliv.platform)
+}
+inline std::string* Foliv::mutable_platform() {
+  // @@protoc_insertion_point(field_mutable:foliv.Foliv.platform)
+  return _internal_mutable_platform();
+}
+inline const std::string& Foliv::_internal_platform() const {
+  return platform_.Get();
+}
+inline void Foliv::_internal_set_platform(const std::string& value) {
+  
+  platform_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void Foliv::set_platform(std::string&& value) {
+  
+  platform_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:foliv.Foliv.platform)
+}
+inline void Foliv::set_platform(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  platform_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:foliv.Foliv.platform)
+}
+inline void Foliv::set_platform(const char* value,
+    size_t size) {
+  
+  platform_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:foliv.Foliv.platform)
+}
+inline std::string* Foliv::_internal_mutable_platform() {
+  
+  return platform_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* Foliv::release_platform() {
+  // @@protoc_insertion_point(field_release:foliv.Foliv.platform)
+  return platform_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Foliv::set_allocated_platform(std::string* platform) {
+  if (platform != nullptr) {
+    
+  } else {
+    
+  }
+  platform_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), platform,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:foliv.Foliv.platform)
 }
 
 #ifdef __GNUC__

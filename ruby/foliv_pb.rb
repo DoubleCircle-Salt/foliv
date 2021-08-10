@@ -17,6 +17,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       repeated :xForwardedFor, :bytes, 9
       optional :isTouch, :bool, 10
       optional :muxID, :uint32, 11
+      optional :platform, :string, 12
     end
     add_enum "foliv.Command" do
       value :Empty, 0

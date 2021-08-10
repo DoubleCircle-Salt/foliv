@@ -141,6 +141,7 @@ BOOL AddressType_IsValidValue(int32_t value__) {
 @dynamic xForwardedForArray, xForwardedForArray_Count;
 @dynamic isTouch;
 @dynamic muxId;
+@dynamic platform;
 
 typedef struct Foliv__storage_ {
   uint32_t _has_storage_[1];
@@ -154,6 +155,7 @@ typedef struct Foliv__storage_ {
   NSString *routerName;
   NSString *processName;
   NSMutableArray *xForwardedForArray;
+  NSString *platform;
 } Foliv__storage_;
 
 // This method is threadsafe because it is initially called
@@ -260,6 +262,15 @@ typedef struct Foliv__storage_ {
         .offset = (uint32_t)offsetof(Foliv__storage_, muxId),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
+      },
+      {
+        .name = "platform",
+        .dataTypeSpecific.clazz = Nil,
+        .number = Foliv_FieldNumber_Platform,
+        .hasIndex = 11,
+        .offset = (uint32_t)offsetof(Foliv__storage_, platform),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeString,
       },
     };
     GPBDescriptor *localDescriptor =
