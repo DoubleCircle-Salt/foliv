@@ -241,6 +241,7 @@ class Foliv PROTOBUF_FINAL :
     kRouterNameFieldNumber = 7,
     kProcessNameFieldNumber = 8,
     kPlatformFieldNumber = 12,
+    kRequestIDFieldNumber = 13,
     kCommandFieldNumber = 2,
     kAddressTypeFieldNumber = 3,
     kPortFieldNumber = 5,
@@ -367,6 +368,22 @@ class Foliv PROTOBUF_FINAL :
   std::string* _internal_mutable_platform();
   public:
 
+  // bytes requestID = 13;
+  void clear_requestid();
+  const std::string& requestid() const;
+  void set_requestid(const std::string& value);
+  void set_requestid(std::string&& value);
+  void set_requestid(const char* value);
+  void set_requestid(const void* value, size_t size);
+  std::string* mutable_requestid();
+  std::string* release_requestid();
+  void set_allocated_requestid(std::string* requestid);
+  private:
+  const std::string& _internal_requestid() const;
+  void _internal_set_requestid(const std::string& value);
+  std::string* _internal_mutable_requestid();
+  public:
+
   // .foliv.Command command = 2;
   void clear_command();
   ::foliv::Command command() const;
@@ -426,6 +443,7 @@ class Foliv PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr routername_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr processname_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr platform_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr requestid_;
   int command_;
   int addresstype_;
   ::PROTOBUF_NAMESPACE_ID::uint32 port_;
@@ -983,6 +1001,67 @@ inline void Foliv::set_allocated_platform(std::string* platform) {
   platform_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), platform,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:foliv.Foliv.platform)
+}
+
+// bytes requestID = 13;
+inline void Foliv::clear_requestid() {
+  requestid_.ClearToEmpty();
+}
+inline const std::string& Foliv::requestid() const {
+  // @@protoc_insertion_point(field_get:foliv.Foliv.requestID)
+  return _internal_requestid();
+}
+inline void Foliv::set_requestid(const std::string& value) {
+  _internal_set_requestid(value);
+  // @@protoc_insertion_point(field_set:foliv.Foliv.requestID)
+}
+inline std::string* Foliv::mutable_requestid() {
+  // @@protoc_insertion_point(field_mutable:foliv.Foliv.requestID)
+  return _internal_mutable_requestid();
+}
+inline const std::string& Foliv::_internal_requestid() const {
+  return requestid_.Get();
+}
+inline void Foliv::_internal_set_requestid(const std::string& value) {
+  
+  requestid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void Foliv::set_requestid(std::string&& value) {
+  
+  requestid_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:foliv.Foliv.requestID)
+}
+inline void Foliv::set_requestid(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  requestid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:foliv.Foliv.requestID)
+}
+inline void Foliv::set_requestid(const void* value,
+    size_t size) {
+  
+  requestid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:foliv.Foliv.requestID)
+}
+inline std::string* Foliv::_internal_mutable_requestid() {
+  
+  return requestid_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* Foliv::release_requestid() {
+  // @@protoc_insertion_point(field_release:foliv.Foliv.requestID)
+  return requestid_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Foliv::set_allocated_requestid(std::string* requestid) {
+  if (requestid != nullptr) {
+    
+  } else {
+    
+  }
+  requestid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), requestid,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:foliv.Foliv.requestID)
 }
 
 #ifdef __GNUC__

@@ -22,6 +22,7 @@
 | 10 | IsTouch | bool | 是否为touch |
 | 11 | MuxID | uint32 | 多路复用sessionID |
 | 12 | Platform | string | 平台名称 |
+| 13 | RequestID | []byte | requestID |
 
 # go-code instruction
 

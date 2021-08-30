@@ -90,7 +90,8 @@ proto.foliv.Foliv.toObject = function(includeInstance, msg) {
     xforwardedforList: msg.getXforwardedforList_asB64(),
     istouch: jspb.Message.getBooleanFieldWithDefault(msg, 10, false),
     muxid: jspb.Message.getFieldWithDefault(msg, 11, 0),
-    platform: jspb.Message.getFieldWithDefault(msg, 12, "")
+    platform: jspb.Message.getFieldWithDefault(msg, 12, ""),
+    requestid: msg.getRequestid_asB64()
   };
 
   if (includeInstance) {
@@ -174,6 +175,10 @@ proto.foliv.Foliv.deserializeBinaryFromReader = function(msg, reader) {
     case 12:
       var value = /** @type {string} */ (reader.readString());
       msg.setPlatform(value);
+      break;
+    case 13:
+      var value = /** @type {!Uint8Array} */ (reader.readBytes());
+      msg.setRequestid(value);
       break;
     default:
       reader.skipField();
@@ -285,6 +290,13 @@ proto.foliv.Foliv.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writeString(
       12,
+      f
+    );
+  }
+  f = message.getRequestid_asU8();
+  if (f.length > 0) {
+    writer.writeBytes(
+      13,
       f
     );
   }
@@ -571,6 +583,48 @@ proto.foliv.Foliv.prototype.getPlatform = function() {
  */
 proto.foliv.Foliv.prototype.setPlatform = function(value) {
   return jspb.Message.setProto3StringField(this, 12, value);
+};
+
+
+/**
+ * optional bytes requestID = 13;
+ * @return {string}
+ */
+proto.foliv.Foliv.prototype.getRequestid = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 13, ""));
+};
+
+
+/**
+ * optional bytes requestID = 13;
+ * This is a type-conversion wrapper around `getRequestid()`
+ * @return {string}
+ */
+proto.foliv.Foliv.prototype.getRequestid_asB64 = function() {
+  return /** @type {string} */ (jspb.Message.bytesAsB64(
+      this.getRequestid()));
+};
+
+
+/**
+ * optional bytes requestID = 13;
+ * Note that Uint8Array is not supported on all browsers.
+ * @see http://caniuse.com/Uint8Array
+ * This is a type-conversion wrapper around `getRequestid()`
+ * @return {!Uint8Array}
+ */
+proto.foliv.Foliv.prototype.getRequestid_asU8 = function() {
+  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
+      this.getRequestid()));
+};
+
+
+/**
+ * @param {!(string|Uint8Array)} value
+ * @return {!proto.foliv.Foliv} returns this
+ */
+proto.foliv.Foliv.prototype.setRequestid = function(value) {
+  return jspb.Message.setProto3BytesField(this, 13, value);
 };
 
 

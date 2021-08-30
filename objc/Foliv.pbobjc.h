@@ -105,6 +105,7 @@ typedef GPB_ENUM(Foliv_FieldNumber) {
   Foliv_FieldNumber_IsTouch = 10,
   Foliv_FieldNumber_MuxId = 11,
   Foliv_FieldNumber_Platform = 12,
+  Foliv_FieldNumber_RequestId = 13,
 };
 
 GPB_FINAL @interface Foliv : GPBMessage
@@ -134,6 +135,8 @@ GPB_FINAL @interface Foliv : GPBMessage
 @property(nonatomic, readwrite) uint32_t muxId;
 
 @property(nonatomic, readwrite, copy, null_resettable) NSString *platform;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSData *requestId;
 
 @end
 

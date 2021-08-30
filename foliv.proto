@@ -70,4 +70,5 @@ message Foliv {
 	bool           isTouch = 10;
 	uint32         muxID = 11;
 	string         platform = 12;
+	bytes          requestID = 13;
 }

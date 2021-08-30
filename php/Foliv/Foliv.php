@@ -61,6 +61,10 @@ class Foliv extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string platform = 12;</code>
      */
     protected $platform = '';
+    /**
+     * Generated from protobuf field <code>bytes requestID = 13;</code>
+     */
+    protected $requestID = '';
 
     /**
      * Constructor.
@@ -80,6 +84,7 @@ class Foliv extends \Google\Protobuf\Internal\Message
      *     @type bool $isTouch
      *     @type int $muxID
      *     @type string $platform
+     *     @type string $requestID
      * }
      */
     public function __construct($data = NULL) {
@@ -347,6 +352,28 @@ class Foliv extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->platform = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>bytes requestID = 13;</code>
+     * @return string
+     */
+    public function getRequestID()
+    {
+        return $this->requestID;
+    }
+
+    /**
+     * Generated from protobuf field <code>bytes requestID = 13;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setRequestID($var)
+    {
+        GPBUtil::checkString($var, False);
+        $this->requestID = $var;
 
         return $this;
     }
