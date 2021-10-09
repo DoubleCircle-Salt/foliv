@@ -65,6 +65,10 @@ class Foliv extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>bytes requestID = 13;</code>
      */
     protected $requestID = '';
+    /**
+     * Generated from protobuf field <code>uint32 memberLevel = 14;</code>
+     */
+    protected $memberLevel = 0;
 
     /**
      * Constructor.
@@ -85,6 +89,7 @@ class Foliv extends \Google\Protobuf\Internal\Message
      *     @type int $muxID
      *     @type string $platform
      *     @type string $requestID
+     *     @type int $memberLevel
      * }
      */
     public function __construct($data = NULL) {
@@ -374,6 +379,28 @@ class Foliv extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, False);
         $this->requestID = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 memberLevel = 14;</code>
+     * @return int
+     */
+    public function getMemberLevel()
+    {
+        return $this->memberLevel;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 memberLevel = 14;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setMemberLevel($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->memberLevel = $var;
 
         return $this;
     }

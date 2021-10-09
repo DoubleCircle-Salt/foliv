@@ -247,6 +247,7 @@ class Foliv PROTOBUF_FINAL :
     kPortFieldNumber = 5,
     kIsTouchFieldNumber = 10,
     kMuxIDFieldNumber = 11,
+    kMemberLevelFieldNumber = 14,
   };
   // repeated bytes xForwardedFor = 9;
   int xforwardedfor_size() const;
@@ -429,6 +430,15 @@ class Foliv PROTOBUF_FINAL :
   void _internal_set_muxid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
+  // uint32 memberLevel = 14;
+  void clear_memberlevel();
+  ::PROTOBUF_NAMESPACE_ID::uint32 memberlevel() const;
+  void set_memberlevel(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_memberlevel() const;
+  void _internal_set_memberlevel(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:foliv.Foliv)
  private:
   class _Internal;
@@ -449,6 +459,7 @@ class Foliv PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::uint32 port_;
   bool istouch_;
   ::PROTOBUF_NAMESPACE_ID::uint32 muxid_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 memberlevel_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_foliv_2eproto;
 };
@@ -1062,6 +1073,26 @@ inline void Foliv::set_allocated_requestid(std::string* requestid) {
   requestid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), requestid,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:foliv.Foliv.requestID)
+}
+
+// uint32 memberLevel = 14;
+inline void Foliv::clear_memberlevel() {
+  memberlevel_ = 0u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Foliv::_internal_memberlevel() const {
+  return memberlevel_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Foliv::memberlevel() const {
+  // @@protoc_insertion_point(field_get:foliv.Foliv.memberLevel)
+  return _internal_memberlevel();
+}
+inline void Foliv::_internal_set_memberlevel(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  
+  memberlevel_ = value;
+}
+inline void Foliv::set_memberlevel(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_memberlevel(value);
+  // @@protoc_insertion_point(field_set:foliv.Foliv.memberLevel)
 }
 
 #ifdef __GNUC__

@@ -91,7 +91,8 @@ proto.foliv.Foliv.toObject = function(includeInstance, msg) {
     istouch: jspb.Message.getBooleanFieldWithDefault(msg, 10, false),
     muxid: jspb.Message.getFieldWithDefault(msg, 11, 0),
     platform: jspb.Message.getFieldWithDefault(msg, 12, ""),
-    requestid: msg.getRequestid_asB64()
+    requestid: msg.getRequestid_asB64(),
+    memberlevel: jspb.Message.getFieldWithDefault(msg, 14, 0)
   };
 
   if (includeInstance) {
@@ -179,6 +180,10 @@ proto.foliv.Foliv.deserializeBinaryFromReader = function(msg, reader) {
     case 13:
       var value = /** @type {!Uint8Array} */ (reader.readBytes());
       msg.setRequestid(value);
+      break;
+    case 14:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setMemberlevel(value);
       break;
     default:
       reader.skipField();
@@ -297,6 +302,13 @@ proto.foliv.Foliv.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writeBytes(
       13,
+      f
+    );
+  }
+  f = message.getMemberlevel();
+  if (f !== 0) {
+    writer.writeUint32(
+      14,
       f
     );
   }
@@ -625,6 +637,24 @@ proto.foliv.Foliv.prototype.getRequestid_asU8 = function() {
  */
 proto.foliv.Foliv.prototype.setRequestid = function(value) {
   return jspb.Message.setProto3BytesField(this, 13, value);
+};
+
+
+/**
+ * optional uint32 memberLevel = 14;
+ * @return {number}
+ */
+proto.foliv.Foliv.prototype.getMemberlevel = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 14, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.foliv.Foliv} returns this
+ */
+proto.foliv.Foliv.prototype.setMemberlevel = function(value) {
+  return jspb.Message.setProto3IntField(this, 14, value);
 };
 
 

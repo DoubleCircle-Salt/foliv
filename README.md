@@ -23,6 +23,7 @@
 | 11 | MuxID | uint32 | 多路复用sessionID |
 | 12 | Platform | string | 平台名称 |
 | 13 | RequestID | []byte | requestID |
+| 14 | MemberLevel | uint32 | 会员等级 |
 
 # go-code instruction
 
