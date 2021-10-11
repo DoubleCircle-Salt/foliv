@@ -400,10 +400,10 @@ public final class FolivOuterClass {
     com.google.protobuf.ByteString getRequestID();
 
     /**
-     * <code>uint32 memberLevel = 14;</code>
-     * @return The memberLevel.
+     * <code>uint32 routerLevel = 14;</code>
+     * @return The routerLevel.
      */
-    int getMemberLevel();
+    int getRouterLevel();
   }
   /**
    * Protobuf type {@code foliv.Foliv}
@@ -538,7 +538,7 @@ public final class FolivOuterClass {
             }
             case 112: {
 
-              memberLevel_ = input.readUInt32();
+              routerLevel_ = input.readUInt32();
               break;
             }
             default: {
@@ -886,15 +886,15 @@ public final class FolivOuterClass {
       return requestID_;
     }
 
-    public static final int MEMBERLEVEL_FIELD_NUMBER = 14;
-    private int memberLevel_;
+    public static final int ROUTERLEVEL_FIELD_NUMBER = 14;
+    private int routerLevel_;
     /**
-     * <code>uint32 memberLevel = 14;</code>
-     * @return The memberLevel.
+     * <code>uint32 routerLevel = 14;</code>
+     * @return The routerLevel.
      */
     @java.lang.Override
-    public int getMemberLevel() {
-      return memberLevel_;
+    public int getRouterLevel() {
+      return routerLevel_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -950,8 +950,8 @@ public final class FolivOuterClass {
       if (!requestID_.isEmpty()) {
         output.writeBytes(13, requestID_);
       }
-      if (memberLevel_ != 0) {
-        output.writeUInt32(14, memberLevel_);
+      if (routerLevel_ != 0) {
+        output.writeUInt32(14, routerLevel_);
       }
       unknownFields.writeTo(output);
     }
@@ -1014,9 +1014,9 @@ public final class FolivOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(13, requestID_);
       }
-      if (memberLevel_ != 0) {
+      if (routerLevel_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(14, memberLevel_);
+          .computeUInt32Size(14, routerLevel_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1057,8 +1057,8 @@ public final class FolivOuterClass {
           .equals(other.getPlatform())) return false;
       if (!getRequestID()
           .equals(other.getRequestID())) return false;
-      if (getMemberLevel()
-          != other.getMemberLevel()) return false;
+      if (getRouterLevel()
+          != other.getRouterLevel()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1099,8 +1099,8 @@ public final class FolivOuterClass {
       hash = (53 * hash) + getPlatform().hashCode();
       hash = (37 * hash) + REQUESTID_FIELD_NUMBER;
       hash = (53 * hash) + getRequestID().hashCode();
-      hash = (37 * hash) + MEMBERLEVEL_FIELD_NUMBER;
-      hash = (53 * hash) + getMemberLevel();
+      hash = (37 * hash) + ROUTERLEVEL_FIELD_NUMBER;
+      hash = (53 * hash) + getRouterLevel();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1260,7 +1260,7 @@ public final class FolivOuterClass {
 
         requestID_ = com.google.protobuf.ByteString.EMPTY;
 
-        memberLevel_ = 0;
+        routerLevel_ = 0;
 
         return this;
       }
@@ -1306,7 +1306,7 @@ public final class FolivOuterClass {
         result.muxID_ = muxID_;
         result.platform_ = platform_;
         result.requestID_ = requestID_;
-        result.memberLevel_ = memberLevel_;
+        result.routerLevel_ = routerLevel_;
         onBuilt();
         return result;
       }
@@ -1406,8 +1406,8 @@ public final class FolivOuterClass {
         if (other.getRequestID() != com.google.protobuf.ByteString.EMPTY) {
           setRequestID(other.getRequestID());
         }
-        if (other.getMemberLevel() != 0) {
-          setMemberLevel(other.getMemberLevel());
+        if (other.getRouterLevel() != 0) {
+          setRouterLevel(other.getRouterLevel());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2173,33 +2173,33 @@ public final class FolivOuterClass {
         return this;
       }
 
-      private int memberLevel_ ;
+      private int routerLevel_ ;
       /**
-       * <code>uint32 memberLevel = 14;</code>
-       * @return The memberLevel.
+       * <code>uint32 routerLevel = 14;</code>
+       * @return The routerLevel.
        */
       @java.lang.Override
-      public int getMemberLevel() {
-        return memberLevel_;
+      public int getRouterLevel() {
+        return routerLevel_;
       }
       /**
-       * <code>uint32 memberLevel = 14;</code>
-       * @param value The memberLevel to set.
+       * <code>uint32 routerLevel = 14;</code>
+       * @param value The routerLevel to set.
        * @return This builder for chaining.
        */
-      public Builder setMemberLevel(int value) {
+      public Builder setRouterLevel(int value) {
         
-        memberLevel_ = value;
+        routerLevel_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>uint32 memberLevel = 14;</code>
+       * <code>uint32 routerLevel = 14;</code>
        * @return This builder for chaining.
        */
-      public Builder clearMemberLevel() {
+      public Builder clearRouterLevel() {
         
-        memberLevel_ = 0;
+        routerLevel_ = 0;
         onChanged();
         return this;
       }
@@ -2277,7 +2277,7 @@ public final class FolivOuterClass {
       "rceName\030\006 \001(\t\022\022\n\nrouterName\030\007 \001(\t\022\023\n\013pro" +
       "cessName\030\010 \001(\t\022\025\n\rxForwardedFor\030\t \003(\014\022\017\n" +
       "\007isTouch\030\n \001(\010\022\r\n\005muxID\030\013 \001(\r\022\020\n\010platfor" +
-      "m\030\014 \001(\t\022\021\n\trequestID\030\r \001(\014\022\023\n\013memberLeve" +
+      "m\030\014 \001(\t\022\021\n\trequestID\030\r \001(\014\022\023\n\013routerLeve" +
       "l\030\016 \001(\r*9\n\007Command\022\t\n\005Empty\020\000\022\013\n\007Connect" +
       "\020\001\022\r\n\tAssociate\020\003\022\007\n\003Mux\020\177*B\n\013AddressTyp" +
       "e\022\017\n\013InvalidType\020\000\022\010\n\004IPv4\020\001\022\016\n\nDomainNa" +
@@ -2292,7 +2292,7 @@ public final class FolivOuterClass {
     internal_static_foliv_Foliv_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_foliv_Foliv_descriptor,
-        new java.lang.String[] { "UserHash", "Command", "AddressType", "Address", "Port", "SourceName", "RouterName", "ProcessName", "XForwardedFor", "IsTouch", "MuxID", "Platform", "RequestID", "MemberLevel", });
+        new java.lang.String[] { "UserHash", "Command", "AddressType", "Address", "Port", "SourceName", "RouterName", "ProcessName", "XForwardedFor", "IsTouch", "MuxID", "Platform", "RequestID", "RouterLevel", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

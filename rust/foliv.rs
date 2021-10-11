@@ -39,7 +39,7 @@ pub struct Foliv {
     pub muxID: u32,
     pub platform: ::std::string::String,
     pub requestID: ::std::vec::Vec<u8>,
-    pub memberLevel: u32,
+    pub routerLevel: u32,
     // special fields
     pub unknown_fields: ::protobuf::UnknownFields,
     pub cached_size: ::protobuf::CachedSize,
@@ -338,19 +338,19 @@ impl Foliv {
         ::std::mem::replace(&mut self.requestID, ::std::vec::Vec::new())
     }
 
-    // uint32 memberLevel = 14;
+    // uint32 routerLevel = 14;
 
 
-    pub fn get_memberLevel(&self) -> u32 {
-        self.memberLevel
+    pub fn get_routerLevel(&self) -> u32 {
+        self.routerLevel
     }
-    pub fn clear_memberLevel(&mut self) {
-        self.memberLevel = 0;
+    pub fn clear_routerLevel(&mut self) {
+        self.routerLevel = 0;
     }
 
     // Param is passed by value, moved
-    pub fn set_memberLevel(&mut self, v: u32) {
-        self.memberLevel = v;
+    pub fn set_routerLevel(&mut self, v: u32) {
+        self.routerLevel = v;
     }
 }
 
@@ -419,7 +419,7 @@ impl ::protobuf::Message for Foliv {
                         return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
                     }
                     let tmp = is.read_uint32()?;
-                    self.memberLevel = tmp;
+                    self.routerLevel = tmp;
                 },
                 _ => {
                     ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
@@ -472,8 +472,8 @@ impl ::protobuf::Message for Foliv {
         if !self.requestID.is_empty() {
             my_size += ::protobuf::rt::bytes_size(13, &self.requestID);
         }
-        if self.memberLevel != 0 {
-            my_size += ::protobuf::rt::value_size(14, self.memberLevel, ::protobuf::wire_format::WireTypeVarint);
+        if self.routerLevel != 0 {
+            my_size += ::protobuf::rt::value_size(14, self.routerLevel, ::protobuf::wire_format::WireTypeVarint);
         }
         my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
         self.cached_size.set(my_size);
@@ -520,8 +520,8 @@ impl ::protobuf::Message for Foliv {
         if !self.requestID.is_empty() {
             os.write_bytes(13, &self.requestID)?;
         }
-        if self.memberLevel != 0 {
-            os.write_uint32(14, self.memberLevel)?;
+        if self.routerLevel != 0 {
+            os.write_uint32(14, self.routerLevel)?;
         }
         os.write_unknown_fields(self.get_unknown_fields())?;
         ::std::result::Result::Ok(())
@@ -627,9 +627,9 @@ impl ::protobuf::Message for Foliv {
                 |m: &mut Foliv| { &mut m.requestID },
             ));
             fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeUint32>(
-                "memberLevel",
-                |m: &Foliv| { &m.memberLevel },
-                |m: &mut Foliv| { &mut m.memberLevel },
+                "routerLevel",
+                |m: &Foliv| { &m.routerLevel },
+                |m: &mut Foliv| { &mut m.routerLevel },
             ));
             ::protobuf::reflect::MessageDescriptor::new_pb_name::<Foliv>(
                 "Foliv",
@@ -660,7 +660,7 @@ impl ::protobuf::Clear for Foliv {
         self.muxID = 0;
         self.platform.clear();
         self.requestID.clear();
-        self.memberLevel = 0;
+        self.routerLevel = 0;
         self.unknown_fields.clear();
     }
 }
@@ -801,7 +801,7 @@ static file_descriptor_proto_data: &'static [u8] = b"\
     ForwardedFor\x12\x18\n\x07isTouch\x18\n\x20\x01(\x08R\x07isTouch\x12\x14\
     \n\x05muxID\x18\x0b\x20\x01(\rR\x05muxID\x12\x1a\n\x08platform\x18\x0c\
     \x20\x01(\tR\x08platform\x12\x1c\n\trequestID\x18\r\x20\x01(\x0cR\treque\
-    stID\x12\x20\n\x0bmemberLevel\x18\x0e\x20\x01(\rR\x0bmemberLevel*9\n\x07\
+    stID\x12\x20\n\x0brouterLevel\x18\x0e\x20\x01(\rR\x0brouterLevel*9\n\x07\
     Command\x12\t\n\x05Empty\x10\0\x12\x0b\n\x07Connect\x10\x01\x12\r\n\tAss\
     ociate\x10\x03\x12\x07\n\x03Mux\x10\x7f*B\n\x0bAddressType\x12\x0f\n\x0b\
     InvalidType\x10\0\x12\x08\n\x04IPv4\x10\x01\x12\x0e\n\nDomainName\x10\

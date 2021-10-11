@@ -19,7 +19,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :muxID, :uint32, 11
       optional :platform, :string, 12
       optional :requestID, :bytes, 13
-      optional :memberLevel, :uint32, 14
+      optional :routerLevel, :uint32, 14
     end
     add_enum "foliv.Command" do
       value :Empty, 0

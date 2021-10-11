@@ -143,7 +143,7 @@ BOOL AddressType_IsValidValue(int32_t value__) {
 @dynamic muxId;
 @dynamic platform;
 @dynamic requestId;
-@dynamic memberLevel;
+@dynamic routerLevel;
 
 typedef struct Foliv__storage_ {
   uint32_t _has_storage_[1];
@@ -151,7 +151,7 @@ typedef struct Foliv__storage_ {
   AddressType addressType;
   uint32_t port;
   uint32_t muxId;
-  uint32_t memberLevel;
+  uint32_t routerLevel;
   NSString *userHash;
   NSData *address;
   NSString *sourceName;
@@ -286,11 +286,11 @@ typedef struct Foliv__storage_ {
         .dataType = GPBDataTypeBytes,
       },
       {
-        .name = "memberLevel",
+        .name = "routerLevel",
         .dataTypeSpecific.clazz = Nil,
-        .number = Foliv_FieldNumber_MemberLevel,
+        .number = Foliv_FieldNumber_RouterLevel,
         .hasIndex = 13,
-        .offset = (uint32_t)offsetof(Foliv__storage_, memberLevel),
+        .offset = (uint32_t)offsetof(Foliv__storage_, routerLevel),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeUInt32,
       },

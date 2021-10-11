@@ -34,7 +34,7 @@ constexpr Foliv::Foliv(
   , port_(0u)
   , istouch_(false)
   , muxid_(0u)
-  , memberlevel_(0u){}
+  , routerlevel_(0u){}
 struct FolivDefaultTypeInternal {
   constexpr FolivDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -68,7 +68,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_foliv_2eproto::offsets[] PROTO
   PROTOBUF_FIELD_OFFSET(::foliv::Foliv, muxid_),
   PROTOBUF_FIELD_OFFSET(::foliv::Foliv, platform_),
   PROTOBUF_FIELD_OFFSET(::foliv::Foliv, requestid_),
-  PROTOBUF_FIELD_OFFSET(::foliv::Foliv, memberlevel_),
+  PROTOBUF_FIELD_OFFSET(::foliv::Foliv, routerlevel_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::foliv::Foliv)},
@@ -86,7 +86,7 @@ const char descriptor_table_protodef_foliv_2eproto[] PROTOBUF_SECTION_VARIABLE(p
   "rceName\030\006 \001(\t\022\022\n\nrouterName\030\007 \001(\t\022\023\n\013pro"
   "cessName\030\010 \001(\t\022\025\n\rxForwardedFor\030\t \003(\014\022\017\n"
   "\007isTouch\030\n \001(\010\022\r\n\005muxID\030\013 \001(\r\022\020\n\010platfor"
-  "m\030\014 \001(\t\022\021\n\trequestID\030\r \001(\014\022\023\n\013memberLeve"
+  "m\030\014 \001(\t\022\021\n\trequestID\030\r \001(\014\022\023\n\013routerLeve"
   "l\030\016 \001(\r*9\n\007Command\022\t\n\005Empty\020\000\022\013\n\007Connect"
   "\020\001\022\r\n\tAssociate\020\003\022\007\n\003Mux\020\177*B\n\013AddressTyp"
   "e\022\017\n\013InvalidType\020\000\022\010\n\004IPv4\020\001\022\016\n\nDomainNa"
@@ -194,8 +194,8 @@ Foliv::Foliv(const Foliv& from)
       GetArena());
   }
   ::memcpy(&command_, &from.command_,
-    static_cast<size_t>(reinterpret_cast<char*>(&memberlevel_) -
-    reinterpret_cast<char*>(&command_)) + sizeof(memberlevel_));
+    static_cast<size_t>(reinterpret_cast<char*>(&routerlevel_) -
+    reinterpret_cast<char*>(&command_)) + sizeof(routerlevel_));
   // @@protoc_insertion_point(copy_constructor:foliv.Foliv)
 }
 
@@ -209,8 +209,8 @@ platform_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlr
 requestid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&command_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&memberlevel_) -
-    reinterpret_cast<char*>(&command_)) + sizeof(memberlevel_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&routerlevel_) -
+    reinterpret_cast<char*>(&command_)) + sizeof(routerlevel_));
 }
 
 Foliv::~Foliv() {
@@ -255,8 +255,8 @@ void Foliv::Clear() {
   platform_.ClearToEmpty();
   requestid_.ClearToEmpty();
   ::memset(&command_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&memberlevel_) -
-      reinterpret_cast<char*>(&command_)) + sizeof(memberlevel_));
+      reinterpret_cast<char*>(&routerlevel_) -
+      reinterpret_cast<char*>(&command_)) + sizeof(routerlevel_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -378,10 +378,10 @@ const char* Foliv::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::inte
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint32 memberLevel = 14;
+      // uint32 routerLevel = 14;
       case 14:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 112)) {
-          memberlevel_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          routerlevel_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -513,10 +513,10 @@ failure:
         13, this->_internal_requestid(), target);
   }
 
-  // uint32 memberLevel = 14;
-  if (this->memberlevel() != 0) {
+  // uint32 routerLevel = 14;
+  if (this->routerlevel() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(14, this->_internal_memberlevel(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(14, this->_internal_routerlevel(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -623,11 +623,11 @@ size_t Foliv::ByteSizeLong() const {
         this->_internal_muxid());
   }
 
-  // uint32 memberLevel = 14;
-  if (this->memberlevel() != 0) {
+  // uint32 routerLevel = 14;
+  if (this->routerlevel() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_memberlevel());
+        this->_internal_routerlevel());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -698,8 +698,8 @@ void Foliv::MergeFrom(const Foliv& from) {
   if (from.muxid() != 0) {
     _internal_set_muxid(from._internal_muxid());
   }
-  if (from.memberlevel() != 0) {
-    _internal_set_memberlevel(from._internal_memberlevel());
+  if (from.routerlevel() != 0) {
+    _internal_set_routerlevel(from._internal_routerlevel());
   }
 }
 
@@ -733,8 +733,8 @@ void Foliv::InternalSwap(Foliv* other) {
   platform_.Swap(&other->platform_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   requestid_.Swap(&other->requestid_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Foliv, memberlevel_)
-      + sizeof(Foliv::memberlevel_)
+      PROTOBUF_FIELD_OFFSET(Foliv, routerlevel_)
+      + sizeof(Foliv::routerlevel_)
       - PROTOBUF_FIELD_OFFSET(Foliv, command_)>(
           reinterpret_cast<char*>(&command_),
           reinterpret_cast<char*>(&other->command_));

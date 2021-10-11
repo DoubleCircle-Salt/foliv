@@ -92,7 +92,7 @@ proto.foliv.Foliv.toObject = function(includeInstance, msg) {
     muxid: jspb.Message.getFieldWithDefault(msg, 11, 0),
     platform: jspb.Message.getFieldWithDefault(msg, 12, ""),
     requestid: msg.getRequestid_asB64(),
-    memberlevel: jspb.Message.getFieldWithDefault(msg, 14, 0)
+    routerlevel: jspb.Message.getFieldWithDefault(msg, 14, 0)
   };
 
   if (includeInstance) {
@@ -183,7 +183,7 @@ proto.foliv.Foliv.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 14:
       var value = /** @type {number} */ (reader.readUint32());
-      msg.setMemberlevel(value);
+      msg.setRouterlevel(value);
       break;
     default:
       reader.skipField();
@@ -305,7 +305,7 @@ proto.foliv.Foliv.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getMemberlevel();
+  f = message.getRouterlevel();
   if (f !== 0) {
     writer.writeUint32(
       14,
@@ -641,10 +641,10 @@ proto.foliv.Foliv.prototype.setRequestid = function(value) {
 
 
 /**
- * optional uint32 memberLevel = 14;
+ * optional uint32 routerLevel = 14;
  * @return {number}
  */
-proto.foliv.Foliv.prototype.getMemberlevel = function() {
+proto.foliv.Foliv.prototype.getRouterlevel = function() {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 14, 0));
 };
 
@@ -653,7 +653,7 @@ proto.foliv.Foliv.prototype.getMemberlevel = function() {
  * @param {number} value
  * @return {!proto.foliv.Foliv} returns this
  */
-proto.foliv.Foliv.prototype.setMemberlevel = function(value) {
+proto.foliv.Foliv.prototype.setRouterlevel = function(value) {
   return jspb.Message.setProto3IntField(this, 14, value);
 };
 

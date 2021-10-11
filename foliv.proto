@@ -71,5 +71,5 @@ message Foliv {
 	uint32         muxID = 11;
 	string         platform = 12;
 	bytes          requestID = 13;
-	uint32         memberLevel = 14;
+	uint32         routerLevel = 14;
 }
