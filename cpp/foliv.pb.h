@@ -242,6 +242,7 @@ class Foliv PROTOBUF_FINAL :
     kProcessNameFieldNumber = 8,
     kPlatformFieldNumber = 12,
     kRequestIDFieldNumber = 13,
+    kUserAgentFieldNumber = 15,
     kCommandFieldNumber = 2,
     kAddressTypeFieldNumber = 3,
     kPortFieldNumber = 5,
@@ -385,6 +386,22 @@ class Foliv PROTOBUF_FINAL :
   std::string* _internal_mutable_requestid();
   public:
 
+  // string userAgent = 15;
+  void clear_useragent();
+  const std::string& useragent() const;
+  void set_useragent(const std::string& value);
+  void set_useragent(std::string&& value);
+  void set_useragent(const char* value);
+  void set_useragent(const char* value, size_t size);
+  std::string* mutable_useragent();
+  std::string* release_useragent();
+  void set_allocated_useragent(std::string* useragent);
+  private:
+  const std::string& _internal_useragent() const;
+  void _internal_set_useragent(const std::string& value);
+  std::string* _internal_mutable_useragent();
+  public:
+
   // .foliv.Command command = 2;
   void clear_command();
   ::foliv::Command command() const;
@@ -454,6 +471,7 @@ class Foliv PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr processname_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr platform_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr requestid_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr useragent_;
   int command_;
   int addresstype_;
   ::PROTOBUF_NAMESPACE_ID::uint32 port_;
@@ -1093,6 +1111,67 @@ inline void Foliv::_internal_set_routerlevel(::PROTOBUF_NAMESPACE_ID::uint32 val
 inline void Foliv::set_routerlevel(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _internal_set_routerlevel(value);
   // @@protoc_insertion_point(field_set:foliv.Foliv.routerLevel)
+}
+
+// string userAgent = 15;
+inline void Foliv::clear_useragent() {
+  useragent_.ClearToEmpty();
+}
+inline const std::string& Foliv::useragent() const {
+  // @@protoc_insertion_point(field_get:foliv.Foliv.userAgent)
+  return _internal_useragent();
+}
+inline void Foliv::set_useragent(const std::string& value) {
+  _internal_set_useragent(value);
+  // @@protoc_insertion_point(field_set:foliv.Foliv.userAgent)
+}
+inline std::string* Foliv::mutable_useragent() {
+  // @@protoc_insertion_point(field_mutable:foliv.Foliv.userAgent)
+  return _internal_mutable_useragent();
+}
+inline const std::string& Foliv::_internal_useragent() const {
+  return useragent_.Get();
+}
+inline void Foliv::_internal_set_useragent(const std::string& value) {
+  
+  useragent_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void Foliv::set_useragent(std::string&& value) {
+  
+  useragent_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:foliv.Foliv.userAgent)
+}
+inline void Foliv::set_useragent(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  useragent_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:foliv.Foliv.userAgent)
+}
+inline void Foliv::set_useragent(const char* value,
+    size_t size) {
+  
+  useragent_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:foliv.Foliv.userAgent)
+}
+inline std::string* Foliv::_internal_mutable_useragent() {
+  
+  return useragent_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* Foliv::release_useragent() {
+  // @@protoc_insertion_point(field_release:foliv.Foliv.userAgent)
+  return useragent_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Foliv::set_allocated_useragent(std::string* useragent) {
+  if (useragent != nullptr) {
+    
+  } else {
+    
+  }
+  useragent_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), useragent,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:foliv.Foliv.userAgent)
 }
 
 #ifdef __GNUC__

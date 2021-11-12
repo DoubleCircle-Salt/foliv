@@ -404,6 +404,18 @@ public final class FolivOuterClass {
      * @return The routerLevel.
      */
     int getRouterLevel();
+
+    /**
+     * <code>string userAgent = 15;</code>
+     * @return The userAgent.
+     */
+    java.lang.String getUserAgent();
+    /**
+     * <code>string userAgent = 15;</code>
+     * @return The bytes for userAgent.
+     */
+    com.google.protobuf.ByteString
+        getUserAgentBytes();
   }
   /**
    * Protobuf type {@code foliv.Foliv}
@@ -428,6 +440,7 @@ public final class FolivOuterClass {
       xForwardedFor_ = java.util.Collections.emptyList();
       platform_ = "";
       requestID_ = com.google.protobuf.ByteString.EMPTY;
+      userAgent_ = "";
     }
 
     @java.lang.Override
@@ -539,6 +552,12 @@ public final class FolivOuterClass {
             case 112: {
 
               routerLevel_ = input.readUInt32();
+              break;
+            }
+            case 122: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              userAgent_ = s;
               break;
             }
             default: {
@@ -897,6 +916,44 @@ public final class FolivOuterClass {
       return routerLevel_;
     }
 
+    public static final int USERAGENT_FIELD_NUMBER = 15;
+    private volatile java.lang.Object userAgent_;
+    /**
+     * <code>string userAgent = 15;</code>
+     * @return The userAgent.
+     */
+    @java.lang.Override
+    public java.lang.String getUserAgent() {
+      java.lang.Object ref = userAgent_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        userAgent_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string userAgent = 15;</code>
+     * @return The bytes for userAgent.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getUserAgentBytes() {
+      java.lang.Object ref = userAgent_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userAgent_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -952,6 +1009,9 @@ public final class FolivOuterClass {
       }
       if (routerLevel_ != 0) {
         output.writeUInt32(14, routerLevel_);
+      }
+      if (!getUserAgentBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 15, userAgent_);
       }
       unknownFields.writeTo(output);
     }
@@ -1018,6 +1078,9 @@ public final class FolivOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(14, routerLevel_);
       }
+      if (!getUserAgentBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, userAgent_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -1059,6 +1122,8 @@ public final class FolivOuterClass {
           .equals(other.getRequestID())) return false;
       if (getRouterLevel()
           != other.getRouterLevel()) return false;
+      if (!getUserAgent()
+          .equals(other.getUserAgent())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1101,6 +1166,8 @@ public final class FolivOuterClass {
       hash = (53 * hash) + getRequestID().hashCode();
       hash = (37 * hash) + ROUTERLEVEL_FIELD_NUMBER;
       hash = (53 * hash) + getRouterLevel();
+      hash = (37 * hash) + USERAGENT_FIELD_NUMBER;
+      hash = (53 * hash) + getUserAgent().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1262,6 +1329,8 @@ public final class FolivOuterClass {
 
         routerLevel_ = 0;
 
+        userAgent_ = "";
+
         return this;
       }
 
@@ -1307,6 +1376,7 @@ public final class FolivOuterClass {
         result.platform_ = platform_;
         result.requestID_ = requestID_;
         result.routerLevel_ = routerLevel_;
+        result.userAgent_ = userAgent_;
         onBuilt();
         return result;
       }
@@ -1408,6 +1478,10 @@ public final class FolivOuterClass {
         }
         if (other.getRouterLevel() != 0) {
           setRouterLevel(other.getRouterLevel());
+        }
+        if (!other.getUserAgent().isEmpty()) {
+          userAgent_ = other.userAgent_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2203,6 +2277,82 @@ public final class FolivOuterClass {
         onChanged();
         return this;
       }
+
+      private java.lang.Object userAgent_ = "";
+      /**
+       * <code>string userAgent = 15;</code>
+       * @return The userAgent.
+       */
+      public java.lang.String getUserAgent() {
+        java.lang.Object ref = userAgent_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          userAgent_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string userAgent = 15;</code>
+       * @return The bytes for userAgent.
+       */
+      public com.google.protobuf.ByteString
+          getUserAgentBytes() {
+        java.lang.Object ref = userAgent_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          userAgent_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string userAgent = 15;</code>
+       * @param value The userAgent to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUserAgent(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        userAgent_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string userAgent = 15;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearUserAgent() {
+        
+        userAgent_ = getDefaultInstance().getUserAgent();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string userAgent = 15;</code>
+       * @param value The bytes for userAgent to set.
+       * @return This builder for chaining.
+       */
+      public Builder setUserAgentBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        userAgent_ = value;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -2270,7 +2420,7 @@ public final class FolivOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\013foliv.proto\022\005foliv\"\260\002\n\005Foliv\022\020\n\010userHa" +
+      "\n\013foliv.proto\022\005foliv\"\303\002\n\005Foliv\022\020\n\010userHa" +
       "sh\030\001 \001(\t\022\037\n\007command\030\002 \001(\0162\016.foliv.Comman" +
       "d\022\'\n\013addressType\030\003 \001(\0162\022.foliv.AddressTy" +
       "pe\022\017\n\007address\030\004 \001(\014\022\014\n\004port\030\005 \001(\r\022\022\n\nsou" +
@@ -2278,10 +2428,11 @@ public final class FolivOuterClass {
       "cessName\030\010 \001(\t\022\025\n\rxForwardedFor\030\t \003(\014\022\017\n" +
       "\007isTouch\030\n \001(\010\022\r\n\005muxID\030\013 \001(\r\022\020\n\010platfor" +
       "m\030\014 \001(\t\022\021\n\trequestID\030\r \001(\014\022\023\n\013routerLeve" +
-      "l\030\016 \001(\r*9\n\007Command\022\t\n\005Empty\020\000\022\013\n\007Connect" +
-      "\020\001\022\r\n\tAssociate\020\003\022\007\n\003Mux\020\177*B\n\013AddressTyp" +
-      "e\022\017\n\013InvalidType\020\000\022\010\n\004IPv4\020\001\022\016\n\nDomainNa" +
-      "me\020\003\022\010\n\004IPv6\020\004B\tZ\007./folivb\006proto3"
+      "l\030\016 \001(\r\022\021\n\tuserAgent\030\017 \001(\t*9\n\007Command\022\t\n" +
+      "\005Empty\020\000\022\013\n\007Connect\020\001\022\r\n\tAssociate\020\003\022\007\n\003" +
+      "Mux\020\177*B\n\013AddressType\022\017\n\013InvalidType\020\000\022\010\n" +
+      "\004IPv4\020\001\022\016\n\nDomainName\020\003\022\010\n\004IPv6\020\004B\tZ\007./f" +
+      "olivb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -2292,7 +2443,7 @@ public final class FolivOuterClass {
     internal_static_foliv_Foliv_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_foliv_Foliv_descriptor,
-        new java.lang.String[] { "UserHash", "Command", "AddressType", "Address", "Port", "SourceName", "RouterName", "ProcessName", "XForwardedFor", "IsTouch", "MuxID", "Platform", "RequestID", "RouterLevel", });
+        new java.lang.String[] { "UserHash", "Command", "AddressType", "Address", "Port", "SourceName", "RouterName", "ProcessName", "XForwardedFor", "IsTouch", "MuxID", "Platform", "RequestID", "RouterLevel", "UserAgent", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

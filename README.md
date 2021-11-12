@@ -24,6 +24,7 @@
 | 12 | Platform | string | 平台名称 |
 | 13 | RequestID | []byte | requestID |
 | 14 | RouterLevel | uint32 | 线路等级 |
+| 15 | UserAgent | string | ua |
 
 # go-code instruction
 

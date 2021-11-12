@@ -24,21 +24,21 @@ namespace Foliv {
     static FolivReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cgtmb2xpdi5wcm90bxIFZm9saXYisAIKBUZvbGl2EhAKCHVzZXJIYXNoGAEg",
+            "Cgtmb2xpdi5wcm90bxIFZm9saXYiwwIKBUZvbGl2EhAKCHVzZXJIYXNoGAEg",
             "ASgJEh8KB2NvbW1hbmQYAiABKA4yDi5mb2xpdi5Db21tYW5kEicKC2FkZHJl",
             "c3NUeXBlGAMgASgOMhIuZm9saXYuQWRkcmVzc1R5cGUSDwoHYWRkcmVzcxgE",
             "IAEoDBIMCgRwb3J0GAUgASgNEhIKCnNvdXJjZU5hbWUYBiABKAkSEgoKcm91",
             "dGVyTmFtZRgHIAEoCRITCgtwcm9jZXNzTmFtZRgIIAEoCRIVCg14Rm9yd2Fy",
             "ZGVkRm9yGAkgAygMEg8KB2lzVG91Y2gYCiABKAgSDQoFbXV4SUQYCyABKA0S",
             "EAoIcGxhdGZvcm0YDCABKAkSEQoJcmVxdWVzdElEGA0gASgMEhMKC3JvdXRl",
-            "ckxldmVsGA4gASgNKjkKB0NvbW1hbmQSCQoFRW1wdHkQABILCgdDb25uZWN0",
-            "EAESDQoJQXNzb2NpYXRlEAMSBwoDTXV4EH8qQgoLQWRkcmVzc1R5cGUSDwoL",
-            "SW52YWxpZFR5cGUQABIICgRJUHY0EAESDgoKRG9tYWluTmFtZRADEggKBElQ",
-            "djYQBEIJWgcuL2ZvbGl2YgZwcm90bzM="));
+            "ckxldmVsGA4gASgNEhEKCXVzZXJBZ2VudBgPIAEoCSo5CgdDb21tYW5kEgkK",
+            "BUVtcHR5EAASCwoHQ29ubmVjdBABEg0KCUFzc29jaWF0ZRADEgcKA011eBB/",
+            "KkIKC0FkZHJlc3NUeXBlEg8KC0ludmFsaWRUeXBlEAASCAoESVB2NBABEg4K",
+            "CkRvbWFpbk5hbWUQAxIICgRJUHY2EARCCVoHLi9mb2xpdmIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Foliv.Command), typeof(global::Foliv.AddressType), }, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Foliv.Foliv), global::Foliv.Foliv.Parser, new[]{ "UserHash", "Command", "AddressType", "Address", "Port", "SourceName", "RouterName", "ProcessName", "XForwardedFor", "IsTouch", "MuxID", "Platform", "RequestID", "RouterLevel" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Foliv.Foliv), global::Foliv.Foliv.Parser, new[]{ "UserHash", "Command", "AddressType", "Address", "Port", "SourceName", "RouterName", "ProcessName", "XForwardedFor", "IsTouch", "MuxID", "Platform", "RequestID", "RouterLevel", "UserAgent" }, null, null, null, null)
           }));
     }
     #endregion
@@ -105,6 +105,7 @@ namespace Foliv {
       platform_ = other.platform_;
       requestID_ = other.requestID_;
       routerLevel_ = other.routerLevel_;
+      userAgent_ = other.userAgent_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -266,6 +267,17 @@ namespace Foliv {
       }
     }
 
+    /// <summary>Field number for the "userAgent" field.</summary>
+    public const int UserAgentFieldNumber = 15;
+    private string userAgent_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string UserAgent {
+      get { return userAgent_; }
+      set {
+        userAgent_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as Foliv);
@@ -293,6 +305,7 @@ namespace Foliv {
       if (Platform != other.Platform) return false;
       if (RequestID != other.RequestID) return false;
       if (RouterLevel != other.RouterLevel) return false;
+      if (UserAgent != other.UserAgent) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -313,6 +326,7 @@ namespace Foliv {
       if (Platform.Length != 0) hash ^= Platform.GetHashCode();
       if (RequestID.Length != 0) hash ^= RequestID.GetHashCode();
       if (RouterLevel != 0) hash ^= RouterLevel.GetHashCode();
+      if (UserAgent.Length != 0) hash ^= UserAgent.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -382,6 +396,10 @@ namespace Foliv {
         output.WriteRawTag(112);
         output.WriteUInt32(RouterLevel);
       }
+      if (UserAgent.Length != 0) {
+        output.WriteRawTag(122);
+        output.WriteString(UserAgent);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -444,6 +462,10 @@ namespace Foliv {
         output.WriteRawTag(112);
         output.WriteUInt32(RouterLevel);
       }
+      if (UserAgent.Length != 0) {
+        output.WriteRawTag(122);
+        output.WriteString(UserAgent);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -492,6 +514,9 @@ namespace Foliv {
       }
       if (RouterLevel != 0) {
         size += 1 + pb::CodedOutputStream.ComputeUInt32Size(RouterLevel);
+      }
+      if (UserAgent.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(UserAgent);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -543,6 +568,9 @@ namespace Foliv {
       }
       if (other.RouterLevel != 0) {
         RouterLevel = other.RouterLevel;
+      }
+      if (other.UserAgent.Length != 0) {
+        UserAgent = other.UserAgent;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -614,6 +642,10 @@ namespace Foliv {
             RouterLevel = input.ReadUInt32();
             break;
           }
+          case 122: {
+            UserAgent = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -682,6 +714,10 @@ namespace Foliv {
           }
           case 112: {
             RouterLevel = input.ReadUInt32();
+            break;
+          }
+          case 122: {
+            UserAgent = input.ReadString();
             break;
           }
         }

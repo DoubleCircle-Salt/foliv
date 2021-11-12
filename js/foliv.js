@@ -92,7 +92,8 @@ proto.foliv.Foliv.toObject = function(includeInstance, msg) {
     muxid: jspb.Message.getFieldWithDefault(msg, 11, 0),
     platform: jspb.Message.getFieldWithDefault(msg, 12, ""),
     requestid: msg.getRequestid_asB64(),
-    routerlevel: jspb.Message.getFieldWithDefault(msg, 14, 0)
+    routerlevel: jspb.Message.getFieldWithDefault(msg, 14, 0),
+    useragent: jspb.Message.getFieldWithDefault(msg, 15, "")
   };
 
   if (includeInstance) {
@@ -184,6 +185,10 @@ proto.foliv.Foliv.deserializeBinaryFromReader = function(msg, reader) {
     case 14:
       var value = /** @type {number} */ (reader.readUint32());
       msg.setRouterlevel(value);
+      break;
+    case 15:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setUseragent(value);
       break;
     default:
       reader.skipField();
@@ -309,6 +314,13 @@ proto.foliv.Foliv.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeUint32(
       14,
+      f
+    );
+  }
+  f = message.getUseragent();
+  if (f.length > 0) {
+    writer.writeString(
+      15,
       f
     );
   }
@@ -655,6 +667,24 @@ proto.foliv.Foliv.prototype.getRouterlevel = function() {
  */
 proto.foliv.Foliv.prototype.setRouterlevel = function(value) {
   return jspb.Message.setProto3IntField(this, 14, value);
+};
+
+
+/**
+ * optional string userAgent = 15;
+ * @return {string}
+ */
+proto.foliv.Foliv.prototype.getUseragent = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 15, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.foliv.Foliv} returns this
+ */
+proto.foliv.Foliv.prototype.setUseragent = function(value) {
+  return jspb.Message.setProto3StringField(this, 15, value);
 };
 
 

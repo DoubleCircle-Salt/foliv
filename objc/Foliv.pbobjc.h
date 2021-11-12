@@ -107,6 +107,7 @@ typedef GPB_ENUM(Foliv_FieldNumber) {
   Foliv_FieldNumber_Platform = 12,
   Foliv_FieldNumber_RequestId = 13,
   Foliv_FieldNumber_RouterLevel = 14,
+  Foliv_FieldNumber_UserAgent = 15,
 };
 
 GPB_FINAL @interface Foliv : GPBMessage
@@ -140,6 +141,8 @@ GPB_FINAL @interface Foliv : GPBMessage
 @property(nonatomic, readwrite, copy, null_resettable) NSData *requestId;
 
 @property(nonatomic, readwrite) uint32_t routerLevel;
+
+@property(nonatomic, readwrite, copy, null_resettable) NSString *userAgent;
 
 @end
 

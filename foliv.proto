@@ -72,4 +72,5 @@ message Foliv {
 	string         platform = 12;
 	bytes          requestID = 13;
 	uint32         routerLevel = 14;
+	string         userAgent = 15;
 }

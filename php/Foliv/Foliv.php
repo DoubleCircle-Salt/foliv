@@ -69,6 +69,10 @@ class Foliv extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>uint32 routerLevel = 14;</code>
      */
     protected $routerLevel = 0;
+    /**
+     * Generated from protobuf field <code>string userAgent = 15;</code>
+     */
+    protected $userAgent = '';
 
     /**
      * Constructor.
@@ -90,6 +94,7 @@ class Foliv extends \Google\Protobuf\Internal\Message
      *     @type string $platform
      *     @type string $requestID
      *     @type int $routerLevel
+     *     @type string $userAgent
      * }
      */
     public function __construct($data = NULL) {
@@ -401,6 +406,28 @@ class Foliv extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkUint32($var);
         $this->routerLevel = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string userAgent = 15;</code>
+     * @return string
+     */
+    public function getUserAgent()
+    {
+        return $this->userAgent;
+    }
+
+    /**
+     * Generated from protobuf field <code>string userAgent = 15;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setUserAgent($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->userAgent = $var;
 
         return $this;
     }
