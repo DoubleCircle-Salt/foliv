@@ -145,6 +145,7 @@ BOOL AddressType_IsValidValue(int32_t value__) {
 @dynamic requestId;
 @dynamic routerLevel;
 @dynamic userAgent;
+@dynamic requestHop;
 
 typedef struct Foliv__storage_ {
   uint32_t _has_storage_[1];
@@ -153,6 +154,7 @@ typedef struct Foliv__storage_ {
   uint32_t port;
   uint32_t muxId;
   uint32_t routerLevel;
+  uint32_t requestHop;
   NSString *userHash;
   NSData *address;
   NSString *sourceName;
@@ -305,6 +307,15 @@ typedef struct Foliv__storage_ {
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeString,
       },
+      {
+        .name = "requestHop",
+        .dataTypeSpecific.clazz = Nil,
+        .number = Foliv_FieldNumber_RequestHop,
+        .hasIndex = 15,
+        .offset = (uint32_t)offsetof(Foliv__storage_, requestHop),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
+        .dataType = GPBDataTypeUInt32,
+      },
     };
     GPBDescriptor *localDescriptor =
         [GPBDescriptor allocDescriptorForClass:[Foliv class]
@@ -316,8 +327,8 @@ typedef struct Foliv__storage_ {
                                          flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
 #if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     static const char *extraTextFormatInfo =
-        "\013\001\010\000\003\013\000\006\n\000\007\n\000\010\013\000\t\000xForwardedFor\000\n\007\000\013\004A\000\r"
-        "\010A\000\016\013\000\017\t\000";
+        "\014\001\010\000\003\013\000\006\n\000\007\n\000\010\013\000\t\000xForwardedFor\000\n\007\000\013\004A\000\r"
+        "\010A\000\016\013\000\017\t\000\020\n\000";
     [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
 #endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     #if defined(DEBUG) && DEBUG

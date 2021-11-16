@@ -416,6 +416,12 @@ public final class FolivOuterClass {
      */
     com.google.protobuf.ByteString
         getUserAgentBytes();
+
+    /**
+     * <code>uint32 requestHop = 16;</code>
+     * @return The requestHop.
+     */
+    int getRequestHop();
   }
   /**
    * Protobuf type {@code foliv.Foliv}
@@ -558,6 +564,11 @@ public final class FolivOuterClass {
               java.lang.String s = input.readStringRequireUtf8();
 
               userAgent_ = s;
+              break;
+            }
+            case 128: {
+
+              requestHop_ = input.readUInt32();
               break;
             }
             default: {
@@ -954,6 +965,17 @@ public final class FolivOuterClass {
       }
     }
 
+    public static final int REQUESTHOP_FIELD_NUMBER = 16;
+    private int requestHop_;
+    /**
+     * <code>uint32 requestHop = 16;</code>
+     * @return The requestHop.
+     */
+    @java.lang.Override
+    public int getRequestHop() {
+      return requestHop_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -1012,6 +1034,9 @@ public final class FolivOuterClass {
       }
       if (!getUserAgentBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 15, userAgent_);
+      }
+      if (requestHop_ != 0) {
+        output.writeUInt32(16, requestHop_);
       }
       unknownFields.writeTo(output);
     }
@@ -1081,6 +1106,10 @@ public final class FolivOuterClass {
       if (!getUserAgentBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, userAgent_);
       }
+      if (requestHop_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(16, requestHop_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -1124,6 +1153,8 @@ public final class FolivOuterClass {
           != other.getRouterLevel()) return false;
       if (!getUserAgent()
           .equals(other.getUserAgent())) return false;
+      if (getRequestHop()
+          != other.getRequestHop()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1168,6 +1199,8 @@ public final class FolivOuterClass {
       hash = (53 * hash) + getRouterLevel();
       hash = (37 * hash) + USERAGENT_FIELD_NUMBER;
       hash = (53 * hash) + getUserAgent().hashCode();
+      hash = (37 * hash) + REQUESTHOP_FIELD_NUMBER;
+      hash = (53 * hash) + getRequestHop();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1331,6 +1364,8 @@ public final class FolivOuterClass {
 
         userAgent_ = "";
 
+        requestHop_ = 0;
+
         return this;
       }
 
@@ -1377,6 +1412,7 @@ public final class FolivOuterClass {
         result.requestID_ = requestID_;
         result.routerLevel_ = routerLevel_;
         result.userAgent_ = userAgent_;
+        result.requestHop_ = requestHop_;
         onBuilt();
         return result;
       }
@@ -1482,6 +1518,9 @@ public final class FolivOuterClass {
         if (!other.getUserAgent().isEmpty()) {
           userAgent_ = other.userAgent_;
           onChanged();
+        }
+        if (other.getRequestHop() != 0) {
+          setRequestHop(other.getRequestHop());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2353,6 +2392,37 @@ public final class FolivOuterClass {
         onChanged();
         return this;
       }
+
+      private int requestHop_ ;
+      /**
+       * <code>uint32 requestHop = 16;</code>
+       * @return The requestHop.
+       */
+      @java.lang.Override
+      public int getRequestHop() {
+        return requestHop_;
+      }
+      /**
+       * <code>uint32 requestHop = 16;</code>
+       * @param value The requestHop to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRequestHop(int value) {
+        
+        requestHop_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint32 requestHop = 16;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRequestHop() {
+        
+        requestHop_ = 0;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -2420,7 +2490,7 @@ public final class FolivOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\013foliv.proto\022\005foliv\"\303\002\n\005Foliv\022\020\n\010userHa" +
+      "\n\013foliv.proto\022\005foliv\"\327\002\n\005Foliv\022\020\n\010userHa" +
       "sh\030\001 \001(\t\022\037\n\007command\030\002 \001(\0162\016.foliv.Comman" +
       "d\022\'\n\013addressType\030\003 \001(\0162\022.foliv.AddressTy" +
       "pe\022\017\n\007address\030\004 \001(\014\022\014\n\004port\030\005 \001(\r\022\022\n\nsou" +
@@ -2428,11 +2498,11 @@ public final class FolivOuterClass {
       "cessName\030\010 \001(\t\022\025\n\rxForwardedFor\030\t \003(\014\022\017\n" +
       "\007isTouch\030\n \001(\010\022\r\n\005muxID\030\013 \001(\r\022\020\n\010platfor" +
       "m\030\014 \001(\t\022\021\n\trequestID\030\r \001(\014\022\023\n\013routerLeve" +
-      "l\030\016 \001(\r\022\021\n\tuserAgent\030\017 \001(\t*9\n\007Command\022\t\n" +
-      "\005Empty\020\000\022\013\n\007Connect\020\001\022\r\n\tAssociate\020\003\022\007\n\003" +
-      "Mux\020\177*B\n\013AddressType\022\017\n\013InvalidType\020\000\022\010\n" +
-      "\004IPv4\020\001\022\016\n\nDomainName\020\003\022\010\n\004IPv6\020\004B\tZ\007./f" +
-      "olivb\006proto3"
+      "l\030\016 \001(\r\022\021\n\tuserAgent\030\017 \001(\t\022\022\n\nrequestHop" +
+      "\030\020 \001(\r*9\n\007Command\022\t\n\005Empty\020\000\022\013\n\007Connect\020" +
+      "\001\022\r\n\tAssociate\020\003\022\007\n\003Mux\020\177*B\n\013AddressType" +
+      "\022\017\n\013InvalidType\020\000\022\010\n\004IPv4\020\001\022\016\n\nDomainNam" +
+      "e\020\003\022\010\n\004IPv6\020\004B\tZ\007./folivb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -2443,7 +2513,7 @@ public final class FolivOuterClass {
     internal_static_foliv_Foliv_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_foliv_Foliv_descriptor,
-        new java.lang.String[] { "UserHash", "Command", "AddressType", "Address", "Port", "SourceName", "RouterName", "ProcessName", "XForwardedFor", "IsTouch", "MuxID", "Platform", "RequestID", "RouterLevel", "UserAgent", });
+        new java.lang.String[] { "UserHash", "Command", "AddressType", "Address", "Port", "SourceName", "RouterName", "ProcessName", "XForwardedFor", "IsTouch", "MuxID", "Platform", "RequestID", "RouterLevel", "UserAgent", "RequestHop", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

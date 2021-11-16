@@ -93,7 +93,8 @@ proto.foliv.Foliv.toObject = function(includeInstance, msg) {
     platform: jspb.Message.getFieldWithDefault(msg, 12, ""),
     requestid: msg.getRequestid_asB64(),
     routerlevel: jspb.Message.getFieldWithDefault(msg, 14, 0),
-    useragent: jspb.Message.getFieldWithDefault(msg, 15, "")
+    useragent: jspb.Message.getFieldWithDefault(msg, 15, ""),
+    requesthop: jspb.Message.getFieldWithDefault(msg, 16, 0)
   };
 
   if (includeInstance) {
@@ -189,6 +190,10 @@ proto.foliv.Foliv.deserializeBinaryFromReader = function(msg, reader) {
     case 15:
       var value = /** @type {string} */ (reader.readString());
       msg.setUseragent(value);
+      break;
+    case 16:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setRequesthop(value);
       break;
     default:
       reader.skipField();
@@ -321,6 +326,13 @@ proto.foliv.Foliv.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writeString(
       15,
+      f
+    );
+  }
+  f = message.getRequesthop();
+  if (f !== 0) {
+    writer.writeUint32(
+      16,
       f
     );
   }
@@ -685,6 +697,24 @@ proto.foliv.Foliv.prototype.getUseragent = function() {
  */
 proto.foliv.Foliv.prototype.setUseragent = function(value) {
   return jspb.Message.setProto3StringField(this, 15, value);
+};
+
+
+/**
+ * optional uint32 requestHop = 16;
+ * @return {number}
+ */
+proto.foliv.Foliv.prototype.getRequesthop = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 16, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.foliv.Foliv} returns this
+ */
+proto.foliv.Foliv.prototype.setRequesthop = function(value) {
+  return jspb.Message.setProto3IntField(this, 16, value);
 };
 
 

@@ -249,6 +249,7 @@ class Foliv PROTOBUF_FINAL :
     kIsTouchFieldNumber = 10,
     kMuxIDFieldNumber = 11,
     kRouterLevelFieldNumber = 14,
+    kRequestHopFieldNumber = 16,
   };
   // repeated bytes xForwardedFor = 9;
   int xforwardedfor_size() const;
@@ -456,6 +457,15 @@ class Foliv PROTOBUF_FINAL :
   void _internal_set_routerlevel(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
+  // uint32 requestHop = 16;
+  void clear_requesthop();
+  ::PROTOBUF_NAMESPACE_ID::uint32 requesthop() const;
+  void set_requesthop(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_requesthop() const;
+  void _internal_set_requesthop(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:foliv.Foliv)
  private:
   class _Internal;
@@ -478,6 +488,7 @@ class Foliv PROTOBUF_FINAL :
   bool istouch_;
   ::PROTOBUF_NAMESPACE_ID::uint32 muxid_;
   ::PROTOBUF_NAMESPACE_ID::uint32 routerlevel_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 requesthop_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_foliv_2eproto;
 };
@@ -1172,6 +1183,26 @@ inline void Foliv::set_allocated_useragent(std::string* useragent) {
   useragent_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), useragent,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:foliv.Foliv.userAgent)
+}
+
+// uint32 requestHop = 16;
+inline void Foliv::clear_requesthop() {
+  requesthop_ = 0u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Foliv::_internal_requesthop() const {
+  return requesthop_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Foliv::requesthop() const {
+  // @@protoc_insertion_point(field_get:foliv.Foliv.requestHop)
+  return _internal_requesthop();
+}
+inline void Foliv::_internal_set_requesthop(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  
+  requesthop_ = value;
+}
+inline void Foliv::set_requesthop(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_requesthop(value);
+  // @@protoc_insertion_point(field_set:foliv.Foliv.requestHop)
 }
 
 #ifdef __GNUC__

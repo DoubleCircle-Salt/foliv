@@ -25,6 +25,7 @@
 | 13 | RequestID | []byte | requestID |
 | 14 | RouterLevel | uint32 | 线路等级 |
 | 15 | UserAgent | string | ua |
+| 16 | RequestHop | uint32 | 防打环参数 ｜ 
 
 # go-code instruction
 
