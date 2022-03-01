@@ -77,6 +77,10 @@ class Foliv extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>uint32 requestHop = 16;</code>
      */
     protected $requestHop = 0;
+    /**
+     * Generated from protobuf field <code>uint32 appID = 17;</code>
+     */
+    protected $appID = 0;
 
     /**
      * Constructor.
@@ -100,6 +104,7 @@ class Foliv extends \Google\Protobuf\Internal\Message
      *     @type int $routerLevel
      *     @type string $userAgent
      *     @type int $requestHop
+     *     @type int $appID
      * }
      */
     public function __construct($data = NULL) {
@@ -455,6 +460,28 @@ class Foliv extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkUint32($var);
         $this->requestHop = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 appID = 17;</code>
+     * @return int
+     */
+    public function getAppID()
+    {
+        return $this->appID;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 appID = 17;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setAppID($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->appID = $var;
 
         return $this;
     }

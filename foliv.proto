@@ -74,4 +74,5 @@ message Foliv {
 	uint32         routerLevel = 14;
 	string         userAgent = 15;
 	uint32         requestHop = 16;
+	uint32         appID = 17;
 }
