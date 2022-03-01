@@ -27,6 +27,7 @@
 | 15 | UserAgent | string | ua |
 | 16 | RequestHop | uint32 | 防打环参数 | 
 | 17 | AppID | uint32 | 应用ID | 
+| 18 | PeerID | uint32 | 开启加速时随机生成的ID | 
 
 # go-code instruction
 
