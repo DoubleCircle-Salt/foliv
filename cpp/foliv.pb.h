@@ -251,6 +251,7 @@ class Foliv PROTOBUF_FINAL :
     kRouterLevelFieldNumber = 14,
     kRequestHopFieldNumber = 16,
     kAppIDFieldNumber = 17,
+    kPeerIDFieldNumber = 18,
   };
   // repeated bytes xForwardedFor = 9;
   int xforwardedfor_size() const;
@@ -476,6 +477,15 @@ class Foliv PROTOBUF_FINAL :
   void _internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
+  // uint32 peerID = 18;
+  void clear_peerid();
+  ::PROTOBUF_NAMESPACE_ID::uint32 peerid() const;
+  void set_peerid(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_peerid() const;
+  void _internal_set_peerid(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:foliv.Foliv)
  private:
   class _Internal;
@@ -500,6 +510,7 @@ class Foliv PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::uint32 routerlevel_;
   ::PROTOBUF_NAMESPACE_ID::uint32 requesthop_;
   ::PROTOBUF_NAMESPACE_ID::uint32 appid_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 peerid_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_foliv_2eproto;
 };
@@ -1234,6 +1245,26 @@ inline void Foliv::_internal_set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
 inline void Foliv::set_appid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _internal_set_appid(value);
   // @@protoc_insertion_point(field_set:foliv.Foliv.appID)
+}
+
+// uint32 peerID = 18;
+inline void Foliv::clear_peerid() {
+  peerid_ = 0u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Foliv::_internal_peerid() const {
+  return peerid_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Foliv::peerid() const {
+  // @@protoc_insertion_point(field_get:foliv.Foliv.peerID)
+  return _internal_peerid();
+}
+inline void Foliv::_internal_set_peerid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  
+  peerid_ = value;
+}
+inline void Foliv::set_peerid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_peerid(value);
+  // @@protoc_insertion_point(field_set:foliv.Foliv.peerID)
 }
 
 #ifdef __GNUC__

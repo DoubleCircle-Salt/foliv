@@ -23,6 +23,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :userAgent, :string, 15
       optional :requestHop, :uint32, 16
       optional :appID, :uint32, 17
+      optional :peerID, :uint32, 18
     end
     add_enum "foliv.Command" do
       value :Empty, 0

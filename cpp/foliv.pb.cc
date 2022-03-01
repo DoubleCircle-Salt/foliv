@@ -37,7 +37,8 @@ constexpr Foliv::Foliv(
   , muxid_(0u)
   , routerlevel_(0u)
   , requesthop_(0u)
-  , appid_(0u){}
+  , appid_(0u)
+  , peerid_(0u){}
 struct FolivDefaultTypeInternal {
   constexpr FolivDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -75,6 +76,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_foliv_2eproto::offsets[] PROTO
   PROTOBUF_FIELD_OFFSET(::foliv::Foliv, useragent_),
   PROTOBUF_FIELD_OFFSET(::foliv::Foliv, requesthop_),
   PROTOBUF_FIELD_OFFSET(::foliv::Foliv, appid_),
+  PROTOBUF_FIELD_OFFSET(::foliv::Foliv, peerid_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::foliv::Foliv)},
@@ -85,7 +87,7 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 };
 
 const char descriptor_table_protodef_foliv_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\013foliv.proto\022\005foliv\"\346\002\n\005Foliv\022\020\n\010userHa"
+  "\n\013foliv.proto\022\005foliv\"\366\002\n\005Foliv\022\020\n\010userHa"
   "sh\030\001 \001(\t\022\037\n\007command\030\002 \001(\0162\016.foliv.Comman"
   "d\022\'\n\013addressType\030\003 \001(\0162\022.foliv.AddressTy"
   "pe\022\017\n\007address\030\004 \001(\014\022\014\n\004port\030\005 \001(\r\022\022\n\nsou"
@@ -94,15 +96,15 @@ const char descriptor_table_protodef_foliv_2eproto[] PROTOBUF_SECTION_VARIABLE(p
   "\007isTouch\030\n \001(\010\022\r\n\005muxID\030\013 \001(\r\022\020\n\010platfor"
   "m\030\014 \001(\t\022\021\n\trequestID\030\r \001(\014\022\023\n\013routerLeve"
   "l\030\016 \001(\r\022\021\n\tuserAgent\030\017 \001(\t\022\022\n\nrequestHop"
-  "\030\020 \001(\r\022\r\n\005appID\030\021 \001(\r*9\n\007Command\022\t\n\005Empt"
-  "y\020\000\022\013\n\007Connect\020\001\022\r\n\tAssociate\020\003\022\007\n\003Mux\020\177"
-  "*B\n\013AddressType\022\017\n\013InvalidType\020\000\022\010\n\004IPv4"
-  "\020\001\022\016\n\nDomainName\020\003\022\010\n\004IPv6\020\004B\tZ\007./folivb"
-  "\006proto3"
+  "\030\020 \001(\r\022\r\n\005appID\030\021 \001(\r\022\016\n\006peerID\030\022 \001(\r*9\n"
+  "\007Command\022\t\n\005Empty\020\000\022\013\n\007Connect\020\001\022\r\n\tAsso"
+  "ciate\020\003\022\007\n\003Mux\020\177*B\n\013AddressType\022\017\n\013Inval"
+  "idType\020\000\022\010\n\004IPv4\020\001\022\016\n\nDomainName\020\003\022\010\n\004IP"
+  "v6\020\004B\tZ\007./folivb\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_foliv_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_foliv_2eproto = {
-  false, false, 527, descriptor_table_protodef_foliv_2eproto, "foliv.proto", 
+  false, false, 543, descriptor_table_protodef_foliv_2eproto, "foliv.proto", 
   &descriptor_table_foliv_2eproto_once, nullptr, 0, 1,
   schemas, file_default_instances, TableStruct_foliv_2eproto::offsets,
   file_level_metadata_foliv_2eproto, file_level_enum_descriptors_foliv_2eproto, file_level_service_descriptors_foliv_2eproto,
@@ -207,8 +209,8 @@ Foliv::Foliv(const Foliv& from)
       GetArena());
   }
   ::memcpy(&command_, &from.command_,
-    static_cast<size_t>(reinterpret_cast<char*>(&appid_) -
-    reinterpret_cast<char*>(&command_)) + sizeof(appid_));
+    static_cast<size_t>(reinterpret_cast<char*>(&peerid_) -
+    reinterpret_cast<char*>(&command_)) + sizeof(peerid_));
   // @@protoc_insertion_point(copy_constructor:foliv.Foliv)
 }
 
@@ -223,8 +225,8 @@ requestid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAl
 useragent_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&command_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&appid_) -
-    reinterpret_cast<char*>(&command_)) + sizeof(appid_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&peerid_) -
+    reinterpret_cast<char*>(&command_)) + sizeof(peerid_));
 }
 
 Foliv::~Foliv() {
@@ -271,8 +273,8 @@ void Foliv::Clear() {
   requestid_.ClearToEmpty();
   useragent_.ClearToEmpty();
   ::memset(&command_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&appid_) -
-      reinterpret_cast<char*>(&command_)) + sizeof(appid_));
+      reinterpret_cast<char*>(&peerid_) -
+      reinterpret_cast<char*>(&command_)) + sizeof(peerid_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -421,6 +423,13 @@ const char* Foliv::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::inte
       case 17:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 136)) {
           appid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint32 peerID = 18;
+      case 18:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 144)) {
+          peerid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -580,6 +589,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(17, this->_internal_appid(), target);
   }
 
+  // uint32 peerID = 18;
+  if (this->peerid() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(18, this->_internal_peerid(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -712,6 +727,13 @@ size_t Foliv::ByteSizeLong() const {
         this->_internal_appid());
   }
 
+  // uint32 peerID = 18;
+  if (this->peerid() != 0) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_peerid());
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
         _internal_metadata_, total_size, &_cached_size_);
@@ -792,6 +814,9 @@ void Foliv::MergeFrom(const Foliv& from) {
   if (from.appid() != 0) {
     _internal_set_appid(from._internal_appid());
   }
+  if (from.peerid() != 0) {
+    _internal_set_peerid(from._internal_peerid());
+  }
 }
 
 void Foliv::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -825,8 +850,8 @@ void Foliv::InternalSwap(Foliv* other) {
   requestid_.Swap(&other->requestid_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   useragent_.Swap(&other->useragent_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Foliv, appid_)
-      + sizeof(Foliv::appid_)
+      PROTOBUF_FIELD_OFFSET(Foliv, peerid_)
+      + sizeof(Foliv::peerid_)
       - PROTOBUF_FIELD_OFFSET(Foliv, command_)>(
           reinterpret_cast<char*>(&command_),
           reinterpret_cast<char*>(&other->command_));

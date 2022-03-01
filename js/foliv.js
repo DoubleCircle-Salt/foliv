@@ -95,7 +95,8 @@ proto.foliv.Foliv.toObject = function(includeInstance, msg) {
     routerlevel: jspb.Message.getFieldWithDefault(msg, 14, 0),
     useragent: jspb.Message.getFieldWithDefault(msg, 15, ""),
     requesthop: jspb.Message.getFieldWithDefault(msg, 16, 0),
-    appid: jspb.Message.getFieldWithDefault(msg, 17, 0)
+    appid: jspb.Message.getFieldWithDefault(msg, 17, 0),
+    peerid: jspb.Message.getFieldWithDefault(msg, 18, 0)
   };
 
   if (includeInstance) {
@@ -199,6 +200,10 @@ proto.foliv.Foliv.deserializeBinaryFromReader = function(msg, reader) {
     case 17:
       var value = /** @type {number} */ (reader.readUint32());
       msg.setAppid(value);
+      break;
+    case 18:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setPeerid(value);
       break;
     default:
       reader.skipField();
@@ -345,6 +350,13 @@ proto.foliv.Foliv.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeUint32(
       17,
+      f
+    );
+  }
+  f = message.getPeerid();
+  if (f !== 0) {
+    writer.writeUint32(
+      18,
       f
     );
   }
@@ -745,6 +757,24 @@ proto.foliv.Foliv.prototype.getAppid = function() {
  */
 proto.foliv.Foliv.prototype.setAppid = function(value) {
   return jspb.Message.setProto3IntField(this, 17, value);
+};
+
+
+/**
+ * optional uint32 peerID = 18;
+ * @return {number}
+ */
+proto.foliv.Foliv.prototype.getPeerid = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 18, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.foliv.Foliv} returns this
+ */
+proto.foliv.Foliv.prototype.setPeerid = function(value) {
+  return jspb.Message.setProto3IntField(this, 18, value);
 };
 
 

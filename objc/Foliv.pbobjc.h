@@ -110,6 +110,7 @@ typedef GPB_ENUM(Foliv_FieldNumber) {
   Foliv_FieldNumber_UserAgent = 15,
   Foliv_FieldNumber_RequestHop = 16,
   Foliv_FieldNumber_AppId = 17,
+  Foliv_FieldNumber_PeerId = 18,
 };
 
 GPB_FINAL @interface Foliv : GPBMessage
@@ -149,6 +150,8 @@ GPB_FINAL @interface Foliv : GPBMessage
 @property(nonatomic, readwrite) uint32_t requestHop;
 
 @property(nonatomic, readwrite) uint32_t appId;
+
+@property(nonatomic, readwrite) uint32_t peerId;
 
 @end
 

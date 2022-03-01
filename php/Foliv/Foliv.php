@@ -81,6 +81,10 @@ class Foliv extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>uint32 appID = 17;</code>
      */
     protected $appID = 0;
+    /**
+     * Generated from protobuf field <code>uint32 peerID = 18;</code>
+     */
+    protected $peerID = 0;
 
     /**
      * Constructor.
@@ -105,6 +109,7 @@ class Foliv extends \Google\Protobuf\Internal\Message
      *     @type string $userAgent
      *     @type int $requestHop
      *     @type int $appID
+     *     @type int $peerID
      * }
      */
     public function __construct($data = NULL) {
@@ -482,6 +487,28 @@ class Foliv extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkUint32($var);
         $this->appID = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 peerID = 18;</code>
+     * @return int
+     */
+    public function getPeerID()
+    {
+        return $this->peerID;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 peerID = 18;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setPeerID($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->peerID = $var;
 
         return $this;
     }

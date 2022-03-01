@@ -24,7 +24,7 @@ namespace Foliv {
     static FolivReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cgtmb2xpdi5wcm90bxIFZm9saXYi5gIKBUZvbGl2EhAKCHVzZXJIYXNoGAEg",
+            "Cgtmb2xpdi5wcm90bxIFZm9saXYi9gIKBUZvbGl2EhAKCHVzZXJIYXNoGAEg",
             "ASgJEh8KB2NvbW1hbmQYAiABKA4yDi5mb2xpdi5Db21tYW5kEicKC2FkZHJl",
             "c3NUeXBlGAMgASgOMhIuZm9saXYuQWRkcmVzc1R5cGUSDwoHYWRkcmVzcxgE",
             "IAEoDBIMCgRwb3J0GAUgASgNEhIKCnNvdXJjZU5hbWUYBiABKAkSEgoKcm91",
@@ -32,14 +32,15 @@ namespace Foliv {
             "ZGVkRm9yGAkgAygMEg8KB2lzVG91Y2gYCiABKAgSDQoFbXV4SUQYCyABKA0S",
             "EAoIcGxhdGZvcm0YDCABKAkSEQoJcmVxdWVzdElEGA0gASgMEhMKC3JvdXRl",
             "ckxldmVsGA4gASgNEhEKCXVzZXJBZ2VudBgPIAEoCRISCgpyZXF1ZXN0SG9w",
-            "GBAgASgNEg0KBWFwcElEGBEgASgNKjkKB0NvbW1hbmQSCQoFRW1wdHkQABIL",
-            "CgdDb25uZWN0EAESDQoJQXNzb2NpYXRlEAMSBwoDTXV4EH8qQgoLQWRkcmVz",
-            "c1R5cGUSDwoLSW52YWxpZFR5cGUQABIICgRJUHY0EAESDgoKRG9tYWluTmFt",
-            "ZRADEggKBElQdjYQBEIJWgcuL2ZvbGl2YgZwcm90bzM="));
+            "GBAgASgNEg0KBWFwcElEGBEgASgNEg4KBnBlZXJJRBgSIAEoDSo5CgdDb21t",
+            "YW5kEgkKBUVtcHR5EAASCwoHQ29ubmVjdBABEg0KCUFzc29jaWF0ZRADEgcK",
+            "A011eBB/KkIKC0FkZHJlc3NUeXBlEg8KC0ludmFsaWRUeXBlEAASCAoESVB2",
+            "NBABEg4KCkRvbWFpbk5hbWUQAxIICgRJUHY2EARCCVoHLi9mb2xpdmIGcHJv",
+            "dG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Foliv.Command), typeof(global::Foliv.AddressType), }, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Foliv.Foliv), global::Foliv.Foliv.Parser, new[]{ "UserHash", "Command", "AddressType", "Address", "Port", "SourceName", "RouterName", "ProcessName", "XForwardedFor", "IsTouch", "MuxID", "Platform", "RequestID", "RouterLevel", "UserAgent", "RequestHop", "AppID" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Foliv.Foliv), global::Foliv.Foliv.Parser, new[]{ "UserHash", "Command", "AddressType", "Address", "Port", "SourceName", "RouterName", "ProcessName", "XForwardedFor", "IsTouch", "MuxID", "Platform", "RequestID", "RouterLevel", "UserAgent", "RequestHop", "AppID", "PeerID" }, null, null, null, null)
           }));
     }
     #endregion
@@ -109,6 +110,7 @@ namespace Foliv {
       userAgent_ = other.userAgent_;
       requestHop_ = other.requestHop_;
       appID_ = other.appID_;
+      peerID_ = other.peerID_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -303,6 +305,17 @@ namespace Foliv {
       }
     }
 
+    /// <summary>Field number for the "peerID" field.</summary>
+    public const int PeerIDFieldNumber = 18;
+    private uint peerID_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public uint PeerID {
+      get { return peerID_; }
+      set {
+        peerID_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as Foliv);
@@ -333,6 +346,7 @@ namespace Foliv {
       if (UserAgent != other.UserAgent) return false;
       if (RequestHop != other.RequestHop) return false;
       if (AppID != other.AppID) return false;
+      if (PeerID != other.PeerID) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -356,6 +370,7 @@ namespace Foliv {
       if (UserAgent.Length != 0) hash ^= UserAgent.GetHashCode();
       if (RequestHop != 0) hash ^= RequestHop.GetHashCode();
       if (AppID != 0) hash ^= AppID.GetHashCode();
+      if (PeerID != 0) hash ^= PeerID.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -437,6 +452,10 @@ namespace Foliv {
         output.WriteRawTag(136, 1);
         output.WriteUInt32(AppID);
       }
+      if (PeerID != 0) {
+        output.WriteRawTag(144, 1);
+        output.WriteUInt32(PeerID);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -511,6 +530,10 @@ namespace Foliv {
         output.WriteRawTag(136, 1);
         output.WriteUInt32(AppID);
       }
+      if (PeerID != 0) {
+        output.WriteRawTag(144, 1);
+        output.WriteUInt32(PeerID);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -568,6 +591,9 @@ namespace Foliv {
       }
       if (AppID != 0) {
         size += 2 + pb::CodedOutputStream.ComputeUInt32Size(AppID);
+      }
+      if (PeerID != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(PeerID);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -628,6 +654,9 @@ namespace Foliv {
       }
       if (other.AppID != 0) {
         AppID = other.AppID;
+      }
+      if (other.PeerID != 0) {
+        PeerID = other.PeerID;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -711,6 +740,10 @@ namespace Foliv {
             AppID = input.ReadUInt32();
             break;
           }
+          case 144: {
+            PeerID = input.ReadUInt32();
+            break;
+          }
         }
       }
     #endif
@@ -791,6 +824,10 @@ namespace Foliv {
           }
           case 136: {
             AppID = input.ReadUInt32();
+            break;
+          }
+          case 144: {
+            PeerID = input.ReadUInt32();
             break;
           }
         }
