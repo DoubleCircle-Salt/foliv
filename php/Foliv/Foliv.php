@@ -90,7 +90,7 @@ class Foliv extends \Google\Protobuf\Internal\Message
      */
     protected $version = 0;
     /**
-     * Generated from protobuf field <code>uint32 roundtripTime = 20;</code>
+     * Generated from protobuf field <code>int32 roundtripTime = 20;</code>
      */
     protected $roundtripTime = 0;
 
@@ -546,7 +546,7 @@ class Foliv extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>uint32 roundtripTime = 20;</code>
+     * Generated from protobuf field <code>int32 roundtripTime = 20;</code>
      * @return int
      */
     public function getRoundtripTime()
@@ -555,13 +555,13 @@ class Foliv extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>uint32 roundtripTime = 20;</code>
+     * Generated from protobuf field <code>int32 roundtripTime = 20;</code>
      * @param int $var
      * @return $this
      */
     public function setRoundtripTime($var)
     {
-        GPBUtil::checkUint32($var);
+        GPBUtil::checkInt32($var);
         $this->roundtripTime = $var;
 
         return $this;

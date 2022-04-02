@@ -157,7 +157,7 @@ GPB_FINAL @interface Foliv : GPBMessage
 
 @property(nonatomic, readwrite) uint32_t version;
 
-@property(nonatomic, readwrite) uint32_t roundtripTime;
+@property(nonatomic, readwrite) int32_t roundtripTime;
 
 @end
 

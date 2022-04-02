@@ -442,7 +442,7 @@ public final class FolivOuterClass {
     int getVersion();
 
     /**
-     * <code>uint32 roundtripTime = 20;</code>
+     * <code>int32 roundtripTime = 20;</code>
      * @return The roundtripTime.
      */
     int getRoundtripTime();
@@ -612,7 +612,7 @@ public final class FolivOuterClass {
             }
             case 160: {
 
-              roundtripTime_ = input.readUInt32();
+              roundtripTime_ = input.readInt32();
               break;
             }
             default: {
@@ -1056,7 +1056,7 @@ public final class FolivOuterClass {
     public static final int ROUNDTRIPTIME_FIELD_NUMBER = 20;
     private int roundtripTime_;
     /**
-     * <code>uint32 roundtripTime = 20;</code>
+     * <code>int32 roundtripTime = 20;</code>
      * @return The roundtripTime.
      */
     @java.lang.Override
@@ -1136,7 +1136,7 @@ public final class FolivOuterClass {
         output.writeUInt32(19, version_);
       }
       if (roundtripTime_ != 0) {
-        output.writeUInt32(20, roundtripTime_);
+        output.writeInt32(20, roundtripTime_);
       }
       unknownFields.writeTo(output);
     }
@@ -1224,7 +1224,7 @@ public final class FolivOuterClass {
       }
       if (roundtripTime_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(20, roundtripTime_);
+          .computeInt32Size(20, roundtripTime_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2675,7 +2675,7 @@ public final class FolivOuterClass {
 
       private int roundtripTime_ ;
       /**
-       * <code>uint32 roundtripTime = 20;</code>
+       * <code>int32 roundtripTime = 20;</code>
        * @return The roundtripTime.
        */
       @java.lang.Override
@@ -2683,7 +2683,7 @@ public final class FolivOuterClass {
         return roundtripTime_;
       }
       /**
-       * <code>uint32 roundtripTime = 20;</code>
+       * <code>int32 roundtripTime = 20;</code>
        * @param value The roundtripTime to set.
        * @return This builder for chaining.
        */
@@ -2694,7 +2694,7 @@ public final class FolivOuterClass {
         return this;
       }
       /**
-       * <code>uint32 roundtripTime = 20;</code>
+       * <code>int32 roundtripTime = 20;</code>
        * @return This builder for chaining.
        */
       public Builder clearRoundtripTime() {
@@ -2780,7 +2780,7 @@ public final class FolivOuterClass {
       "m\030\014 \001(\t\022\021\n\trequestID\030\r \001(\014\022\023\n\013routerLeve" +
       "l\030\016 \001(\r\022\021\n\tuserAgent\030\017 \001(\t\022\022\n\nrequestHop" +
       "\030\020 \001(\r\022\r\n\005appID\030\021 \001(\r\022\016\n\006peerID\030\022 \001(\r\022\017\n" +
-      "\007version\030\023 \001(\r\022\025\n\rroundtripTime\030\024 \001(\r*9\n" +
+      "\007version\030\023 \001(\r\022\025\n\rroundtripTime\030\024 \001(\005*9\n" +
       "\007Command\022\t\n\005Empty\020\000\022\013\n\007Connect\020\001\022\r\n\tAsso" +
       "ciate\020\003\022\007\n\003Mux\020\177*B\n\013AddressType\022\017\n\013Inval" +
       "idType\020\000\022\010\n\004IPv4\020\001\022\016\n\nDomainName\020\003\022\010\n\004IP" +

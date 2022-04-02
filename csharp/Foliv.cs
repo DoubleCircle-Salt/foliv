@@ -33,7 +33,7 @@ namespace Foliv {
             "EAoIcGxhdGZvcm0YDCABKAkSEQoJcmVxdWVzdElEGA0gASgMEhMKC3JvdXRl",
             "ckxldmVsGA4gASgNEhEKCXVzZXJBZ2VudBgPIAEoCRISCgpyZXF1ZXN0SG9w",
             "GBAgASgNEg0KBWFwcElEGBEgASgNEg4KBnBlZXJJRBgSIAEoDRIPCgd2ZXJz",
-            "aW9uGBMgASgNEhUKDXJvdW5kdHJpcFRpbWUYFCABKA0qOQoHQ29tbWFuZBIJ",
+            "aW9uGBMgASgNEhUKDXJvdW5kdHJpcFRpbWUYFCABKAUqOQoHQ29tbWFuZBIJ",
             "CgVFbXB0eRAAEgsKB0Nvbm5lY3QQARINCglBc3NvY2lhdGUQAxIHCgNNdXgQ",
             "fypCCgtBZGRyZXNzVHlwZRIPCgtJbnZhbGlkVHlwZRAAEggKBElQdjQQARIO",
             "CgpEb21haW5OYW1lEAMSCAoESVB2NhAEQglaBy4vZm9saXZiBnByb3RvMw=="));
@@ -331,9 +331,9 @@ namespace Foliv {
 
     /// <summary>Field number for the "roundtripTime" field.</summary>
     public const int RoundtripTimeFieldNumber = 20;
-    private uint roundtripTime_;
+    private int roundtripTime_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public uint RoundtripTime {
+    public int RoundtripTime {
       get { return roundtripTime_; }
       set {
         roundtripTime_ = value;
@@ -490,7 +490,7 @@ namespace Foliv {
       }
       if (RoundtripTime != 0) {
         output.WriteRawTag(160, 1);
-        output.WriteUInt32(RoundtripTime);
+        output.WriteInt32(RoundtripTime);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -576,7 +576,7 @@ namespace Foliv {
       }
       if (RoundtripTime != 0) {
         output.WriteRawTag(160, 1);
-        output.WriteUInt32(RoundtripTime);
+        output.WriteInt32(RoundtripTime);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -643,7 +643,7 @@ namespace Foliv {
         size += 2 + pb::CodedOutputStream.ComputeUInt32Size(Version);
       }
       if (RoundtripTime != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeUInt32Size(RoundtripTime);
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(RoundtripTime);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -805,7 +805,7 @@ namespace Foliv {
             break;
           }
           case 160: {
-            RoundtripTime = input.ReadUInt32();
+            RoundtripTime = input.ReadInt32();
             break;
           }
         }
@@ -899,7 +899,7 @@ namespace Foliv {
             break;
           }
           case 160: {
-            RoundtripTime = input.ReadUInt32();
+            RoundtripTime = input.ReadInt32();
             break;
           }
         }

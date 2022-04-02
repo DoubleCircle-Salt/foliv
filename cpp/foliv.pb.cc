@@ -40,7 +40,7 @@ constexpr Foliv::Foliv(
   , appid_(0u)
   , peerid_(0u)
   , version_(0u)
-  , roundtriptime_(0u){}
+  , roundtriptime_(0){}
 struct FolivDefaultTypeInternal {
   constexpr FolivDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -101,7 +101,7 @@ const char descriptor_table_protodef_foliv_2eproto[] PROTOBUF_SECTION_VARIABLE(p
   "m\030\014 \001(\t\022\021\n\trequestID\030\r \001(\014\022\023\n\013routerLeve"
   "l\030\016 \001(\r\022\021\n\tuserAgent\030\017 \001(\t\022\022\n\nrequestHop"
   "\030\020 \001(\r\022\r\n\005appID\030\021 \001(\r\022\016\n\006peerID\030\022 \001(\r\022\017\n"
-  "\007version\030\023 \001(\r\022\025\n\rroundtripTime\030\024 \001(\r*9\n"
+  "\007version\030\023 \001(\r\022\025\n\rroundtripTime\030\024 \001(\005*9\n"
   "\007Command\022\t\n\005Empty\020\000\022\013\n\007Connect\020\001\022\r\n\tAsso"
   "ciate\020\003\022\007\n\003Mux\020\177*B\n\013AddressType\022\017\n\013Inval"
   "idType\020\000\022\010\n\004IPv4\020\001\022\016\n\nDomainName\020\003\022\010\n\004IP"
@@ -445,10 +445,10 @@ const char* Foliv::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::inte
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint32 roundtripTime = 20;
+      // int32 roundtripTime = 20;
       case 20:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 160)) {
-          roundtriptime_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          roundtriptime_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -620,10 +620,10 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(19, this->_internal_version(), target);
   }
 
-  // uint32 roundtripTime = 20;
+  // int32 roundtripTime = 20;
   if (this->roundtriptime() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(20, this->_internal_roundtriptime(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(20, this->_internal_roundtriptime(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -772,10 +772,10 @@ size_t Foliv::ByteSizeLong() const {
         this->_internal_version());
   }
 
-  // uint32 roundtripTime = 20;
+  // int32 roundtripTime = 20;
   if (this->roundtriptime() != 0) {
     total_size += 2 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
         this->_internal_roundtriptime());
   }
 

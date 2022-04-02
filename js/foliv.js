@@ -212,7 +212,7 @@ proto.foliv.Foliv.deserializeBinaryFromReader = function(msg, reader) {
       msg.setVersion(value);
       break;
     case 20:
-      var value = /** @type {number} */ (reader.readUint32());
+      var value = /** @type {number} */ (reader.readInt32());
       msg.setRoundtriptime(value);
       break;
     default:
@@ -379,7 +379,7 @@ proto.foliv.Foliv.serializeBinaryToWriter = function(message, writer) {
   }
   f = message.getRoundtriptime();
   if (f !== 0) {
-    writer.writeUint32(
+    writer.writeInt32(
       20,
       f
     );
@@ -821,7 +821,7 @@ proto.foliv.Foliv.prototype.setVersion = function(value) {
 
 
 /**
- * optional uint32 roundtripTime = 20;
+ * optional int32 roundtripTime = 20;
  * @return {number}
  */
 proto.foliv.Foliv.prototype.getRoundtriptime = function() {

@@ -162,7 +162,7 @@ typedef struct Foliv__storage_ {
   uint32_t appId;
   uint32_t peerId;
   uint32_t version;
-  uint32_t roundtripTime;
+  int32_t roundtripTime;
   NSString *userHash;
   NSData *address;
   NSString *sourceName;
@@ -358,7 +358,7 @@ typedef struct Foliv__storage_ {
         .hasIndex = 19,
         .offset = (uint32_t)offsetof(Foliv__storage_, roundtripTime),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
-        .dataType = GPBDataTypeUInt32,
+        .dataType = GPBDataTypeInt32,
       },
     };
     GPBDescriptor *localDescriptor =
