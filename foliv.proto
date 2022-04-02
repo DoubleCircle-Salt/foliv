@@ -76,4 +76,6 @@ message Foliv {
 	uint32         requestHop = 16;
 	uint32         appID = 17;
 	uint32         peerID = 18;
+	uint32         version = 19;
+	uint32         roundtripTime = 20;
 }

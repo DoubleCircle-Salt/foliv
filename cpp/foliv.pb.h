@@ -252,6 +252,8 @@ class Foliv PROTOBUF_FINAL :
     kRequestHopFieldNumber = 16,
     kAppIDFieldNumber = 17,
     kPeerIDFieldNumber = 18,
+    kVersionFieldNumber = 19,
+    kRoundtripTimeFieldNumber = 20,
   };
   // repeated bytes xForwardedFor = 9;
   int xforwardedfor_size() const;
@@ -486,6 +488,24 @@ class Foliv PROTOBUF_FINAL :
   void _internal_set_peerid(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
+  // uint32 version = 19;
+  void clear_version();
+  ::PROTOBUF_NAMESPACE_ID::uint32 version() const;
+  void set_version(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_version() const;
+  void _internal_set_version(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
+  // uint32 roundtripTime = 20;
+  void clear_roundtriptime();
+  ::PROTOBUF_NAMESPACE_ID::uint32 roundtriptime() const;
+  void set_roundtriptime(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint32 _internal_roundtriptime() const;
+  void _internal_set_roundtriptime(::PROTOBUF_NAMESPACE_ID::uint32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:foliv.Foliv)
  private:
   class _Internal;
@@ -511,6 +531,8 @@ class Foliv PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::uint32 requesthop_;
   ::PROTOBUF_NAMESPACE_ID::uint32 appid_;
   ::PROTOBUF_NAMESPACE_ID::uint32 peerid_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 version_;
+  ::PROTOBUF_NAMESPACE_ID::uint32 roundtriptime_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_foliv_2eproto;
 };
@@ -1265,6 +1287,46 @@ inline void Foliv::_internal_set_peerid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
 inline void Foliv::set_peerid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _internal_set_peerid(value);
   // @@protoc_insertion_point(field_set:foliv.Foliv.peerID)
+}
+
+// uint32 version = 19;
+inline void Foliv::clear_version() {
+  version_ = 0u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Foliv::_internal_version() const {
+  return version_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Foliv::version() const {
+  // @@protoc_insertion_point(field_get:foliv.Foliv.version)
+  return _internal_version();
+}
+inline void Foliv::_internal_set_version(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  
+  version_ = value;
+}
+inline void Foliv::set_version(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_version(value);
+  // @@protoc_insertion_point(field_set:foliv.Foliv.version)
+}
+
+// uint32 roundtripTime = 20;
+inline void Foliv::clear_roundtriptime() {
+  roundtriptime_ = 0u;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Foliv::_internal_roundtriptime() const {
+  return roundtriptime_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint32 Foliv::roundtriptime() const {
+  // @@protoc_insertion_point(field_get:foliv.Foliv.roundtripTime)
+  return _internal_roundtriptime();
+}
+inline void Foliv::_internal_set_roundtriptime(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  
+  roundtriptime_ = value;
+}
+inline void Foliv::set_roundtriptime(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+  _internal_set_roundtriptime(value);
+  // @@protoc_insertion_point(field_set:foliv.Foliv.roundtripTime)
 }
 
 #ifdef __GNUC__

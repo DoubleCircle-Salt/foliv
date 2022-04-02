@@ -85,6 +85,14 @@ class Foliv extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>uint32 peerID = 18;</code>
      */
     protected $peerID = 0;
+    /**
+     * Generated from protobuf field <code>uint32 version = 19;</code>
+     */
+    protected $version = 0;
+    /**
+     * Generated from protobuf field <code>uint32 roundtripTime = 20;</code>
+     */
+    protected $roundtripTime = 0;
 
     /**
      * Constructor.
@@ -110,6 +118,8 @@ class Foliv extends \Google\Protobuf\Internal\Message
      *     @type int $requestHop
      *     @type int $appID
      *     @type int $peerID
+     *     @type int $version
+     *     @type int $roundtripTime
      * }
      */
     public function __construct($data = NULL) {
@@ -509,6 +519,50 @@ class Foliv extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkUint32($var);
         $this->peerID = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 version = 19;</code>
+     * @return int
+     */
+    public function getVersion()
+    {
+        return $this->version;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 version = 19;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setVersion($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->version = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 roundtripTime = 20;</code>
+     * @return int
+     */
+    public function getRoundtripTime()
+    {
+        return $this->roundtripTime;
+    }
+
+    /**
+     * Generated from protobuf field <code>uint32 roundtripTime = 20;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setRoundtripTime($var)
+    {
+        GPBUtil::checkUint32($var);
+        $this->roundtripTime = $var;
 
         return $this;
     }

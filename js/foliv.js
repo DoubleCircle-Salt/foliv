@@ -96,7 +96,9 @@ proto.foliv.Foliv.toObject = function(includeInstance, msg) {
     useragent: jspb.Message.getFieldWithDefault(msg, 15, ""),
     requesthop: jspb.Message.getFieldWithDefault(msg, 16, 0),
     appid: jspb.Message.getFieldWithDefault(msg, 17, 0),
-    peerid: jspb.Message.getFieldWithDefault(msg, 18, 0)
+    peerid: jspb.Message.getFieldWithDefault(msg, 18, 0),
+    version: jspb.Message.getFieldWithDefault(msg, 19, 0),
+    roundtriptime: jspb.Message.getFieldWithDefault(msg, 20, 0)
   };
 
   if (includeInstance) {
@@ -204,6 +206,14 @@ proto.foliv.Foliv.deserializeBinaryFromReader = function(msg, reader) {
     case 18:
       var value = /** @type {number} */ (reader.readUint32());
       msg.setPeerid(value);
+      break;
+    case 19:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setVersion(value);
+      break;
+    case 20:
+      var value = /** @type {number} */ (reader.readUint32());
+      msg.setRoundtriptime(value);
       break;
     default:
       reader.skipField();
@@ -357,6 +367,20 @@ proto.foliv.Foliv.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeUint32(
       18,
+      f
+    );
+  }
+  f = message.getVersion();
+  if (f !== 0) {
+    writer.writeUint32(
+      19,
+      f
+    );
+  }
+  f = message.getRoundtriptime();
+  if (f !== 0) {
+    writer.writeUint32(
+      20,
       f
     );
   }
@@ -775,6 +799,42 @@ proto.foliv.Foliv.prototype.getPeerid = function() {
  */
 proto.foliv.Foliv.prototype.setPeerid = function(value) {
   return jspb.Message.setProto3IntField(this, 18, value);
+};
+
+
+/**
+ * optional uint32 version = 19;
+ * @return {number}
+ */
+proto.foliv.Foliv.prototype.getVersion = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 19, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.foliv.Foliv} returns this
+ */
+proto.foliv.Foliv.prototype.setVersion = function(value) {
+  return jspb.Message.setProto3IntField(this, 19, value);
+};
+
+
+/**
+ * optional uint32 roundtripTime = 20;
+ * @return {number}
+ */
+proto.foliv.Foliv.prototype.getRoundtriptime = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 20, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.foliv.Foliv} returns this
+ */
+proto.foliv.Foliv.prototype.setRoundtriptime = function(value) {
+  return jspb.Message.setProto3IntField(this, 20, value);
 };
 
 
