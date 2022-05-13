@@ -26,6 +26,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :peerID, :uint32, 18
       optional :version, :uint32, 19
       optional :roundtripTime, :int32, 20
+      repeated :bindIPs, :bytes, 21
     end
     add_enum "foliv.Command" do
       value :Empty, 0

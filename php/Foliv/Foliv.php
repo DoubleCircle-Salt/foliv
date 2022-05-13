@@ -93,6 +93,10 @@ class Foliv extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>int32 roundtripTime = 20;</code>
      */
     protected $roundtripTime = 0;
+    /**
+     * Generated from protobuf field <code>repeated bytes bindIPs = 21;</code>
+     */
+    private $bindIPs;
 
     /**
      * Constructor.
@@ -120,6 +124,7 @@ class Foliv extends \Google\Protobuf\Internal\Message
      *     @type int $peerID
      *     @type int $version
      *     @type int $roundtripTime
+     *     @type string[]|\Google\Protobuf\Internal\RepeatedField $bindIPs
      * }
      */
     public function __construct($data = NULL) {
@@ -563,6 +568,28 @@ class Foliv extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkInt32($var);
         $this->roundtripTime = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated bytes bindIPs = 21;</code>
+     * @return \Google\Protobuf\Internal\RepeatedField
+     */
+    public function getBindIPs()
+    {
+        return $this->bindIPs;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated bytes bindIPs = 21;</code>
+     * @param string[]|\Google\Protobuf\Internal\RepeatedField $var
+     * @return $this
+     */
+    public function setBindIPs($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::BYTES);
+        $this->bindIPs = $arr;
 
         return $this;
     }

@@ -113,6 +113,7 @@ typedef GPB_ENUM(Foliv_FieldNumber) {
   Foliv_FieldNumber_PeerId = 18,
   Foliv_FieldNumber_Version = 19,
   Foliv_FieldNumber_RoundtripTime = 20,
+  Foliv_FieldNumber_BindIpsArray = 21,
 };
 
 GPB_FINAL @interface Foliv : GPBMessage
@@ -158,6 +159,10 @@ GPB_FINAL @interface Foliv : GPBMessage
 @property(nonatomic, readwrite) uint32_t version;
 
 @property(nonatomic, readwrite) int32_t roundtripTime;
+
+@property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<NSData*> *bindIpsArray;
+/** The number of items in @c bindIpsArray without causing the array to be created. */
+@property(nonatomic, readonly) NSUInteger bindIpsArray_Count;
 
 @end
 

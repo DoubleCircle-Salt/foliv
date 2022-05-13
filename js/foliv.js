@@ -46,7 +46,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.foliv.Foliv.repeatedFields_ = [9];
+proto.foliv.Foliv.repeatedFields_ = [9,21];
 
 
 
@@ -98,7 +98,8 @@ proto.foliv.Foliv.toObject = function(includeInstance, msg) {
     appid: jspb.Message.getFieldWithDefault(msg, 17, 0),
     peerid: jspb.Message.getFieldWithDefault(msg, 18, 0),
     version: jspb.Message.getFieldWithDefault(msg, 19, 0),
-    roundtriptime: jspb.Message.getFieldWithDefault(msg, 20, 0)
+    roundtriptime: jspb.Message.getFieldWithDefault(msg, 20, 0),
+    bindipsList: msg.getBindipsList_asB64()
   };
 
   if (includeInstance) {
@@ -214,6 +215,10 @@ proto.foliv.Foliv.deserializeBinaryFromReader = function(msg, reader) {
     case 20:
       var value = /** @type {number} */ (reader.readInt32());
       msg.setRoundtriptime(value);
+      break;
+    case 21:
+      var value = /** @type {!Uint8Array} */ (reader.readBytes());
+      msg.addBindips(value);
       break;
     default:
       reader.skipField();
@@ -381,6 +386,13 @@ proto.foliv.Foliv.serializeBinaryToWriter = function(message, writer) {
   if (f !== 0) {
     writer.writeInt32(
       20,
+      f
+    );
+  }
+  f = message.getBindipsList_asU8();
+  if (f.length > 0) {
+    writer.writeRepeatedBytes(
+      21,
       f
     );
   }
@@ -835,6 +847,67 @@ proto.foliv.Foliv.prototype.getRoundtriptime = function() {
  */
 proto.foliv.Foliv.prototype.setRoundtriptime = function(value) {
   return jspb.Message.setProto3IntField(this, 20, value);
+};
+
+
+/**
+ * repeated bytes bindIPs = 21;
+ * @return {!Array<string>}
+ */
+proto.foliv.Foliv.prototype.getBindipsList = function() {
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 21));
+};
+
+
+/**
+ * repeated bytes bindIPs = 21;
+ * This is a type-conversion wrapper around `getBindipsList()`
+ * @return {!Array<string>}
+ */
+proto.foliv.Foliv.prototype.getBindipsList_asB64 = function() {
+  return /** @type {!Array<string>} */ (jspb.Message.bytesListAsB64(
+      this.getBindipsList()));
+};
+
+
+/**
+ * repeated bytes bindIPs = 21;
+ * Note that Uint8Array is not supported on all browsers.
+ * @see http://caniuse.com/Uint8Array
+ * This is a type-conversion wrapper around `getBindipsList()`
+ * @return {!Array<!Uint8Array>}
+ */
+proto.foliv.Foliv.prototype.getBindipsList_asU8 = function() {
+  return /** @type {!Array<!Uint8Array>} */ (jspb.Message.bytesListAsU8(
+      this.getBindipsList()));
+};
+
+
+/**
+ * @param {!(Array<!Uint8Array>|Array<string>)} value
+ * @return {!proto.foliv.Foliv} returns this
+ */
+proto.foliv.Foliv.prototype.setBindipsList = function(value) {
+  return jspb.Message.setField(this, 21, value || []);
+};
+
+
+/**
+ * @param {!(string|Uint8Array)} value
+ * @param {number=} opt_index
+ * @return {!proto.foliv.Foliv} returns this
+ */
+proto.foliv.Foliv.prototype.addBindips = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 21, value, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.foliv.Foliv} returns this
+ */
+proto.foliv.Foliv.prototype.clearBindipsList = function() {
+  return this.setBindipsList([]);
 };
 
 

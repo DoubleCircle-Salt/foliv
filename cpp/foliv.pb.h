@@ -235,6 +235,7 @@ class Foliv PROTOBUF_FINAL :
 
   enum : int {
     kXForwardedForFieldNumber = 9,
+    kBindIPsFieldNumber = 21,
     kUserHashFieldNumber = 1,
     kAddressFieldNumber = 4,
     kSourceNameFieldNumber = 6,
@@ -277,6 +278,30 @@ class Foliv PROTOBUF_FINAL :
   private:
   const std::string& _internal_xforwardedfor(int index) const;
   std::string* _internal_add_xforwardedfor();
+  public:
+
+  // repeated bytes bindIPs = 21;
+  int bindips_size() const;
+  private:
+  int _internal_bindips_size() const;
+  public:
+  void clear_bindips();
+  const std::string& bindips(int index) const;
+  std::string* mutable_bindips(int index);
+  void set_bindips(int index, const std::string& value);
+  void set_bindips(int index, std::string&& value);
+  void set_bindips(int index, const char* value);
+  void set_bindips(int index, const void* value, size_t size);
+  std::string* add_bindips();
+  void add_bindips(const std::string& value);
+  void add_bindips(std::string&& value);
+  void add_bindips(const char* value);
+  void add_bindips(const void* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& bindips() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_bindips();
+  private:
+  const std::string& _internal_bindips(int index) const;
+  std::string* _internal_add_bindips();
   public:
 
   // string userHash = 1;
@@ -514,6 +539,7 @@ class Foliv PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> xforwardedfor_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> bindips_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr userhash_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr address_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sourcename_;
@@ -1327,6 +1353,80 @@ inline void Foliv::_internal_set_roundtriptime(::PROTOBUF_NAMESPACE_ID::int32 va
 inline void Foliv::set_roundtriptime(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_roundtriptime(value);
   // @@protoc_insertion_point(field_set:foliv.Foliv.roundtripTime)
+}
+
+// repeated bytes bindIPs = 21;
+inline int Foliv::_internal_bindips_size() const {
+  return bindips_.size();
+}
+inline int Foliv::bindips_size() const {
+  return _internal_bindips_size();
+}
+inline void Foliv::clear_bindips() {
+  bindips_.Clear();
+}
+inline std::string* Foliv::add_bindips() {
+  // @@protoc_insertion_point(field_add_mutable:foliv.Foliv.bindIPs)
+  return _internal_add_bindips();
+}
+inline const std::string& Foliv::_internal_bindips(int index) const {
+  return bindips_.Get(index);
+}
+inline const std::string& Foliv::bindips(int index) const {
+  // @@protoc_insertion_point(field_get:foliv.Foliv.bindIPs)
+  return _internal_bindips(index);
+}
+inline std::string* Foliv::mutable_bindips(int index) {
+  // @@protoc_insertion_point(field_mutable:foliv.Foliv.bindIPs)
+  return bindips_.Mutable(index);
+}
+inline void Foliv::set_bindips(int index, const std::string& value) {
+  // @@protoc_insertion_point(field_set:foliv.Foliv.bindIPs)
+  bindips_.Mutable(index)->assign(value);
+}
+inline void Foliv::set_bindips(int index, std::string&& value) {
+  // @@protoc_insertion_point(field_set:foliv.Foliv.bindIPs)
+  bindips_.Mutable(index)->assign(std::move(value));
+}
+inline void Foliv::set_bindips(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  bindips_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:foliv.Foliv.bindIPs)
+}
+inline void Foliv::set_bindips(int index, const void* value, size_t size) {
+  bindips_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:foliv.Foliv.bindIPs)
+}
+inline std::string* Foliv::_internal_add_bindips() {
+  return bindips_.Add();
+}
+inline void Foliv::add_bindips(const std::string& value) {
+  bindips_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:foliv.Foliv.bindIPs)
+}
+inline void Foliv::add_bindips(std::string&& value) {
+  bindips_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:foliv.Foliv.bindIPs)
+}
+inline void Foliv::add_bindips(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  bindips_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:foliv.Foliv.bindIPs)
+}
+inline void Foliv::add_bindips(const void* value, size_t size) {
+  bindips_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:foliv.Foliv.bindIPs)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+Foliv::bindips() const {
+  // @@protoc_insertion_point(field_list:foliv.Foliv.bindIPs)
+  return bindips_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+Foliv::mutable_bindips() {
+  // @@protoc_insertion_point(field_mutable_list:foliv.Foliv.bindIPs)
+  return &bindips_;
 }
 
 #ifdef __GNUC__

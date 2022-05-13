@@ -150,6 +150,7 @@ BOOL AddressType_IsValidValue(int32_t value__) {
 @dynamic peerId;
 @dynamic version;
 @dynamic roundtripTime;
+@dynamic bindIpsArray, bindIpsArray_Count;
 
 typedef struct Foliv__storage_ {
   uint32_t _has_storage_[1];
@@ -172,6 +173,7 @@ typedef struct Foliv__storage_ {
   NSString *platform;
   NSData *requestId;
   NSString *userAgent;
+  NSMutableArray *bindIpsArray;
 } Foliv__storage_;
 
 // This method is threadsafe because it is initially called
@@ -360,6 +362,15 @@ typedef struct Foliv__storage_ {
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldClearHasIvarOnZero),
         .dataType = GPBDataTypeInt32,
       },
+      {
+        .name = "bindIpsArray",
+        .dataTypeSpecific.clazz = Nil,
+        .number = Foliv_FieldNumber_BindIpsArray,
+        .hasIndex = GPBNoHasBit,
+        .offset = (uint32_t)offsetof(Foliv__storage_, bindIpsArray),
+        .flags = (GPBFieldFlags)(GPBFieldRepeated | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeBytes,
+      },
     };
     GPBDescriptor *localDescriptor =
         [GPBDescriptor allocDescriptorForClass:[Foliv class]
@@ -371,8 +382,8 @@ typedef struct Foliv__storage_ {
                                          flags:(GPBDescriptorInitializationFlags)(GPBDescriptorInitializationFlag_UsesClassRefs | GPBDescriptorInitializationFlag_Proto3OptionalKnown)];
 #if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     static const char *extraTextFormatInfo =
-        "\017\001\010\000\003\013\000\006\n\000\007\n\000\010\013\000\t\000xForwardedFor\000\n\007\000\013\004A\000\r"
-        "\010A\000\016\013\000\017\t\000\020\n\000\021\004A\000\022\005A\000\024\r\000";
+        "\020\001\010\000\003\013\000\006\n\000\007\n\000\010\013\000\t\000xForwardedFor\000\n\007\000\013\004A\000\r"
+        "\010A\000\016\013\000\017\t\000\020\n\000\021\004A\000\022\005A\000\024\r\000\025\000bindIPs\000";
     [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
 #endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     #if defined(DEBUG) && DEBUG

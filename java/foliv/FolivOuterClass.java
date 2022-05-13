@@ -446,6 +446,23 @@ public final class FolivOuterClass {
      * @return The roundtripTime.
      */
     int getRoundtripTime();
+
+    /**
+     * <code>repeated bytes bindIPs = 21;</code>
+     * @return A list containing the bindIPs.
+     */
+    java.util.List<com.google.protobuf.ByteString> getBindIPsList();
+    /**
+     * <code>repeated bytes bindIPs = 21;</code>
+     * @return The count of bindIPs.
+     */
+    int getBindIPsCount();
+    /**
+     * <code>repeated bytes bindIPs = 21;</code>
+     * @param index The index of the element to return.
+     * @return The bindIPs at the given index.
+     */
+    com.google.protobuf.ByteString getBindIPs(int index);
   }
   /**
    * Protobuf type {@code foliv.Foliv}
@@ -471,6 +488,7 @@ public final class FolivOuterClass {
       platform_ = "";
       requestID_ = com.google.protobuf.ByteString.EMPTY;
       userAgent_ = "";
+      bindIPs_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -615,6 +633,14 @@ public final class FolivOuterClass {
               roundtripTime_ = input.readInt32();
               break;
             }
+            case 170: {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                bindIPs_ = new java.util.ArrayList<com.google.protobuf.ByteString>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              bindIPs_.add(input.readBytes());
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -632,6 +658,9 @@ public final class FolivOuterClass {
       } finally {
         if (((mutable_bitField0_ & 0x00000001) != 0)) {
           xForwardedFor_ = java.util.Collections.unmodifiableList(xForwardedFor_); // C
+        }
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+          bindIPs_ = java.util.Collections.unmodifiableList(bindIPs_); // C
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -1064,6 +1093,33 @@ public final class FolivOuterClass {
       return roundtripTime_;
     }
 
+    public static final int BINDIPS_FIELD_NUMBER = 21;
+    private java.util.List<com.google.protobuf.ByteString> bindIPs_;
+    /**
+     * <code>repeated bytes bindIPs = 21;</code>
+     * @return A list containing the bindIPs.
+     */
+    @java.lang.Override
+    public java.util.List<com.google.protobuf.ByteString>
+        getBindIPsList() {
+      return bindIPs_;
+    }
+    /**
+     * <code>repeated bytes bindIPs = 21;</code>
+     * @return The count of bindIPs.
+     */
+    public int getBindIPsCount() {
+      return bindIPs_.size();
+    }
+    /**
+     * <code>repeated bytes bindIPs = 21;</code>
+     * @param index The index of the element to return.
+     * @return The bindIPs at the given index.
+     */
+    public com.google.protobuf.ByteString getBindIPs(int index) {
+      return bindIPs_.get(index);
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -1137,6 +1193,9 @@ public final class FolivOuterClass {
       }
       if (roundtripTime_ != 0) {
         output.writeInt32(20, roundtripTime_);
+      }
+      for (int i = 0; i < bindIPs_.size(); i++) {
+        output.writeBytes(21, bindIPs_.get(i));
       }
       unknownFields.writeTo(output);
     }
@@ -1226,6 +1285,15 @@ public final class FolivOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(20, roundtripTime_);
       }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < bindIPs_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeBytesSizeNoTag(bindIPs_.get(i));
+        }
+        size += dataSize;
+        size += 2 * getBindIPsList().size();
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -1279,6 +1347,8 @@ public final class FolivOuterClass {
           != other.getVersion()) return false;
       if (getRoundtripTime()
           != other.getRoundtripTime()) return false;
+      if (!getBindIPsList()
+          .equals(other.getBindIPsList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1333,6 +1403,10 @@ public final class FolivOuterClass {
       hash = (53 * hash) + getVersion();
       hash = (37 * hash) + ROUNDTRIPTIME_FIELD_NUMBER;
       hash = (53 * hash) + getRoundtripTime();
+      if (getBindIPsCount() > 0) {
+        hash = (37 * hash) + BINDIPS_FIELD_NUMBER;
+        hash = (53 * hash) + getBindIPsList().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1506,6 +1580,8 @@ public final class FolivOuterClass {
 
         roundtripTime_ = 0;
 
+        bindIPs_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -1557,6 +1633,11 @@ public final class FolivOuterClass {
         result.peerID_ = peerID_;
         result.version_ = version_;
         result.roundtripTime_ = roundtripTime_;
+        if (((bitField0_ & 0x00000002) != 0)) {
+          bindIPs_ = java.util.Collections.unmodifiableList(bindIPs_);
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.bindIPs_ = bindIPs_;
         onBuilt();
         return result;
       }
@@ -1677,6 +1758,16 @@ public final class FolivOuterClass {
         }
         if (other.getRoundtripTime() != 0) {
           setRoundtripTime(other.getRoundtripTime());
+        }
+        if (!other.bindIPs_.isEmpty()) {
+          if (bindIPs_.isEmpty()) {
+            bindIPs_ = other.bindIPs_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureBindIPsIsMutable();
+            bindIPs_.addAll(other.bindIPs_);
+          }
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2703,6 +2794,91 @@ public final class FolivOuterClass {
         onChanged();
         return this;
       }
+
+      private java.util.List<com.google.protobuf.ByteString> bindIPs_ = java.util.Collections.emptyList();
+      private void ensureBindIPsIsMutable() {
+        if (!((bitField0_ & 0x00000002) != 0)) {
+          bindIPs_ = new java.util.ArrayList<com.google.protobuf.ByteString>(bindIPs_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+      /**
+       * <code>repeated bytes bindIPs = 21;</code>
+       * @return A list containing the bindIPs.
+       */
+      public java.util.List<com.google.protobuf.ByteString>
+          getBindIPsList() {
+        return ((bitField0_ & 0x00000002) != 0) ?
+                 java.util.Collections.unmodifiableList(bindIPs_) : bindIPs_;
+      }
+      /**
+       * <code>repeated bytes bindIPs = 21;</code>
+       * @return The count of bindIPs.
+       */
+      public int getBindIPsCount() {
+        return bindIPs_.size();
+      }
+      /**
+       * <code>repeated bytes bindIPs = 21;</code>
+       * @param index The index of the element to return.
+       * @return The bindIPs at the given index.
+       */
+      public com.google.protobuf.ByteString getBindIPs(int index) {
+        return bindIPs_.get(index);
+      }
+      /**
+       * <code>repeated bytes bindIPs = 21;</code>
+       * @param index The index to set the value at.
+       * @param value The bindIPs to set.
+       * @return This builder for chaining.
+       */
+      public Builder setBindIPs(
+          int index, com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureBindIPsIsMutable();
+        bindIPs_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated bytes bindIPs = 21;</code>
+       * @param value The bindIPs to add.
+       * @return This builder for chaining.
+       */
+      public Builder addBindIPs(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureBindIPsIsMutable();
+        bindIPs_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated bytes bindIPs = 21;</code>
+       * @param values The bindIPs to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllBindIPs(
+          java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
+        ensureBindIPsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, bindIPs_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated bytes bindIPs = 21;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearBindIPs() {
+        bindIPs_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -2770,7 +2946,7 @@ public final class FolivOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\013foliv.proto\022\005foliv\"\236\003\n\005Foliv\022\020\n\010userHa" +
+      "\n\013foliv.proto\022\005foliv\"\257\003\n\005Foliv\022\020\n\010userHa" +
       "sh\030\001 \001(\t\022\037\n\007command\030\002 \001(\0162\016.foliv.Comman" +
       "d\022\'\n\013addressType\030\003 \001(\0162\022.foliv.AddressTy" +
       "pe\022\017\n\007address\030\004 \001(\014\022\014\n\004port\030\005 \001(\r\022\022\n\nsou" +
@@ -2780,11 +2956,11 @@ public final class FolivOuterClass {
       "m\030\014 \001(\t\022\021\n\trequestID\030\r \001(\014\022\023\n\013routerLeve" +
       "l\030\016 \001(\r\022\021\n\tuserAgent\030\017 \001(\t\022\022\n\nrequestHop" +
       "\030\020 \001(\r\022\r\n\005appID\030\021 \001(\r\022\016\n\006peerID\030\022 \001(\r\022\017\n" +
-      "\007version\030\023 \001(\r\022\025\n\rroundtripTime\030\024 \001(\005*9\n" +
-      "\007Command\022\t\n\005Empty\020\000\022\013\n\007Connect\020\001\022\r\n\tAsso" +
-      "ciate\020\003\022\007\n\003Mux\020\177*B\n\013AddressType\022\017\n\013Inval" +
-      "idType\020\000\022\010\n\004IPv4\020\001\022\016\n\nDomainName\020\003\022\010\n\004IP" +
-      "v6\020\004B\tZ\007./folivb\006proto3"
+      "\007version\030\023 \001(\r\022\025\n\rroundtripTime\030\024 \001(\005\022\017\n" +
+      "\007bindIPs\030\025 \003(\014*9\n\007Command\022\t\n\005Empty\020\000\022\013\n\007" +
+      "Connect\020\001\022\r\n\tAssociate\020\003\022\007\n\003Mux\020\177*B\n\013Add" +
+      "ressType\022\017\n\013InvalidType\020\000\022\010\n\004IPv4\020\001\022\016\n\nD" +
+      "omainName\020\003\022\010\n\004IPv6\020\004B\tZ\007./folivb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -2795,7 +2971,7 @@ public final class FolivOuterClass {
     internal_static_foliv_Foliv_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_foliv_Foliv_descriptor,
-        new java.lang.String[] { "UserHash", "Command", "AddressType", "Address", "Port", "SourceName", "RouterName", "ProcessName", "XForwardedFor", "IsTouch", "MuxID", "Platform", "RequestID", "RouterLevel", "UserAgent", "RequestHop", "AppID", "PeerID", "Version", "RoundtripTime", });
+        new java.lang.String[] { "UserHash", "Command", "AddressType", "Address", "Port", "SourceName", "RouterName", "ProcessName", "XForwardedFor", "IsTouch", "MuxID", "Platform", "RequestID", "RouterLevel", "UserAgent", "RequestHop", "AppID", "PeerID", "Version", "RoundtripTime", "BindIPs", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

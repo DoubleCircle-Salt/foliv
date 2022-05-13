@@ -30,6 +30,7 @@
 | 18 | PeerID | uint32 | 开启加速时随机生成的ID | 
 | 19 | Version | uint32 | foliv版本号 | 
 | 20 | RoundtripTime | uint32 | rtt | 
+| 21 | BindIPs | [][]byte | bind的ip_list | 
 
 # go-code instruction
 
