@@ -24,7 +24,7 @@ namespace Foliv {
     static FolivReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cgtmb2xpdi5wcm90bxIFZm9saXYirwMKBUZvbGl2EhAKCHVzZXJIYXNoGAEg",
+            "Cgtmb2xpdi5wcm90bxIFZm9saXYiwwMKBUZvbGl2EhAKCHVzZXJIYXNoGAEg",
             "ASgJEh8KB2NvbW1hbmQYAiABKA4yDi5mb2xpdi5Db21tYW5kEicKC2FkZHJl",
             "c3NUeXBlGAMgASgOMhIuZm9saXYuQWRkcmVzc1R5cGUSDwoHYWRkcmVzcxgE",
             "IAEoDBIMCgRwb3J0GAUgASgNEhIKCnNvdXJjZU5hbWUYBiABKAkSEgoKcm91",
@@ -34,14 +34,14 @@ namespace Foliv {
             "ckxldmVsGA4gASgNEhEKCXVzZXJBZ2VudBgPIAEoCRISCgpyZXF1ZXN0SG9w",
             "GBAgASgNEg0KBWFwcElEGBEgASgNEg4KBnBlZXJJRBgSIAEoDRIPCgd2ZXJz",
             "aW9uGBMgASgNEhUKDXJvdW5kdHJpcFRpbWUYFCABKAUSDwoHYmluZElQcxgV",
-            "IAMoDCo5CgdDb21tYW5kEgkKBUVtcHR5EAASCwoHQ29ubmVjdBABEg0KCUFz",
-            "c29jaWF0ZRADEgcKA011eBB/KkIKC0FkZHJlc3NUeXBlEg8KC0ludmFsaWRU",
-            "eXBlEAASCAoESVB2NBABEg4KCkRvbWFpbk5hbWUQAxIICgRJUHY2EARCCVoH",
-            "Li9mb2xpdmIGcHJvdG8z"));
+            "IAMoDBISCgpyb3V0ZXJQYXRoGBYgASgJKjkKB0NvbW1hbmQSCQoFRW1wdHkQ",
+            "ABILCgdDb25uZWN0EAESDQoJQXNzb2NpYXRlEAMSBwoDTXV4EH8qQgoLQWRk",
+            "cmVzc1R5cGUSDwoLSW52YWxpZFR5cGUQABIICgRJUHY0EAESDgoKRG9tYWlu",
+            "TmFtZRADEggKBElQdjYQBEIJWgcuL2ZvbGl2YgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Foliv.Command), typeof(global::Foliv.AddressType), }, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Foliv.Foliv), global::Foliv.Foliv.Parser, new[]{ "UserHash", "Command", "AddressType", "Address", "Port", "SourceName", "RouterName", "ProcessName", "XForwardedFor", "IsTouch", "MuxID", "Platform", "RequestID", "RouterLevel", "UserAgent", "RequestHop", "AppID", "PeerID", "Version", "RoundtripTime", "BindIPs" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Foliv.Foliv), global::Foliv.Foliv.Parser, new[]{ "UserHash", "Command", "AddressType", "Address", "Port", "SourceName", "RouterName", "ProcessName", "XForwardedFor", "IsTouch", "MuxID", "Platform", "RequestID", "RouterLevel", "UserAgent", "RequestHop", "AppID", "PeerID", "Version", "RoundtripTime", "BindIPs", "RouterPath" }, null, null, null, null)
           }));
     }
     #endregion
@@ -115,6 +115,7 @@ namespace Foliv {
       version_ = other.version_;
       roundtripTime_ = other.roundtripTime_;
       bindIPs_ = other.bindIPs_.Clone();
+      routerPath_ = other.routerPath_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -352,6 +353,17 @@ namespace Foliv {
       get { return bindIPs_; }
     }
 
+    /// <summary>Field number for the "routerPath" field.</summary>
+    public const int RouterPathFieldNumber = 22;
+    private string routerPath_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string RouterPath {
+      get { return routerPath_; }
+      set {
+        routerPath_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as Foliv);
@@ -386,6 +398,7 @@ namespace Foliv {
       if (Version != other.Version) return false;
       if (RoundtripTime != other.RoundtripTime) return false;
       if(!bindIPs_.Equals(other.bindIPs_)) return false;
+      if (RouterPath != other.RouterPath) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -413,6 +426,7 @@ namespace Foliv {
       if (Version != 0) hash ^= Version.GetHashCode();
       if (RoundtripTime != 0) hash ^= RoundtripTime.GetHashCode();
       hash ^= bindIPs_.GetHashCode();
+      if (RouterPath.Length != 0) hash ^= RouterPath.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -507,6 +521,10 @@ namespace Foliv {
         output.WriteInt32(RoundtripTime);
       }
       bindIPs_.WriteTo(output, _repeated_bindIPs_codec);
+      if (RouterPath.Length != 0) {
+        output.WriteRawTag(178, 1);
+        output.WriteString(RouterPath);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -594,6 +612,10 @@ namespace Foliv {
         output.WriteInt32(RoundtripTime);
       }
       bindIPs_.WriteTo(ref output, _repeated_bindIPs_codec);
+      if (RouterPath.Length != 0) {
+        output.WriteRawTag(178, 1);
+        output.WriteString(RouterPath);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -662,6 +684,9 @@ namespace Foliv {
         size += 2 + pb::CodedOutputStream.ComputeInt32Size(RoundtripTime);
       }
       size += bindIPs_.CalculateSize(_repeated_bindIPs_codec);
+      if (RouterPath.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(RouterPath);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -732,6 +757,9 @@ namespace Foliv {
         RoundtripTime = other.RoundtripTime;
       }
       bindIPs_.Add(other.bindIPs_);
+      if (other.RouterPath.Length != 0) {
+        RouterPath = other.RouterPath;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -830,6 +858,10 @@ namespace Foliv {
             bindIPs_.AddEntriesFrom(input, _repeated_bindIPs_codec);
             break;
           }
+          case 178: {
+            RouterPath = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -926,6 +958,10 @@ namespace Foliv {
           }
           case 170: {
             bindIPs_.AddEntriesFrom(ref input, _repeated_bindIPs_codec);
+            break;
+          }
+          case 178: {
+            RouterPath = input.ReadString();
             break;
           }
         }

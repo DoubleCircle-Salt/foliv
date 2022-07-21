@@ -463,6 +463,18 @@ public final class FolivOuterClass {
      * @return The bindIPs at the given index.
      */
     com.google.protobuf.ByteString getBindIPs(int index);
+
+    /**
+     * <code>string routerPath = 22;</code>
+     * @return The routerPath.
+     */
+    java.lang.String getRouterPath();
+    /**
+     * <code>string routerPath = 22;</code>
+     * @return The bytes for routerPath.
+     */
+    com.google.protobuf.ByteString
+        getRouterPathBytes();
   }
   /**
    * Protobuf type {@code foliv.Foliv}
@@ -489,6 +501,7 @@ public final class FolivOuterClass {
       requestID_ = com.google.protobuf.ByteString.EMPTY;
       userAgent_ = "";
       bindIPs_ = java.util.Collections.emptyList();
+      routerPath_ = "";
     }
 
     @java.lang.Override
@@ -639,6 +652,12 @@ public final class FolivOuterClass {
                 mutable_bitField0_ |= 0x00000002;
               }
               bindIPs_.add(input.readBytes());
+              break;
+            }
+            case 178: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              routerPath_ = s;
               break;
             }
             default: {
@@ -1120,6 +1139,44 @@ public final class FolivOuterClass {
       return bindIPs_.get(index);
     }
 
+    public static final int ROUTERPATH_FIELD_NUMBER = 22;
+    private volatile java.lang.Object routerPath_;
+    /**
+     * <code>string routerPath = 22;</code>
+     * @return The routerPath.
+     */
+    @java.lang.Override
+    public java.lang.String getRouterPath() {
+      java.lang.Object ref = routerPath_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        routerPath_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string routerPath = 22;</code>
+     * @return The bytes for routerPath.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getRouterPathBytes() {
+      java.lang.Object ref = routerPath_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        routerPath_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -1196,6 +1253,9 @@ public final class FolivOuterClass {
       }
       for (int i = 0; i < bindIPs_.size(); i++) {
         output.writeBytes(21, bindIPs_.get(i));
+      }
+      if (!getRouterPathBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 22, routerPath_);
       }
       unknownFields.writeTo(output);
     }
@@ -1294,6 +1354,9 @@ public final class FolivOuterClass {
         size += dataSize;
         size += 2 * getBindIPsList().size();
       }
+      if (!getRouterPathBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(22, routerPath_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -1349,6 +1412,8 @@ public final class FolivOuterClass {
           != other.getRoundtripTime()) return false;
       if (!getBindIPsList()
           .equals(other.getBindIPsList())) return false;
+      if (!getRouterPath()
+          .equals(other.getRouterPath())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1407,6 +1472,8 @@ public final class FolivOuterClass {
         hash = (37 * hash) + BINDIPS_FIELD_NUMBER;
         hash = (53 * hash) + getBindIPsList().hashCode();
       }
+      hash = (37 * hash) + ROUTERPATH_FIELD_NUMBER;
+      hash = (53 * hash) + getRouterPath().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1582,6 +1649,8 @@ public final class FolivOuterClass {
 
         bindIPs_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000002);
+        routerPath_ = "";
+
         return this;
       }
 
@@ -1638,6 +1707,7 @@ public final class FolivOuterClass {
           bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.bindIPs_ = bindIPs_;
+        result.routerPath_ = routerPath_;
         onBuilt();
         return result;
       }
@@ -1767,6 +1837,10 @@ public final class FolivOuterClass {
             ensureBindIPsIsMutable();
             bindIPs_.addAll(other.bindIPs_);
           }
+          onChanged();
+        }
+        if (!other.getRouterPath().isEmpty()) {
+          routerPath_ = other.routerPath_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -2879,6 +2953,82 @@ public final class FolivOuterClass {
         onChanged();
         return this;
       }
+
+      private java.lang.Object routerPath_ = "";
+      /**
+       * <code>string routerPath = 22;</code>
+       * @return The routerPath.
+       */
+      public java.lang.String getRouterPath() {
+        java.lang.Object ref = routerPath_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          routerPath_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string routerPath = 22;</code>
+       * @return The bytes for routerPath.
+       */
+      public com.google.protobuf.ByteString
+          getRouterPathBytes() {
+        java.lang.Object ref = routerPath_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          routerPath_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string routerPath = 22;</code>
+       * @param value The routerPath to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRouterPath(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        routerPath_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string routerPath = 22;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRouterPath() {
+        
+        routerPath_ = getDefaultInstance().getRouterPath();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string routerPath = 22;</code>
+       * @param value The bytes for routerPath to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRouterPathBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        routerPath_ = value;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -2946,7 +3096,7 @@ public final class FolivOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\013foliv.proto\022\005foliv\"\257\003\n\005Foliv\022\020\n\010userHa" +
+      "\n\013foliv.proto\022\005foliv\"\303\003\n\005Foliv\022\020\n\010userHa" +
       "sh\030\001 \001(\t\022\037\n\007command\030\002 \001(\0162\016.foliv.Comman" +
       "d\022\'\n\013addressType\030\003 \001(\0162\022.foliv.AddressTy" +
       "pe\022\017\n\007address\030\004 \001(\014\022\014\n\004port\030\005 \001(\r\022\022\n\nsou" +
@@ -2957,10 +3107,11 @@ public final class FolivOuterClass {
       "l\030\016 \001(\r\022\021\n\tuserAgent\030\017 \001(\t\022\022\n\nrequestHop" +
       "\030\020 \001(\r\022\r\n\005appID\030\021 \001(\r\022\016\n\006peerID\030\022 \001(\r\022\017\n" +
       "\007version\030\023 \001(\r\022\025\n\rroundtripTime\030\024 \001(\005\022\017\n" +
-      "\007bindIPs\030\025 \003(\014*9\n\007Command\022\t\n\005Empty\020\000\022\013\n\007" +
-      "Connect\020\001\022\r\n\tAssociate\020\003\022\007\n\003Mux\020\177*B\n\013Add" +
-      "ressType\022\017\n\013InvalidType\020\000\022\010\n\004IPv4\020\001\022\016\n\nD" +
-      "omainName\020\003\022\010\n\004IPv6\020\004B\tZ\007./folivb\006proto3"
+      "\007bindIPs\030\025 \003(\014\022\022\n\nrouterPath\030\026 \001(\t*9\n\007Co" +
+      "mmand\022\t\n\005Empty\020\000\022\013\n\007Connect\020\001\022\r\n\tAssocia" +
+      "te\020\003\022\007\n\003Mux\020\177*B\n\013AddressType\022\017\n\013InvalidT" +
+      "ype\020\000\022\010\n\004IPv4\020\001\022\016\n\nDomainName\020\003\022\010\n\004IPv6\020" +
+      "\004B\tZ\007./folivb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -2971,7 +3122,7 @@ public final class FolivOuterClass {
     internal_static_foliv_Foliv_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_foliv_Foliv_descriptor,
-        new java.lang.String[] { "UserHash", "Command", "AddressType", "Address", "Port", "SourceName", "RouterName", "ProcessName", "XForwardedFor", "IsTouch", "MuxID", "Platform", "RequestID", "RouterLevel", "UserAgent", "RequestHop", "AppID", "PeerID", "Version", "RoundtripTime", "BindIPs", });
+        new java.lang.String[] { "UserHash", "Command", "AddressType", "Address", "Port", "SourceName", "RouterName", "ProcessName", "XForwardedFor", "IsTouch", "MuxID", "Platform", "RequestID", "RouterLevel", "UserAgent", "RequestHop", "AppID", "PeerID", "Version", "RoundtripTime", "BindIPs", "RouterPath", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -29,6 +29,7 @@ constexpr Foliv::Foliv(
   , platform_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , requestid_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , useragent_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , routerpath_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , command_(0)
 
   , addresstype_(0)
@@ -83,6 +84,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_foliv_2eproto::offsets[] PROTO
   PROTOBUF_FIELD_OFFSET(::foliv::Foliv, version_),
   PROTOBUF_FIELD_OFFSET(::foliv::Foliv, roundtriptime_),
   PROTOBUF_FIELD_OFFSET(::foliv::Foliv, bindips_),
+  PROTOBUF_FIELD_OFFSET(::foliv::Foliv, routerpath_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::foliv::Foliv)},
@@ -93,7 +95,7 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 };
 
 const char descriptor_table_protodef_foliv_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\013foliv.proto\022\005foliv\"\257\003\n\005Foliv\022\020\n\010userHa"
+  "\n\013foliv.proto\022\005foliv\"\303\003\n\005Foliv\022\020\n\010userHa"
   "sh\030\001 \001(\t\022\037\n\007command\030\002 \001(\0162\016.foliv.Comman"
   "d\022\'\n\013addressType\030\003 \001(\0162\022.foliv.AddressTy"
   "pe\022\017\n\007address\030\004 \001(\014\022\014\n\004port\030\005 \001(\r\022\022\n\nsou"
@@ -104,14 +106,15 @@ const char descriptor_table_protodef_foliv_2eproto[] PROTOBUF_SECTION_VARIABLE(p
   "l\030\016 \001(\r\022\021\n\tuserAgent\030\017 \001(\t\022\022\n\nrequestHop"
   "\030\020 \001(\r\022\r\n\005appID\030\021 \001(\r\022\016\n\006peerID\030\022 \001(\r\022\017\n"
   "\007version\030\023 \001(\r\022\025\n\rroundtripTime\030\024 \001(\005\022\017\n"
-  "\007bindIPs\030\025 \003(\014*9\n\007Command\022\t\n\005Empty\020\000\022\013\n\007"
-  "Connect\020\001\022\r\n\tAssociate\020\003\022\007\n\003Mux\020\177*B\n\013Add"
-  "ressType\022\017\n\013InvalidType\020\000\022\010\n\004IPv4\020\001\022\016\n\nD"
-  "omainName\020\003\022\010\n\004IPv6\020\004B\tZ\007./folivb\006proto3"
+  "\007bindIPs\030\025 \003(\014\022\022\n\nrouterPath\030\026 \001(\t*9\n\007Co"
+  "mmand\022\t\n\005Empty\020\000\022\013\n\007Connect\020\001\022\r\n\tAssocia"
+  "te\020\003\022\007\n\003Mux\020\177*B\n\013AddressType\022\017\n\013InvalidT"
+  "ype\020\000\022\010\n\004IPv4\020\001\022\016\n\nDomainName\020\003\022\010\n\004IPv6\020"
+  "\004B\tZ\007./folivb\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_foliv_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_foliv_2eproto = {
-  false, false, 600, descriptor_table_protodef_foliv_2eproto, "foliv.proto", 
+  false, false, 620, descriptor_table_protodef_foliv_2eproto, "foliv.proto", 
   &descriptor_table_foliv_2eproto_once, nullptr, 0, 1,
   schemas, file_default_instances, TableStruct_foliv_2eproto::offsets,
   file_level_metadata_foliv_2eproto, file_level_enum_descriptors_foliv_2eproto, file_level_service_descriptors_foliv_2eproto,
@@ -217,6 +220,11 @@ Foliv::Foliv(const Foliv& from)
     useragent_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_useragent(), 
       GetArena());
   }
+  routerpath_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_routerpath().empty()) {
+    routerpath_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_routerpath(), 
+      GetArena());
+  }
   ::memcpy(&command_, &from.command_,
     static_cast<size_t>(reinterpret_cast<char*>(&roundtriptime_) -
     reinterpret_cast<char*>(&command_)) + sizeof(roundtriptime_));
@@ -232,6 +240,7 @@ processname_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString
 platform_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 requestid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 useragent_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+routerpath_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&command_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&roundtriptime_) -
@@ -254,6 +263,7 @@ void Foliv::SharedDtor() {
   platform_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   requestid_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   useragent_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  routerpath_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void Foliv::ArenaDtor(void* object) {
@@ -282,6 +292,7 @@ void Foliv::Clear() {
   platform_.ClearToEmpty();
   requestid_.ClearToEmpty();
   useragent_.ClearToEmpty();
+  routerpath_.ClearToEmpty();
   ::memset(&command_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&roundtriptime_) -
       reinterpret_cast<char*>(&command_)) + sizeof(roundtriptime_));
@@ -470,6 +481,15 @@ const char* Foliv::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::inte
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<170>(ptr));
         } else goto handle_unusual;
         continue;
+      // string routerPath = 22;
+      case 22:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 178)) {
+          auto str = _internal_mutable_routerpath();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "foliv.Foliv.routerPath"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -650,6 +670,16 @@ failure:
     target = stream->WriteBytes(21, s, target);
   }
 
+  // string routerPath = 22;
+  if (this->routerpath().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_routerpath().data(), static_cast<int>(this->_internal_routerpath().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "foliv.Foliv.routerPath");
+    target = stream->WriteStringMaybeAliased(
+        22, this->_internal_routerpath(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -736,6 +766,13 @@ size_t Foliv::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_useragent());
+  }
+
+  // string routerPath = 22;
+  if (this->routerpath().size() > 0) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_routerpath());
   }
 
   // .foliv.Command command = 2;
@@ -868,6 +905,9 @@ void Foliv::MergeFrom(const Foliv& from) {
   if (from.useragent().size() > 0) {
     _internal_set_useragent(from._internal_useragent());
   }
+  if (from.routerpath().size() > 0) {
+    _internal_set_routerpath(from._internal_routerpath());
+  }
   if (from.command() != 0) {
     _internal_set_command(from._internal_command());
   }
@@ -934,6 +974,7 @@ void Foliv::InternalSwap(Foliv* other) {
   platform_.Swap(&other->platform_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   requestid_.Swap(&other->requestid_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   useragent_.Swap(&other->useragent_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  routerpath_.Swap(&other->routerpath_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(Foliv, roundtriptime_)
       + sizeof(Foliv::roundtriptime_)

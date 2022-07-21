@@ -79,4 +79,5 @@ message Foliv {
 	uint32         version = 19;
 	int32          roundtripTime = 20;
 	repeated bytes bindIPs = 21;
+	string         routerPath = 22;
 }

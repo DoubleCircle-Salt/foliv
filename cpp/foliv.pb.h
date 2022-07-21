@@ -244,6 +244,7 @@ class Foliv PROTOBUF_FINAL :
     kPlatformFieldNumber = 12,
     kRequestIDFieldNumber = 13,
     kUserAgentFieldNumber = 15,
+    kRouterPathFieldNumber = 22,
     kCommandFieldNumber = 2,
     kAddressTypeFieldNumber = 3,
     kPortFieldNumber = 5,
@@ -432,6 +433,22 @@ class Foliv PROTOBUF_FINAL :
   std::string* _internal_mutable_useragent();
   public:
 
+  // string routerPath = 22;
+  void clear_routerpath();
+  const std::string& routerpath() const;
+  void set_routerpath(const std::string& value);
+  void set_routerpath(std::string&& value);
+  void set_routerpath(const char* value);
+  void set_routerpath(const char* value, size_t size);
+  std::string* mutable_routerpath();
+  std::string* release_routerpath();
+  void set_allocated_routerpath(std::string* routerpath);
+  private:
+  const std::string& _internal_routerpath() const;
+  void _internal_set_routerpath(const std::string& value);
+  std::string* _internal_mutable_routerpath();
+  public:
+
   // .foliv.Command command = 2;
   void clear_command();
   ::foliv::Command command() const;
@@ -548,6 +565,7 @@ class Foliv PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr platform_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr requestid_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr useragent_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr routerpath_;
   int command_;
   int addresstype_;
   ::PROTOBUF_NAMESPACE_ID::uint32 port_;
@@ -1427,6 +1445,67 @@ inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
 Foliv::mutable_bindips() {
   // @@protoc_insertion_point(field_mutable_list:foliv.Foliv.bindIPs)
   return &bindips_;
+}
+
+// string routerPath = 22;
+inline void Foliv::clear_routerpath() {
+  routerpath_.ClearToEmpty();
+}
+inline const std::string& Foliv::routerpath() const {
+  // @@protoc_insertion_point(field_get:foliv.Foliv.routerPath)
+  return _internal_routerpath();
+}
+inline void Foliv::set_routerpath(const std::string& value) {
+  _internal_set_routerpath(value);
+  // @@protoc_insertion_point(field_set:foliv.Foliv.routerPath)
+}
+inline std::string* Foliv::mutable_routerpath() {
+  // @@protoc_insertion_point(field_mutable:foliv.Foliv.routerPath)
+  return _internal_mutable_routerpath();
+}
+inline const std::string& Foliv::_internal_routerpath() const {
+  return routerpath_.Get();
+}
+inline void Foliv::_internal_set_routerpath(const std::string& value) {
+  
+  routerpath_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+}
+inline void Foliv::set_routerpath(std::string&& value) {
+  
+  routerpath_.Set(
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:foliv.Foliv.routerPath)
+}
+inline void Foliv::set_routerpath(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  routerpath_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:foliv.Foliv.routerPath)
+}
+inline void Foliv::set_routerpath(const char* value,
+    size_t size) {
+  
+  routerpath_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:foliv.Foliv.routerPath)
+}
+inline std::string* Foliv::_internal_mutable_routerpath() {
+  
+  return routerpath_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+}
+inline std::string* Foliv::release_routerpath() {
+  // @@protoc_insertion_point(field_release:foliv.Foliv.routerPath)
+  return routerpath_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void Foliv::set_allocated_routerpath(std::string* routerpath) {
+  if (routerpath != nullptr) {
+    
+  } else {
+    
+  }
+  routerpath_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), routerpath,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:foliv.Foliv.routerPath)
 }
 
 #ifdef __GNUC__

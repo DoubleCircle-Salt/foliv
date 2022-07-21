@@ -97,6 +97,10 @@ class Foliv extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>repeated bytes bindIPs = 21;</code>
      */
     private $bindIPs;
+    /**
+     * Generated from protobuf field <code>string routerPath = 22;</code>
+     */
+    protected $routerPath = '';
 
     /**
      * Constructor.
@@ -125,6 +129,7 @@ class Foliv extends \Google\Protobuf\Internal\Message
      *     @type int $version
      *     @type int $roundtripTime
      *     @type string[]|\Google\Protobuf\Internal\RepeatedField $bindIPs
+     *     @type string $routerPath
      * }
      */
     public function __construct($data = NULL) {
@@ -590,6 +595,28 @@ class Foliv extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::BYTES);
         $this->bindIPs = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string routerPath = 22;</code>
+     * @return string
+     */
+    public function getRouterPath()
+    {
+        return $this->routerPath;
+    }
+
+    /**
+     * Generated from protobuf field <code>string routerPath = 22;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setRouterPath($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->routerPath = $var;
 
         return $this;
     }

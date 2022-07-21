@@ -27,6 +27,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :version, :uint32, 19
       optional :roundtripTime, :int32, 20
       repeated :bindIPs, :bytes, 21
+      optional :routerPath, :string, 22
     end
     add_enum "foliv.Command" do
       value :Empty, 0

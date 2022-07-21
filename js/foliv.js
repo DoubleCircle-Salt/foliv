@@ -99,7 +99,8 @@ proto.foliv.Foliv.toObject = function(includeInstance, msg) {
     peerid: jspb.Message.getFieldWithDefault(msg, 18, 0),
     version: jspb.Message.getFieldWithDefault(msg, 19, 0),
     roundtriptime: jspb.Message.getFieldWithDefault(msg, 20, 0),
-    bindipsList: msg.getBindipsList_asB64()
+    bindipsList: msg.getBindipsList_asB64(),
+    routerpath: jspb.Message.getFieldWithDefault(msg, 22, "")
   };
 
   if (includeInstance) {
@@ -219,6 +220,10 @@ proto.foliv.Foliv.deserializeBinaryFromReader = function(msg, reader) {
     case 21:
       var value = /** @type {!Uint8Array} */ (reader.readBytes());
       msg.addBindips(value);
+      break;
+    case 22:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setRouterpath(value);
       break;
     default:
       reader.skipField();
@@ -393,6 +398,13 @@ proto.foliv.Foliv.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writeRepeatedBytes(
       21,
+      f
+    );
+  }
+  f = message.getRouterpath();
+  if (f.length > 0) {
+    writer.writeString(
+      22,
       f
     );
   }
@@ -908,6 +920,24 @@ proto.foliv.Foliv.prototype.addBindips = function(value, opt_index) {
  */
 proto.foliv.Foliv.prototype.clearBindipsList = function() {
   return this.setBindipsList([]);
+};
+
+
+/**
+ * optional string routerPath = 22;
+ * @return {string}
+ */
+proto.foliv.Foliv.prototype.getRouterpath = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 22, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.foliv.Foliv} returns this
+ */
+proto.foliv.Foliv.prototype.setRouterpath = function(value) {
+  return jspb.Message.setProto3StringField(this, 22, value);
 };
 
 
